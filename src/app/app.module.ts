@@ -7,10 +7,30 @@ import {AccordionModule} from 'primeng/accordion';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PagesComponent } from './pages/pages.component';
+import { ComponentsComponent } from './pages/components/components.component';
+import { TimerComponent } from './pages/components/timer/timer.component';
+import { HomeComponent } from './pages/components/home/home.component';
+import { NextBattleComponent } from './pages/components/home/next-battle/next-battle.component';
+import { PreviousBattleComponent } from './pages/components/home/previous-battle/previous-battle.component';
+import { PangoRingComponent } from './pages/components/pango-ring/pango-ring.component';
+import { InstructionsComponent } from './pages/components/instructions/instructions.component';
+import { InputAndSolutionComponent } from './pages/components/input-and-solution/input-and-solution.component';
+import { OutputAndValidationComponent } from './pages/components/output-and-validation/output-and-validation.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PagesComponent,
+    ComponentsComponent,
+    TimerComponent,
+    HomeComponent,
+    NextBattleComponent,
+    PreviousBattleComponent,
+    PangoRingComponent,
+    InstructionsComponent,
+    InputAndSolutionComponent,
+    OutputAndValidationComponent
   ],
   imports: [
     BrowserModule,
