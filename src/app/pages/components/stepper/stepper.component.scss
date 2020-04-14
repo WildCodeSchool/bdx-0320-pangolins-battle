@@ -9,4 +9,7 @@ body .ui-steps .ui-steps-item .ui-menuitem-link .ui-steps-number {
 };
 body .ui-steps .ui-steps-item .ui-menuitem-link:focus {
   box-shadow: none;
+};
+.ui-state-complete .ui-steps-number{
+  background-color: #57d8f2 !important;
 }
