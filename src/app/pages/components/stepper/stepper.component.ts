@@ -14,9 +14,11 @@ export class StepperComponent implements OnInit {
 
     ngOnInit() {
         this.items = [
-            {label: 'Step 1'},
-            {label: 'Step 2'},
-            {label: 'Step 3'}
+            {label: 'Algo 1'},
+            {label: 'Algo 2'},
+            {label: 'Algo 3'},
+            {label: 'Algo 4'},
+            {label: 'Algo 5'}
         ];
     }
 }
