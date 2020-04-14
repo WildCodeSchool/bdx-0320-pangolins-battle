@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {CalendarModule} from 'primeng/calendar';
 import {AccordionModule} from 'primeng/accordion';
+import {StepsModule} from 'primeng/steps';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,6 +42,7 @@ import { StepperComponent } from './pages/components/stepper/stepper.component';
     CalendarModule,
     AccordionModule,
     BrowserAnimationsModule,
+    StepsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
