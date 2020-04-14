@@ -17,6 +17,7 @@ import { PangoRingComponent } from './pages/components/pango-ring/pango-ring.com
 import { InstructionsComponent } from './pages/components/instructions/instructions.component';
 import { InputAndSolutionComponent } from './pages/components/input-and-solution/input-and-solution.component';
 import { OutputAndValidationComponent } from './pages/components/output-and-validation/output-and-validation.component';
+import { StepperComponent } from './pages/components/stepper/stepper.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { OutputAndValidationComponent } from './pages/components/output-and-vali
     PangoRingComponent,
     InstructionsComponent,
     InputAndSolutionComponent,
-    OutputAndValidationComponent
+    OutputAndValidationComponent,
+    StepperComponent
   ],
   imports: [
     BrowserModule,
