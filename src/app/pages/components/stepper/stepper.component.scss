@@ -1,0 +1,12 @@
+body .ui-steps .ui-steps-item.ui-state-highlight .ui-steps-number {
+  background: #57d8f2;
+};
+.ui-steps .ui-steps-item {
+  width: 20%;
+};
+body .ui-steps .ui-steps-item .ui-menuitem-link .ui-steps-number {
+  margin-bottom: 30px;
+};
+body .ui-steps .ui-steps-item .ui-menuitem-link:focus {
+  box-shadow: none;
+}
