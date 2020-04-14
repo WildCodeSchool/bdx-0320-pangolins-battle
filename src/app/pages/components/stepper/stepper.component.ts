@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MenuItem} from 'primeng/api';
 
 @Component({
   selector: 'btd-stepper',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StepperComponent implements OnInit {
 
+  items: MenuItem[];
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
+    ngOnInit() {
+        this.items = [
+            {label: 'Step 1'},
+            {label: 'Step 2'},
+            {label: 'Step 3'}
+        ];
+    }
 }
