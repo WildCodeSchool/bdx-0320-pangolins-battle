@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlgoList } from '../../classes/algo-list';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { BattlesService } from '../../services/battles/battles.service';
 
 @Component({
   selector: 'btd-pango-ring',
@@ -10,9 +11,11 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class PangoRingComponent implements OnInit {
   // Ce tableau contiendra 5 objets. Chaque objet contiendra : un ID, instructions, input-solution, output-validation.
   algoList: AlgoList[] = [];
-  public currentAlgo: any;
+  battle: string;
+  currentAlgo: any;
+  currentAlgoIndex: number;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, public battles: BattlesService) { }
 
   ngOnInit(): void {
     const algo1 = new AlgoList (1, 'tu dois rentrer un algorithme simple', 'tu dois ranger ce tableau dans l\'ordre décroissant: [1, 2, 3]', '[3, 2,');
@@ -24,8 +27,12 @@ export class PangoRingComponent implements OnInit {
     this.algoList.push(algo1, algo2, algo3, algo4, algo5);
     this.route.paramMap.subscribe((params: ParamMap) => {
       // tslint:disable-next-line: radix
-      this.currentAlgo = this.algoList.find((algo) => (algo.id === parseInt(params.get('id'))));
+      this.currentAlgoIndex = this.algoList.findIndex((algo) => (algo.id === parseInt(params.get('id'))));
+      this.currentAlgo = this.algoList[this.currentAlgoIndex];
     });
+
+    this.battle = this.battles.getBattle();
   }
+
 
 }
