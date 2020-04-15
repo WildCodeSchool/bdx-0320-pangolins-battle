@@ -1,1 +1,15 @@
-{{myID.inputSolution}}
+
+
+<form action="" (ngSubmit)="allowNextAlgo()">
+  <textarea pInputTextarea [(ngModel)]="newSolution" type="text" name="solution"></textarea>
+  <button type="submit">Tester ma solution</button>
+</form>
+
+<div *ngFor="let solution of solutions">
+  {{solution}}
+</div>
+<div *ngIf="displayButtonNextAlgo">
+  <a [routerLink]="['.id']">
+    <button>Prochain Algo !</button>
+  </a>
+</div>

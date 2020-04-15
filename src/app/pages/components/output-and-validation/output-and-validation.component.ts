@@ -7,12 +7,20 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./output-and-validation.component.scss']
 })
 export class OutputAndValidationComponent implements OnInit {
-
   constructor() { }
-
   @Input() myID: any;
+  solutions: string[] = [];
+  displayButtonNextAlgo = false;
+  ngOnInit(): void {}
+  receiveStudentSolution(newSolution) {
+    this.solutions.push(newSolution);
+    }
 
-  ngOnInit(): void {
-  }
-
+  allowNextAlgo(): boolean {
+    for (const solution of this.solutions) {
+      if (solution === this.myID.outputValidation) {
+        return this.displayButtonNextAlgo = true;
+     }
+   }
+}
 }
