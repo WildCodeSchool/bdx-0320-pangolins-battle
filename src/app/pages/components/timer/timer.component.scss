@@ -1,0 +1,26 @@
+
+.timerContainer{
+  display: flex;
+}
+
+.label{
+  // color: #57d8f2;
+  text-align: center;
+  font-weight: bold;
+}
+
+.timerForm{
+  border-radius: 50%;
+  background-color: #57d8f2;
+  color: white;
+  font-weight: bold;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  display: flex;
+}
+
+.timerElement{
+  margin: auto;
+}
