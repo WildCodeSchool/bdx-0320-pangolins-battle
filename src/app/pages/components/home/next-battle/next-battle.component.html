@@ -1,7 +1,8 @@
 <div class='card'>
     <h1>{{title}}</h1>
   <div>
-    <btd-timer></btd-timer>
+    <btd-timer (timerOut)= "display($event)"></btd-timer>
   </div>
-  <button>Accéder</button>
+  <h2 [hidden] = displayed >La Battle a commencé !</h2>
+  <button [disabled] = displayed >Accéder</button>
 </div>

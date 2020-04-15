@@ -8,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class NextBattleComponent implements OnInit {
   title = 'Next Battle';
   constructor() { }
+  displayed: boolean;
 
+  display(timesOut: boolean){
+    return this.displayed = timesOut;
+  }
   ngOnInit(): void {
   }
 

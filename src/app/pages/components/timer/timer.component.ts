@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'btd-timer',
@@ -10,15 +10,19 @@ export class TimerComponent implements OnInit {
   time: number; days: number; hours: number; minutes: number; seconds: number;
 
   startDate = Date.now();
-  endDate = '2020/04/20';
-  battleHour = 14;
-  battleMinute = 34;
+  endDate = '2020/04/15';
+  battleHour = 16;
+  battleMinute = 9;
+  totalEndDate = Date.parse(this.endDate) + (this.battleHour * 3600 * 1000) + (this.battleMinute * 60 * 1000);
 
-  timesOut = false;
+
+  @Output() timerOut = new EventEmitter();
+  timesOut = true;
+
 
 
   nextBattleTimer(startDate, endDate) {
-    this.time = Date.parse(endDate) + (this.battleHour * 3600 * 1000) + (this.battleMinute * 60 * 1000) - startDate;
+    this.time = endDate - startDate;
     this.seconds = Math.floor( (this.time / 1000) % 60 );
     this.minutes = Math.floor( (this.time / 1000 / 60) % 60 );
     this.hours = Math.floor( (this.time / (1000 * 60 * 60)) % 24 );
@@ -26,15 +30,23 @@ export class TimerComponent implements OnInit {
     return {time: this.time, days: this.days, hours: this.hours, minutes: this.minutes, seconds: this.seconds };
   }
 
-
+  changeHiddenValue(){
+    if (Date.now() >= this.totalEndDate){
+      this.timesOut = false;
+    }
+    return this.timerOut.emit(this.timesOut);
+  }
 
   ngOnInit(): void {
     setInterval(() => {
-       if (Date.now() >= (Date.parse(this.endDate) + (this.battleHour * 3600 * 1000) + (this.battleMinute * 60 * 1000))){
-         this.startDate = Date.parse(this.endDate) + (this.battleHour * 3600 * 1000) + (this.battleMinute * 60 * 1000);
-       } else {
-         this.startDate = Date.now();
+      if (Date.now() >= this.totalEndDate){
+        this.startDate = this.totalEndDate;
+      } else {
+        this.startDate = Date.now();
       }
-       this.nextBattleTimer(this.startDate, this.endDate); }, 1000);
+      this.nextBattleTimer(this.startDate, this.totalEndDate);
+      this.changeHiddenValue();
+    }, 1000);
   }
+
 }
