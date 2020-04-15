@@ -3,24 +3,31 @@
   display: flex;
 }
 
-.label{
-  // color: #57d8f2;
-  text-align: center;
-  font-weight: bold;
-}
 
 .timerForm{
   border-radius: 50%;
-  background-color: #57d8f2;
-  color: white;
+  // background-color: #57d8f2;
+  // color: white;
+  border: 1px solid #57d8f2;
+  background-color: none;
+  color: #57d8f2;
   font-weight: bold;
-  margin: 10px;
-  width: 50px;
-  height: 50px;
+  margin: 5px;
+  width: 60px;
+  height: 60px;
   text-align: center;
   display: flex;
+  flex-direction: column;
+}
+
+.label{
+  text-align: center;
+  font-size: smaller;
 }
 
 .timerElement{
-  margin: auto;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: large;
 }
