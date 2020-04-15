@@ -4,15 +4,22 @@
   align-items: center;
 }
 
-h1{
+h1, h2{
   text-align: center;
-  color: #57d8f2;
+  color: black;
 }
 
 button{
-  width: 100px;
   background-color: #57d8f2;
   color: white;
+  font-size: large;
+  text-align: center;
   border-radius: 20px;
   margin: 20px 0px;
+  padding: 10px 20px;
+}
+
+button[disabled]{
+  background-color: grey;
+  color:rgb(230, 230, 230)
 }
