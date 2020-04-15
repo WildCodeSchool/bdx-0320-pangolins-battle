@@ -10,7 +10,9 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class PangoRingComponent implements OnInit {
   // Ce tableau contiendra 5 objets. Chaque objet contiendra : un ID, instructions, input-solution, output-validation.
   algoList: AlgoList[] = [];
-  public currentAlgo: any;
+
+  currentAlgo: any;
+  currentAlgoIndex: number;
 
   constructor(private route: ActivatedRoute) { }
 
@@ -24,8 +26,10 @@ export class PangoRingComponent implements OnInit {
     this.algoList.push(algo1, algo2, algo3, algo4, algo5);
     this.route.paramMap.subscribe((params: ParamMap) => {
       // tslint:disable-next-line: radix
-      this.currentAlgo = this.algoList.find((algo) => (algo.id === parseInt(params.get('id'))));
+      this.currentAlgoIndex = this.algoList.findIndex((algo) => (algo.id === parseInt(params.get('id'))));
+      this.currentAlgo = this.algoList[this.currentAlgoIndex];
     });
   }
+
 
 }
