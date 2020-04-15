@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./next-battle.component.scss']
 })
 export class NextBattleComponent implements OnInit {
-
+  title = 'Next Battle';
   constructor() { }
 
   ngOnInit(): void {
