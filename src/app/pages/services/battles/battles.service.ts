@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class BattlesService {
 
-  battle = 'Spider battle';
+  battle = 'Battle 1';
 
   constructor() { }
 

@@ -1,13 +1,12 @@
-<btd-stepper [activeIndex]="currentAlgoIndex" ></btd-stepper>
-<h1>{{battle}}</h1>
-<h2>Instructions</h2>
-<btd-instructions [myID]="currentAlgo"></btd-instructions>
-<h2>Ta solution</h2>
-<btd-input-and-solution [myID]="currentAlgo"></btd-input-and-solution>
+<div class="primal-container">
+  <h1>{{battle}}</h1>
+  <btd-stepper [activeIndex]="currentAlgoIndex" ></btd-stepper>
+  <h2>Instructions</h2>
+  <btd-instructions [myID]="currentAlgo"></btd-instructions>
+  <h2>Ta solution</h2>
+  <btd-input-and-solution [myID]="currentAlgo"></btd-input-and-solution>
+  <btd-output-and-validation [myID]="currentAlgo"></btd-output-and-validation>
+</div>
 
 
-<btd-output-and-validation [myID]="currentAlgo"></btd-output-and-validation>
 
-
-
-<a routerLink="/pango-ring/{{algoList[currentAlgoIndex+1]?.id}}"> Suivant </a>
