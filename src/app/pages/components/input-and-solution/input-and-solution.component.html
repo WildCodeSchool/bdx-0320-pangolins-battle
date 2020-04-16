@@ -10,8 +10,10 @@
         <button>Prochain algo !</button>
       </a>
     </div>
+    <div *ngIf="displayButtonPreviousAlgo">
     <a routerLink="/pango-ring/{{algoList[currentAlgoIndex-1]?.id}}">
       <button>Algo précédent</button>
     </a>
+  </div>
   </div>
 </div>

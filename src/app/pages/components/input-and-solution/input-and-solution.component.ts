@@ -15,6 +15,7 @@ export class InputAndSolutionComponent implements OnInit {
   newSolution: string;
   solutions: string[] = [];
   displayButtonNextAlgo = false;
+  displayButtonPreviousAlgo = false;
   algoList: AlgoList[] = [];
   currentAlgo: any;
   currentAlgoIndex: number;
@@ -39,8 +40,11 @@ allowNextAlgo() {
       for (const solution of this.solutions) {
       if (solution === this.myID.outputValidation) {
           this.displayButtonNextAlgo = true;
-      }
+          console.log(this.currentAlgoIndex);
+    } if (this.currentAlgoIndex >= 0) {
+          this.displayButtonPreviousAlgo = true;
+
+        }
     }
   }
-
 }
