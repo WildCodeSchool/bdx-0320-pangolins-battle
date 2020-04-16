@@ -1,1 +1,12 @@
-<p>previous-battle works!</p>
+<h1>Previous Battles</h1>
+<div class = "prevBattleContainer">
+  <div class = "battleElementHeader">Nom</div>
+  <div class = "battleElementHeader">Date</div>
+  <div class = "battleElementHeader"></div>
+</div>
+<hr>
+<div class = "prevBattleContainer" *ngFor="let battle of this.battleList">
+    <div class = "battleElement">{{battle.name}}</div>
+    <div class = "battleElement">{{battle.launchDate.getDay()}}/{{battle.launchDate.getMonth()}}/{{battle.launchDate.getFullYear()}}</div>
+    <button [routerLink]>Accéder</button>
+</div>
