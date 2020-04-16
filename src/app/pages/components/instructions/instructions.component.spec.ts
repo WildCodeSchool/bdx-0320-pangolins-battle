@@ -9,7 +9,7 @@ describe('InstructionsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ InstructionsComponent ]
-    })
+  })
     .compileComponents();
   }));
 
