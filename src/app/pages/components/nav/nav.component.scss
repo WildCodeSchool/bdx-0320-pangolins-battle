@@ -5,15 +5,11 @@
 //   justify-content: flex-end;
 //   align-items: center;
 // }
-// a{
-//   color: white;
-//   font-size: 22px;
-//   font-family: 'Varela Round', sans-serif;
-//   margin: 0 30px;
-// }
+
 
 ul {
   display: flex;
+  justify-content: flex-end;
   list-style-type: none;
   padding: 0 20px;
   background: black;
@@ -31,10 +27,11 @@ ul li {
 ul li a {
   display: inline-block;
   text-decoration: none;
-  color: #00cec9;
+  color: #57d8f2;
   position: relative;
   overflow: hidden;
-  padding: 20px;
+  padding: 30px;
+  margin: 0 20px;
   text-align: center;
   font-size: 22px;
   font-family: 'Varela Round', sans-serif;
@@ -49,10 +46,16 @@ ul li a::after {
   transform: scaleX(0);
   bottom: 15px;
   left: 0;
-  background: #00cec9;
+  background: #57d8f2;
   transition: all 0.3s ease-in-out;
 }
 
 ul li a:hover::after {
   transform: scale(1);
 }
+
+img{
+  height: 90px;
+  position:absolute;
+}
+
