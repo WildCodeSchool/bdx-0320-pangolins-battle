@@ -6,6 +6,7 @@ import { HomeComponent } from './pages/components/home/home.component';
 
 const routes: Routes = [
   {path: 'pango-ring/:id', component: PangoRingComponent},
+  {path: 'pango-ring', component: PangoRingComponent},
   {path: '', component: HomeComponent},
 ];
 

@@ -1,1 +1,8 @@
-<p>next-battle works!</p>
+<div class='card'>
+    <h1>{{title}}</h1>
+  <div>
+    <btd-timer (timerOut)= "display($event)"></btd-timer>
+  </div>
+  <h2 [hidden] = displayed >La Battle a commencé !</h2>
+  <a [routerLink]="['/pango-ring']"><button [disabled] = displayed >Accéder</button></a>
+</div>
