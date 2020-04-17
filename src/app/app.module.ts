@@ -19,6 +19,7 @@ import { InstructionsComponent } from './pages/components/instructions/instructi
 import { InputAndSolutionComponent } from './pages/components/input-and-solution/input-and-solution.component';
 import { OutputAndValidationComponent } from './pages/components/output-and-validation/output-and-validation.component';
 import { StepperComponent } from './pages/components/stepper/stepper.component';
+import { NavComponent } from './pages/components/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { StepperComponent } from './pages/components/stepper/stepper.component';
     InstructionsComponent,
     InputAndSolutionComponent,
     OutputAndValidationComponent,
-    StepperComponent
+    StepperComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
