@@ -1,4 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
+import { Algo } from 'src/app/classes/algo-list';
 
 
 @Component({
@@ -8,7 +9,7 @@ import { Component, OnInit, Input} from '@angular/core';
 })
 export class InstructionsComponent implements OnInit {
 
-  @Input() algoID: any;
+  @Input() algoID: Algo;
 
   constructor() { }
 

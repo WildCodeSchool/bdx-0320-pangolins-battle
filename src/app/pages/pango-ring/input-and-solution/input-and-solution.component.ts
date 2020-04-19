@@ -12,7 +12,7 @@ import { AlgorithmService } from 'src/app/shared/services/algorithm/algorithm.se
 export class InputAndSolutionComponent implements OnInit {
 
 
-  @Input() algoID: any;
+  @Input() algoID: Algo;
   newSolution: string;
   solutions: string[] = [];
   displayButtonNextAlgo = false;
@@ -26,7 +26,7 @@ export class InputAndSolutionComponent implements OnInit {
   allowNextAlgo() {
     this.solutions.push(this.newSolution);
     for (const solution of this.solutions) {
-      if (solution === this.algoID.outputValidation) {
+      if (solution === this.algoID.solution) {
         this.displayButtonNextAlgo = true;
       } else {
         this.displayButtonNextAlgo = false;
@@ -49,8 +49,11 @@ export class InputAndSolutionComponent implements OnInit {
       this.algo = this.algorithmService.getAlgorithmById(+params.get('id'));
       this.allowPreviousAlgo();
       this.displayButtonNextAlgo = false;
+      // tslint:disable-next-line: radixng
       // tslint:disable-next-line: radix
-      this.currentAlgoIndex = this.algo.findIndex((algo) => (algo.id === parseInt(params.get('id'))));
+      console.log(this.algo);
+      this.currentAlgo = this.algo.find((algor) => (algor.id === (params.get('id'))));
+
       this.currentAlgo = this.algo[this.currentAlgoIndex];
     });
     this.allowNextAlgo();

@@ -11,10 +11,10 @@ import { AlgorithmService } from 'src/app/shared/services/algorithm/algorithm.se
 })
 export class PangoRingComponent implements OnInit {
   // Ce tableau contiendra 5 objets. Chaque objet contiendra : un ID, instructions, input-solution, output-validation.
-  public algo: any = ''; // à tenter avec le type Algo (sans initialisation du coup..)
+  public algo: Algo;  // à tenter avec le type Algo (sans initialisation du coup..)
   battle: string;
   currentAlgo: any;
-  currentAlgoIndex: number;
+
 
 
 
@@ -23,10 +23,10 @@ export class PangoRingComponent implements OnInit {
   constructor(private route: ActivatedRoute, public battles: BattlesService, public algorithmService: AlgorithmService) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((paramMap) => (
-    this.algo = this.algorithmService.getAlgorithmById(+paramMap.get('id'))));
-
-    this.currentAlgo = this.algo[this.currentAlgoIndex];
+    this.route.paramMap.subscribe((paramMap) => {
+    this.algo = this.algorithmService.getAlgorithmById(+paramMap.get('id'));
+    });
+    this.currentAlgo = this.algo.id;
     this.battle = this.battles.getBattle();
   }
 
