@@ -18,6 +18,7 @@ import { InputAndSolutionComponent } from './pages/pango-ring/input-and-solution
 import { StepperComponent } from './pages/pango-ring/stepper/stepper.component';
 import { NavComponent } from './pages/nav/nav.component';
 import { AlgorithmService } from './shared/services/algorithm/algorithm.service';
+import { FooterComponent } from './pages/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AlgorithmService } from './shared/services/algorithm/algorithm.service'
     InstructionsComponent,
     InputAndSolutionComponent,
     StepperComponent,
-    NavComponent
+    NavComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
