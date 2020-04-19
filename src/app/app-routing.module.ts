@@ -1,7 +1,7 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PangoRingComponent } from './pages/components/pango-ring/pango-ring.component';
-import { HomeComponent } from './pages/components/home/home.component';
+import { PangoRingComponent } from './pages/pango-ring/pango-ring.component';
+import { HomeComponent } from './pages/home/home.component';
 
 
 const routes: Routes = [

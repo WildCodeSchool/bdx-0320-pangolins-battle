@@ -1,4 +1,4 @@
-export class AlgoList {
+export class Algo {
   constructor(
     public id: number,
     public instructions: string,

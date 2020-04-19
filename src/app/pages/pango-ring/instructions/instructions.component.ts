@@ -8,7 +8,7 @@ import { Component, OnInit, Input} from '@angular/core';
 })
 export class InstructionsComponent implements OnInit {
 
-  @Input() myID: any;
+  @Input() algoID: any;
 
   constructor() { }
 

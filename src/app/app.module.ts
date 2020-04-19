@@ -9,23 +9,20 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PagesComponent } from './pages/pages.component';
-import { ComponentsComponent } from './pages/components/components.component';
-import { TimerComponent } from './pages/components/timer/timer.component';
-import { HomeComponent } from './pages/components/home/home.component';
-import { NextBattleComponent } from './pages/components/home/next-battle/next-battle.component';
-import { PreviousBattleComponent } from './pages/components/home/previous-battle/previous-battle.component';
-import { PangoRingComponent } from './pages/components/pango-ring/pango-ring.component';
-import { InstructionsComponent } from './pages/components/instructions/instructions.component';
-import { InputAndSolutionComponent } from './pages/components/input-and-solution/input-and-solution.component';
-import { OutputAndValidationComponent } from './pages/components/output-and-validation/output-and-validation.component';
-import { StepperComponent } from './pages/components/stepper/stepper.component';
-import { NavComponent } from './pages/components/nav/nav.component';
+import { TimerComponent } from './pages/timer/timer.component';
+import { HomeComponent } from './pages/home/home.component';
+import { NextBattleComponent } from './pages/home/next-battle/next-battle.component';
+import { PreviousBattleComponent } from './pages/home/previous-battle/previous-battle.component';
+import { PangoRingComponent } from './pages/pango-ring/pango-ring.component';
+import { InstructionsComponent } from './pages/pango-ring/instructions/instructions.component';
+import { InputAndSolutionComponent } from './pages/pango-ring/input-and-solution/input-and-solution.component';
+import { StepperComponent } from './pages/pango-ring/stepper/stepper.component';
+import { NavComponent } from './pages/nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PagesComponent,
-    ComponentsComponent,
     TimerComponent,
     HomeComponent,
     NextBattleComponent,
@@ -33,7 +30,6 @@ import { NavComponent } from './pages/components/nav/nav.component';
     PangoRingComponent,
     InstructionsComponent,
     InputAndSolutionComponent,
-    OutputAndValidationComponent,
     StepperComponent,
     NavComponent
   ],

@@ -10,9 +10,9 @@ export class TimerComponent implements OnInit {
   time: number; days: number; hours: number; minutes: number; seconds: number;
 
   startDate = Date.now();
-  endDate = '2020/04/15'; // futur input
-  battleHour = 17; // futur input
-  battleMinute = 45; // futur input
+  endDate = '2020/04/16'; // futur input
+  battleHour = 21; // futur input
+  battleMinute = 41; // futur input
 
   battleEndDate = Date.parse(this.endDate) + (this.battleHour * 3600 * 1000) + (this.battleMinute * 60 * 1000);
 

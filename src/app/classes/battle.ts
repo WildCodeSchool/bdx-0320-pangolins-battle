@@ -1,4 +1,5 @@
-import { AlgoList } from './algo-list';
+import { Algo } from './algo-list';
+
 
 export class Battle{
   constructor(
@@ -10,6 +11,6 @@ export class Battle{
     public launchDate: Date,
     public algoNumber: number,
     public givenTime: number,
-    public algoList?: AlgoList,
+    public algoList?: Algo,
   ) {}
 }
