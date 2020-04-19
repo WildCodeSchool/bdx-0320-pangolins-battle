@@ -8,7 +8,6 @@ import {StepsModule} from 'primeng/steps';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PagesComponent } from './pages/pages.component';
 import { TimerComponent } from './pages/timer/timer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NextBattleComponent } from './pages/home/next-battle/next-battle.component';
@@ -18,11 +17,11 @@ import { InstructionsComponent } from './pages/pango-ring/instructions/instructi
 import { InputAndSolutionComponent } from './pages/pango-ring/input-and-solution/input-and-solution.component';
 import { StepperComponent } from './pages/pango-ring/stepper/stepper.component';
 import { NavComponent } from './pages/nav/nav.component';
+import { AlgorithmService } from './shared/services/algorithm/algorithm.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PagesComponent,
     TimerComponent,
     HomeComponent,
     NextBattleComponent,
@@ -43,7 +42,7 @@ import { NavComponent } from './pages/nav/nav.component';
     StepsModule,
     InputTextareaModule,
   ],
-  providers: [],
+  providers: [AlgorithmService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
