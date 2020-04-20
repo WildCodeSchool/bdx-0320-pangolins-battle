@@ -1,13 +1,15 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PangoRingComponent } from './pages/components/pango-ring/pango-ring.component';
-import { HomeComponent } from './pages/components/home/home.component';
+import { PangoRingComponent } from './pages/pango-ring/pango-ring.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 
 const routes: Routes = [
   {path: 'pango-ring/:id', component: PangoRingComponent},
   {path: 'pango-ring', component: PangoRingComponent},
   {path: '', component: HomeComponent},
+  {path: 'admin', component: AdminComponent}
 ];
 
 @NgModule({
