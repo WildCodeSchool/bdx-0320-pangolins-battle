@@ -19,6 +19,10 @@ import { StepperComponent } from './pages/pango-ring/stepper/stepper.component';
 import { NavComponent } from './pages/nav/nav.component';
 import { AlgorithmService } from './shared/services/algorithm/algorithm.service';
 import { FooterComponent } from './pages/footer/footer.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { BattleListComponent } from './pages/admin/components/battle-list/battle-list.component';
+import { CreateBattleComponent } from './pages/create-battle/create-battle.component';
+import { FormComponent } from './pages/create-battle/form/form.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { FooterComponent } from './pages/footer/footer.component';
     InputAndSolutionComponent,
     StepperComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    AdminComponent,
+    BattleListComponent,
+    CreateBattleComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
