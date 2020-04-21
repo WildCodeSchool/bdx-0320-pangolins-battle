@@ -1,5 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { Algo } from 'src/app/classes/algo-list';
+import { CurrentAlgoIndex } from 'src/app/classes/currentAlgoIndex';
 
 
 @Component({
@@ -9,10 +10,13 @@ import { Algo } from 'src/app/classes/algo-list';
 })
 export class InstructionsComponent implements OnInit {
 
-  @Input() algoID: Algo;
+
+  @Input() algorithm: Algo;
+
 
   constructor() { }
 
   ngOnInit(): void {
   }
 }
+

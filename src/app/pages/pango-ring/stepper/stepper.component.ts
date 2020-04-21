@@ -10,6 +10,7 @@ import { MenuItem } from 'primeng/api';
 export class StepperComponent implements OnInit {
     @Input() activeIndex = 1;
 
+
     steps: MenuItem[];
     constructor() { }
 

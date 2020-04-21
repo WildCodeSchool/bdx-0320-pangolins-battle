@@ -1,11 +1,23 @@
 <div class="primal-container">
   <h1>{{battle}}</h1>
-  <btd-stepper [activeIndex]="currentAlgo" ></btd-stepper>
+  <btd-stepper [activeIndex]="algoIndex" ></btd-stepper>
   <h2>Instructions</h2>
-  <btd-instructions [algoID]="currentAlgo"></btd-instructions>
+  <btd-instructions [algorithm]="currentAlgo"></btd-instructions>
   <h2>Ta solution</h2>
-  <btd-input-and-solution [algoID]="currentAlgo"></btd-input-and-solution>
+  <btd-input-and-solution [algorithm]="currentAlgo" ></btd-input-and-solution>
 </div>
 
 
+<div *ngIf="currentAlgo.isCompleted">Bravo !</div>
+
+<div class="previous-next-algo-container">
+
+  <div *ngIf="currentAlgo.isCompleted && idNextAlgo">
+    <button (click)="nextAlgo()">Prochain algo !</button>
+  </div>
+
+  <div *ngIf="algoIndex>0">
+    <button (click)="previousAlgo()">Algo précédent</button>
+  </div>
+</div>
 
