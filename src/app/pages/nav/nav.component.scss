@@ -1,0 +1,55 @@
+
+
+
+ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+  padding: 0 20px;
+  background: black;
+  box-shadow: 0 3px 5px 5px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s;
+}
+
+ul:hover {
+  box-shadow: 0 4px 5px 8px rgba(0, 0, 0, 0.3);
+}
+
+ul li {
+  text-align: center;
+}
+ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: #57d8f2;
+  position: relative;
+  overflow: hidden;
+  padding: 30px;
+  margin: 0 20px;
+  text-align: center;
+  font-size: 22px;
+  font-family: 'Varela Round', sans-serif;
+}
+
+ul li a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  transform: scaleX(0);
+  bottom: 15px;
+  left: 0;
+  background: #57d8f2;
+  transition: all 0.3s ease-in-out;
+}
+
+ul li a:hover::after {
+  transform: scale(1);
+}
+
+img{
+  height: 90px;
+  position:absolute;
+}
+

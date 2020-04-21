@@ -1,0 +1,38 @@
+.prevBattleContainer{
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  margin: auto;
+}
+
+h1{
+  text-align: center;
+}
+
+.battleElement{
+  width: 30%;
+  margin: 5px 0px;
+  font-size: medium;
+}
+
+button{
+  width: 30%;
+  border-color: #57d8f2;
+  color: #57d8f2;
+  border-radius: 10px;
+  margin: 5px 0px;
+  font-size: medium;
+}
+
+.battleElementHeader{
+  width: 30%;
+  font-weight: bolder;
+  font-size: medium;
+}
+
+hr{
+  border: none;
+  border-bottom: 1px solid #57d8f2;
+}

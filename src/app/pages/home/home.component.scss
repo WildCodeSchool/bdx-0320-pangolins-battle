@@ -1,0 +1,14 @@
+.container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 100px;
+  margin-bottom: 140px;
+}
+
+.card{
+  width: 40%;
+  border-radius: 10px;
+  border: 1px solid #57d8f2;
+}
