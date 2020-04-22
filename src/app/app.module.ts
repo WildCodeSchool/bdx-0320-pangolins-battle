@@ -22,7 +22,7 @@ import { FooterComponent } from './pages/footer/footer.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { BattleListComponent } from './pages/admin/components/battle-list/battle-list.component';
 import { CreateBattleComponent } from './pages/create-battle/create-battle.component';
-import { FormComponent } from './pages/create-battle/form/form.component';
+import { AlgoListComponent } from './pages/create-battle/algo-list/algo-list.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 registerLocaleData(localeFr, 'fr');
@@ -44,7 +44,7 @@ registerLocaleData(localeFr, 'fr');
     AdminComponent,
     BattleListComponent,
     CreateBattleComponent,
-    FormComponent
+    AlgoListComponent
   ],
   imports: [
     BrowserModule,
