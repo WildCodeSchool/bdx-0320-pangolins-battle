@@ -47,7 +47,7 @@ export class TimerComponent implements OnInit {
       }
       this.nextBattleTimer(this.startDate, this.battleEndDate);
       this.changeHiddenValue();
-    }, 1000);
+    }, 100);
   }
 
 }
