@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateBattleComponent } from './create-battle.component';
+import { AlgoAdminComponent } from './algo-admin.component';
 
-describe('CreateBattleComponent', () => {
-  let component: CreateBattleComponent;
-  let fixture: ComponentFixture<CreateBattleComponent>;
+describe('AlgoAdminComponent', () => {
+  let component: AlgoAdminComponent;
+  let fixture: ComponentFixture<AlgoAdminComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateBattleComponent ]
+      declarations: [ AlgoAdminComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreateBattleComponent);
+    fixture = TestBed.createComponent(AlgoAdminComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

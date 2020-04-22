@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AlgoListComponent } from './algo-list.component';
 
-describe('FormComponent', () => {
+describe('AlgoListComponent', () => {
   let component: AlgoListComponent;
   let fixture: ComponentFixture<AlgoListComponent>;
 

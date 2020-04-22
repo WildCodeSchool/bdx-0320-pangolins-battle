@@ -21,8 +21,8 @@ import { AlgorithmService } from './shared/services/algorithm/algorithm.service'
 import { FooterComponent } from './pages/footer/footer.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { BattleListComponent } from './pages/admin/components/battle-list/battle-list.component';
-import { CreateBattleComponent } from './pages/create-battle/create-battle.component';
-import { AlgoListComponent } from './pages/create-battle/algo-list/algo-list.component';
+import { AlgoAdminComponent } from './pages/algo-admin/algo-admin.component';
+import { AlgoListComponent } from './pages/algo-admin/algo-list/algo-list.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 registerLocaleData(localeFr, 'fr');
@@ -43,7 +43,7 @@ registerLocaleData(localeFr, 'fr');
     FooterComponent,
     AdminComponent,
     BattleListComponent,
-    CreateBattleComponent,
+    AlgoAdminComponent,
     AlgoListComponent
   ],
   imports: [
