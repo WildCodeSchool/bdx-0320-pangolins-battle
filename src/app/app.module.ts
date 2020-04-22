@@ -27,6 +27,7 @@ import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { AlgoFormComponent } from './pages/algo-admin/algo-list/algo-form/algo-form.component';
 registerLocaleData(localeFr, 'fr');
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ registerLocaleData(localeFr, 'fr');
     BrowserAnimationsModule,
     StepsModule,
     InputTextareaModule,
+    HttpClientModule,
   ],
   providers: [
     AlgorithmService,

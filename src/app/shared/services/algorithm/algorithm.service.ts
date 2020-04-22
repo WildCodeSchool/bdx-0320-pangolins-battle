@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Algo } from 'src/app/classes/algo-list';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,10 @@ export class AlgorithmService {
     new Algo(4, 'tu dois afficher la troisième entrée du tableau suivant : [1, 2, 3, 4, 5, 6]', [1, 2, 3, 4, 5, 6], '3'),
     new Algo(5, 'tu dois afficher les nombres paires [7, 6, 5, 4, 3, 2, 1]', [7, 6, 5, 4, 3, 2, 1], '[6,4,2]'),
   ];
-  constructor() { }
+
+  private BASE_URL = 'http://api.witpoc.com/algos';
+
+  constructor(private httpClient: HttpClient) { }
 
   getAlgorithmById(id: number) {
     return this.algorithms.find((algorithm) => algorithm.id === id);
@@ -34,5 +39,11 @@ export class AlgorithmService {
   getAllAlgorithm(): Algo[] {
     return this.algorithms;
   }
-}
 
+
+  // requêtes http mandy
+  getAllAlgo(): Observable<object>{
+    return this.httpClient.get<object>(this.BASE_URL);
+  }
+
+}
