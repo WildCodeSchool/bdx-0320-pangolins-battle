@@ -1,0 +1,93 @@
+//IMG
+img{
+  height: 30px;
+  width: 30px;
+}
+
+//BUTTONS
+button{
+  padding: 5px 20px;
+  background-color: none;
+  border-color: #57d8f2;
+  border-radius: 10px;
+}
+
+.newBattle{
+  width: 20%;
+  font-size: x-large;
+  margin: 10px auto;
+  font-weight: bolder;
+  color: #57d8f2;
+}
+
+//FORM
+.createAlgo{
+  width: 60%;
+  margin: 20px auto;
+  border: 1px solid grey;
+  border-radius: 6px;
+}
+.formButtonLevel{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  width: 50%;
+}
+
+.formContainer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px auto;
+}
+
+.formElement{
+  display: flex;
+  flex-direction: column;
+  width: 32%;
+  margin: 0px 1%;
+}
+
+.formButtonEnd{
+  display: flex;
+  justify-content: center;
+  margin:20px;
+}
+textarea{
+  resize: none;
+}
+
+.formButton{
+  margin: 0px 20px 0px 20px;
+  font-size: large;
+}
+
+input[type=radio] {
+  display: none;
+}
+input[type=radio]:checked + label > img {
+  border: 1px solid black;
+  border-radius: 4px;
+}
+.hover-img:hover {
+  opacity:0.6;
+  cursor: pointer;
+}
+
+.errorMessage{
+  font-size: smaller;
+  color: red;
+}
+
+#submit{
+  background-color: #57d8f2;
+  color: white;
+  font-weight: bolder;
+}
+
+span{
+  color: red;
+}
+
+

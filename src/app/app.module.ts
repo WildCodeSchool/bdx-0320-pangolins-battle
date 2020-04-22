@@ -25,6 +25,7 @@ import { AlgoAdminComponent } from './pages/algo-admin/algo-admin.component';
 import { AlgoListComponent } from './pages/algo-admin/algo-list/algo-list.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { AlgoFormComponent } from './pages/algo-admin/algo-list/algo-form/algo-form.component';
 registerLocaleData(localeFr, 'fr');
 
 
@@ -44,7 +45,8 @@ registerLocaleData(localeFr, 'fr');
     AdminComponent,
     BattleListComponent,
     AlgoAdminComponent,
-    AlgoListComponent
+    AlgoListComponent,
+    AlgoFormComponent
   ],
   imports: [
     BrowserModule,
