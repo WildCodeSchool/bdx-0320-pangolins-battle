@@ -7,6 +7,6 @@
 <hr>
 <div class = "prevBattleContainer" *ngFor="let battle of this.battleList">
     <div class = "battleElement">{{battle.name}}</div>
-    <div class = "battleElement">{{battle.launchDate.getDay()}}/{{battle.launchDate.getMonth()}}/{{battle.launchDate.getFullYear()}}</div>
+    <div class = "battleElement">{{battle.startingDate | date:"dd/MM/yyyy"}}</div>
     <button [routerLink]>Accéder</button>
 </div>
