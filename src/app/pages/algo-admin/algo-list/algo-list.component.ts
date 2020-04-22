@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NewAlgo } from 'src/app/classes/new-algo';
 
 @Component({
@@ -8,7 +8,9 @@ import { NewAlgo } from 'src/app/classes/new-algo';
 })
 export class AlgoListComponent implements OnInit {
 
-  algoList: string[] = ['Algorithme 1', 'Algorithme 2', 'Algorithme 3', 'Algorithme 4', 'Algorithme 5'];
+  @Input() algoList: NewAlgo [];
+
+  // algoList: string[] = ['Algorithme 1', 'Algorithme 2', 'Algorithme 3', 'Algorithme 4', 'Algorithme 5'];
 
   display = true;
 
@@ -20,5 +22,6 @@ export class AlgoListComponent implements OnInit {
   displayForm(){
     this.display = !this.display;
   }
+
 
 }
