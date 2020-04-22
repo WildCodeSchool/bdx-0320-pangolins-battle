@@ -2,15 +2,17 @@ import { Algo } from './algo-list';
 
 
 export class Battle{
+  public id: number;
+  public createdBy: string;
+  public lastEditBy: string;
+  public level: number;
+  public algoList: Algo[];
+  public algoNumber: number;
+
+
   constructor(
-    public id: number,
     public name: string,
-    public level: number,
-    public createdBy: string,
-    public lastEditBy: string,
-    public launchDate: Date,
-    public algoNumber: number,
+    public startingDate: Date,
     public givenTime: number,
-    public algoList?: Algo,
   ) {}
 }
