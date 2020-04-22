@@ -7,7 +7,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let algo of algoList">
-        <td>{{algo}}</td>
+        <td>Algorithme ID {{algo.id | json}}</td>
         <td></td>
         <td>
           <img (click)='displayForm()' class="img-space hover-img" src="https://image.flaticon.com/icons/png/512/84/84380.png">
