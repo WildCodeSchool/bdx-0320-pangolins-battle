@@ -1,10 +1,10 @@
 <div class = "container">
-  <button class = "newBattle" (click)='displayForm()'>New Battle</button>
   <table>
     <thead>
       <tr>
         <th>Nom</th>
         <th>Date</th>
+        <th>Accès algos</th>
         <th>Editer</th>
         <th>Supprimer</th>
       </tr>
@@ -12,34 +12,36 @@
     <tbody>
       <tr *ngFor="let battle of battleList">
         <td>{{battle.name}}</td>
-        <td>{{battle.startingDate | date:"dd/MM/yyyy"}}</td>
-        <td><button>Edit</button></td>
-        <td><button>Supprimer</button></td>
+        <td>{{battle.launchDate | date:"dd/MM/yyyy"}}</td>
+        <td><button>Algo list</button></td>
+        <td><button (click)="editBattle(battle)">Edit</button></td>
+        <td><button (click)="deleteBattle(battle)">Supprimer</button></td>
       </tr>
     </tbody>
   </table>
-  <form class="createBattle"[hidden]="display" (ngSubmit)= 'battleForm.valid && createNewBattle()' #battleForm="ngForm">
+  <form class="createBattle"[hidden]="display" (ngSubmit)= 'battleForm.valid && createNewBattle(battleForm)' #battleForm="ngForm">
     <div class="formContainer">
       <div class="formElement">
         <label for="name">Nom de la battle<span>*</span></label>
-        <input type="text" name="name" placeholder="Battle n" [(ngModel)]="model.name" #name = 'ngModel' required>
+        <input type="text" name="name" placeholder="Battle n" [(ngModel)]="targetedBattle.name" #name = 'ngModel' required>
         <div class="errorMessage" *ngIf="name.errors?.required && battleForm.submitted">Un nom de battle est requis</div>
       </div>
       <div class="formElement">
         <label for="launchDate">Début de la Battle<span>*</span></label>
-        <input type="date" name="launchDate" [(ngModel)]="model.startingDate" #startingDate = 'ngModel' required>
-        <div class="errorMessage" *ngIf="startingDate.errors?.required && battleForm.submitted">Un date est requise pour la Battle</div>
+        <input type="date" name="launchDate" [ngModel]="targetedBattle.launchDate | date:'yyyy-MM-dd'" (ngModelChange)="targetedBattle.launchDate = $event"
+        [value]="targetedBattle.launchDate | date:'yyyy-MM-dd'" #launchDate = 'ngModel' required>
+        <div class="errorMessage" *ngIf="launchDate.errors?.required && battleForm.submitted">Un date est requise pour la Battle</div>
       </div>
-        <div class="formElement">
-          <label for="givenTime">Durée<span>*</span> (min)</label>
-          <input type="number" name="givenTime" placeholder="60" [(ngModel)]="model.givenTime" #givenTime = 'ngModel' step=5 required min=30>
-          <div class="errorMessage" *ngIf="givenTime.errors?.required && battleForm.submitted">Une durée de battle est requise</div>
-        </div>
+      <div class="formElement">
+        <label for="duration">Durée<span>*</span> (min)</label>
+        <input type="number" name="duration" placeholder="60" [(ngModel)]="targetedBattle.duration" #duration = 'ngModel' step=5 required min=30>
+        <div class="errorMessage" *ngIf="duration.errors?.required && battleForm.submitted">Une durée de battle est requise</div>
       </div>
-      <div class="formButtonContainer">
-        <button class="formButton" id="submit" type="submit">Valider</button>
-        <button class="formButton"  type="reset" (click)="displayForm()">Annuler</button>
-      </div>
-
+    </div>
+    <div class="formButtonContainer">
+      <button class="formButton" id="submit" type="submit">Valider</button>
+      <button class="formButton"  type="reset" (click)="displayForm(battleForm)">Annuler</button>
+    </div>
   </form>
+  <button class = "newBattle" [hidden]='!display' (click)='displayForm(battleForm)'>New Battle</button>
 </div>

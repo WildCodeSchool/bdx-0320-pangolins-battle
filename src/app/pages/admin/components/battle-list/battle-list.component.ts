@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Battle } from 'src/app/classes/battle';
 import { NewBattle } from 'src/app/classes/new-battle';
+import { BattlesListService } from 'src/app/shared/services/battles-list/battles-list.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'btd-battle-list',
@@ -9,29 +11,55 @@ import { NewBattle } from 'src/app/classes/new-battle';
 })
 export class BattleListComponent implements OnInit {
 
-  constructor() { }
-  // battleList: any[] = [];
-  battleList: any[] = [
-    new Battle('Battle1', new Date('2020/04/30'), 60),
-    new Battle('Battle2', new Date('2020/04/15'), 60),
-    new Battle('Battle3', new Date('2020/03/31'), 60),
-    new Battle('Battle4', new Date('2020/02/24'), 60),
-  ];
+  constructor(private battleAPI: BattlesListService) { }
+
+  // FORM;
   display = true;
-  model: NewBattle = new NewBattle();
-  name = '';
-  createdBy = '';
-  startingDate = new Date();
-  givenTime = 60;
+  targetedBattle: NewBattle = {name: '', launchDate: new Date(), duration: 0, level: 0};
+
+  // TABLE with API
+  battleList = [];
+
+  initializePage(){
+    this.battleAPI.getAllBattles()
+    .subscribe(data => this.battleList = data);
+  }
+
+  resetForm(form: NgForm){
+    form.resetForm();
+  }
 
   ngOnInit(): void {
+    this.initializePage();
   }
-  createNewBattle(){
-    this.battleList.push(new Battle(this.model.name, this.model.startingDate, this.model.givenTime));
+
+  createNewBattle(battleForm: NgForm){
+    this.battleAPI.generateNewBattle(this.targetedBattle).subscribe(() => {
+      this.initializePage();
+    });
     this.display = true;
+    this.resetForm(battleForm);
   }
-  displayForm(){
-    this.display = !this.display;
+
+  editBattle(clickedBattle){
+    this.targetedBattle = clickedBattle;
+    this.display = false;
+    // code inutile, je ne comprends pas l'impact
+    this.battleAPI.editBattle(clickedBattle).subscribe(() => {
+        this.initializePage();
+      });
+    }
+
+    deleteBattle(clickedBattle){
+      this.battleAPI.deleteBattle(clickedBattle).subscribe(() => {
+        this.initializePage();
+      });
+    }
+
+    displayForm(battleForm: NgForm){
+      this.display = !this.display;
+      this.resetForm(battleForm);
+      this.initializePage();
   }
 
 }
