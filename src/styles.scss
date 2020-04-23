@@ -1,12 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 *{
   margin: 0;
+  padding:0;
   font-family: 'Varela Round', sans-serif;
 }
-
+html{
+  height: 100%;
+}
 body {
   background-image: url(https://images4.alphacoders.com/594/thumb-1920-594600.jpg);
   background-attachment:fixed;
   background-size: auto;
   color: white;
+  min-height: 100%;
+  position:relative;
 }
+
