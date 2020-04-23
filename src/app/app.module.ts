@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {CalendarModule} from 'primeng/calendar';
 import {AccordionModule} from 'primeng/accordion';
@@ -23,6 +23,10 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { BattleListComponent } from './pages/admin/components/battle-list/battle-list.component';
 import { CreateBattleComponent } from './pages/create-battle/create-battle.component';
 import { FormComponent } from './pages/create-battle/form/form.component';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr, 'fr');
+
 
 @NgModule({
   declarations: [
@@ -52,7 +56,10 @@ import { FormComponent } from './pages/create-battle/form/form.component';
     StepsModule,
     InputTextareaModule,
   ],
-  providers: [AlgorithmService],
+  providers: [
+    AlgorithmService,
+    {provide: LOCALE_ID, useValue: 'fr'},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
