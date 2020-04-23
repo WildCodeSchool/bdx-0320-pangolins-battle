@@ -14,12 +14,12 @@ export class InputAndSolutionComponent implements OnInit {
   currentAlgo: Algo;
 
   displayButtonPreviousAlgo = false;
+  wrongSolution = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
   checkAndUpdateAlgo() {
     const solutionFunction = eval(this.newSolution);
     const result = solutionFunction(this.algorithm.inputs);
@@ -32,6 +32,12 @@ export class InputAndSolutionComponent implements OnInit {
     } else {
       // TODO faire quelque chose quand pas bon
     }
-
+    if (isValid === false) {
+      this.wrongSolution = true;
+      this.algorithm.isCompleted = false;
+    }
+    if (isValid === true) {
+      this.wrongSolution =  false;
+    }
   }
 }

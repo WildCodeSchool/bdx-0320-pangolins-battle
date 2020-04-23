@@ -6,20 +6,71 @@
 
 h1, h2{
   text-align: center;
-  color: black;
-}
-
-button{
-  background-color: #57d8f2;
   color: white;
-  font-size: large;
-  text-align: center;
-  border-radius: 20px;
-  margin: 20px 0px;
-  padding: 10px 20px;
+  margin: 20px;
 }
 
-button[disabled]{
+/* button[disabled]{
   background-color: grey;
   color:rgb(230, 230, 230)
+} */
+
+/* .wrapper{
+  position: fixed;
+  top:  51%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+} */
+.link_wrapper, .link_wrapper{
+  position: relative;
 }
+ button{
+  display: block;
+  width: 250px;
+  height: 50px;
+  line-height: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  background: #333;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 3px solid #333;
+  transition: all .35s;
+}
+.icon{
+  width: 50px;
+  height: 50px;
+  border: 3px solid transparent;
+  position: absolute;
+  transform: rotate(45deg);
+  right: 0;
+  top: 0;
+  z-index: -1;
+  transition: all .35s;
+}
+.icon svg{
+  width: 30px;
+  position: absolute;
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
+  transform: rotate(-45deg);
+  fill: #57d8f2;
+  transition: all .35s;
+}
+/* .wrapper a:hover, button:hover{
+  width: 200px;
+  border: 3px solid #57d8f2;
+  background: transparent;
+  color: #57d8f2;
+} */
+.wrapper a:hover + .icon{
+  border: 3px solid #57d8f2;
+  right: -25%;
+}
+button:hover {
+  border: 3px solid #57d8f2;
+  right: -25%;
+}
+
