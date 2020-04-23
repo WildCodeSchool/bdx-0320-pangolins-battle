@@ -12,7 +12,7 @@ export class Battle{
 
   constructor(
     public name: string,
-    public startingDate: Date,
+    public launchDate: Date,
     public givenTime: number,
   ) {}
 }
