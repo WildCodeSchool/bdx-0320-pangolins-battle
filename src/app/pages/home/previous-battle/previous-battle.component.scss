@@ -5,10 +5,12 @@
   flex-wrap: nowrap;
   justify-content: space-around;
   margin: auto;
+  align-items: baseline;
 }
 
 h1{
   text-align: center;
+  margin: 20px;
 }
 
 .battleElement{
@@ -17,39 +19,15 @@ h1{
   font-size: medium;
 }
 
-button{
-  width: 30%;
-  border-color: #57d8f2;
-  color: #57d8f2;
-  border-radius: 10px;
-  margin: 10px 0px;
-  font-size: medium;
-}
-
-.battleElementHeader{
-  width: 30%;
-  font-weight: bolder;
-  font-size: medium;
-}
-
 hr{
   border: none;
   border-bottom: 1px solid #57d8f2;
 }
-.wrapper{
-  position: relative;
-  left: 70%;
-  transform: translate(-50%, -50%);
-  margin-left: 50px;
-}
-/* .link_wrapper, .link_wrapper{
-  position: relative;
-} */
- button{
+
+button{
+  margin: 10px 0px;
   display: block;
-  width: 250px;
-  height: 50px;
-  line-height: 50px;
+  padding: 8px 40px;
   font-weight: bold;
   text-decoration: none;
   background: #333;
@@ -80,16 +58,7 @@ hr{
   fill: #57d8f2;
   transition: all .35s;
 }
-/* .wrapper a:hover, button:hover{
-  width: 200px;
-  border: 3px solid #57d8f2;
-  background: transparent;
-  color: #57d8f2;
-} */
-.wrapper a:hover + .icon{
-  border: 3px solid #57d8f2;
-  right: -25%;
-}
+
 button:hover {
   border: 3px solid #57d8f2;
   right: -25%;
