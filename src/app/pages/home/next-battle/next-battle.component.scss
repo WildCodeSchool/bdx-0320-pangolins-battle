@@ -10,26 +10,16 @@ h1, h2{
   margin: 20px;
 }
 
-/* button[disabled]{
-  background-color: grey;
-  color:rgb(230, 230, 230)
-} */
-
-/* .wrapper{
-  position: fixed;
-  top:  51%;
-  left: 25%;
-  transform: translate(-50%, -50%);
-} */
 .link_wrapper, .link_wrapper{
   position: relative;
 }
+
  button{
+  margin-top: 20px;
   display: block;
-  width: 250px;
-  height: 50px;
-  line-height: 50px;
+  padding: 10px 50px;
   font-weight: bold;
+  font-size: large;
   text-decoration: none;
   background: #333;
   text-align: center;
@@ -59,12 +49,7 @@ h1, h2{
   fill: #57d8f2;
   transition: all .35s;
 }
-/* .wrapper a:hover, button:hover{
-  width: 200px;
-  border: 3px solid #57d8f2;
-  background: transparent;
-  color: #57d8f2;
-} */
+
 .wrapper a:hover + .icon{
   border: 3px solid #57d8f2;
   right: -25%;
