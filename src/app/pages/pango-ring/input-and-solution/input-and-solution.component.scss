@@ -3,14 +3,13 @@
   flex-direction: column;
   align-items: center;
 }
-button{
-  background-color: #57d8f2;
+textarea {
+  background-color: #696969;
   color: white;
-  font-size: large;
-  text-align: center;
-  border-radius: 20px;
-  margin: 20px 0px;
-  padding: 10px 20px;
+  border-color: white;
+}
+textarea:hover {
+  border-color: #57d8f2;
 }
 .previous-next-algo-container {
   display: flex;
@@ -19,4 +18,31 @@ button{
 .previous-next-algo-container button {
   margin-left: 40px;
   margin-right: 40px;
+}
+
+button{
+  display: block;
+  width: 250px;
+  height: 50px;
+  line-height: 43px;
+  font-weight: bold;
+  text-decoration: none;
+  background: #333;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 3px solid #333;
+  transition: all .35s;
+  margin: 20px;
+}
+button:hover{
+  width: 200px;
+  border: 3px solid #57d8f2;
+  background: transparent;
+  color: #57d8f2;
+}
+.bravo {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
 }
