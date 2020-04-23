@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateBattleComponent } from './create-battle.component';
+import { AlgoFormComponent } from './algo-form.component';
 
-describe('CreateBattleComponent', () => {
-  let component: CreateBattleComponent;
-  let fixture: ComponentFixture<CreateBattleComponent>;
+describe('AlgoFormComponent', () => {
+  let component: AlgoFormComponent;
+  let fixture: ComponentFixture<AlgoFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateBattleComponent ]
+      declarations: [ AlgoFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreateBattleComponent);
+    fixture = TestBed.createComponent(AlgoFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

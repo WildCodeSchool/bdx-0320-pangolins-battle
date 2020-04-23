@@ -21,10 +21,11 @@ import { AlgorithmService } from './shared/services/algorithm/algorithm.service'
 import { FooterComponent } from './pages/footer/footer.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { BattleListComponent } from './pages/admin/components/battle-list/battle-list.component';
-import { CreateBattleComponent } from './pages/create-battle/create-battle.component';
-import { FormComponent } from './pages/create-battle/form/form.component';
+import { AlgoAdminComponent } from './pages/algo-admin/algo-admin.component';
+import { AlgoListComponent } from './pages/algo-admin/algo-list/algo-list.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { AlgoFormComponent } from './pages/algo-admin/algo-list/algo-form/algo-form.component';
 registerLocaleData(localeFr, 'fr');
 import { HttpClientModule } from '@angular/common/http';
 
@@ -44,8 +45,9 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     AdminComponent,
     BattleListComponent,
-    CreateBattleComponent,
-    FormComponent
+    AlgoAdminComponent,
+    AlgoListComponent,
+    AlgoFormComponent
   ],
   imports: [
     BrowserModule,
