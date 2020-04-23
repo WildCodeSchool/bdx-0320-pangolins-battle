@@ -2,6 +2,7 @@
 img{
   height: 30px;
   width: 30px;
+  opacity: 0.6;
 }
 
 //BUTTONS
@@ -67,11 +68,12 @@ input[type=radio] {
   display: none;
 }
 input[type=radio]:checked + label > img {
-  border: 1px solid black;
   border-radius: 4px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  opacity: 1;
 }
 .hover-img:hover {
-  opacity:0.6;
+  opacity:1;
   cursor: pointer;
 }
 
