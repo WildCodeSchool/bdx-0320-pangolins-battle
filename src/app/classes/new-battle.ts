@@ -1,7 +1,8 @@
 export class NewBattle{
   public name: string;
-  public startingDate: Date;
-  public givenTime: number;
+  public launchDate: Date;
+  public duration: number;
+  public level: number;
   constructor(
   ) {}
 }

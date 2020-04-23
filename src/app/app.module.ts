@@ -26,6 +26,7 @@ import { FormComponent } from './pages/create-battle/form/form.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 registerLocaleData(localeFr, 'fr');
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ registerLocaleData(localeFr, 'fr');
     BrowserAnimationsModule,
     StepsModule,
     InputTextareaModule,
+    HttpClientModule,
   ],
   providers: [
     AlgorithmService,
