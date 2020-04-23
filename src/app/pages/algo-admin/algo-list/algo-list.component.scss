@@ -35,6 +35,7 @@ td:first-child {
 }
 tr:nth-child(even) td {
   background: #eaeaed;
+  color: black;
 }
 tr:last-child td:first-child {
   border-bottom-left-radius: 6px;
