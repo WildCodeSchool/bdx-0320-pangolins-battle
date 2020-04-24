@@ -27,20 +27,13 @@ body{
   font-family: 'Lato', sans-serif;
 }
 // Next & Previous buttons
+.previous-next-algo-container{
+  display:flex;
+  justify-content: space-between;
+  width: 60%;
+}
 
-.wrapper-next, .wrapper-previous{
-  position: fixed;
-  top: 85%;
-  left: 60%;
-  transform: translate(-50%, -50%);
-}
-.wrapper-previous{
-  left: 40%;
-}
-.link_wrapper-next, .link_wrapper-previous{
-  position: relative;
-}
-.wrapper-next a, .wrapper-previous a{
+.wrapper-next .test a, .wrapper-previous .test a{
   display: block;
   width: 250px;
   height: 50px;
@@ -59,7 +52,6 @@ body{
   width: 50px;
   height: 50px;
   border: 3px solid transparent;
-  position: absolute;
   transform: rotate(45deg);
   right: 0;
   top: 0;
@@ -70,35 +62,41 @@ body{
   width: 50px;
   height: 50px;
   border: 3px solid transparent;
-  position: absolute;
   transform: rotate(45deg);
   left: 0;
   top: 0;
   z-index: -1;
   transition: all .35s;
 }
-.icon-next svg, .icon-previous svg{
-  width: 30px;
-  position: absolute;
-  top: calc(50% - 15px);
-  left: calc(50% - 15px);
-  transform: rotate(-45deg);
-  fill: #57d8f2;
-  transition: all .35s;
-}
-.icon-previous svg{
-  transform: rotate(135deg);
-}
-.wrapper-next a:hover, .wrapper-previous a:hover{
-  width: 200px;
-  border: 3px solid #57d8f2;
-  background: transparent;
-  color: #57d8f2;
-}
-.wrapper-next a:hover + .icon-next, .wrapper-previous a:hover + .icon-previous{
-  border: 3px solid #57d8f2;
-  right: -25%;
-}
-.wrapper-previous a:hover + .icon-previous {
-  left: -25%
-}
+  .icon-next svg, .icon-previous svg{
+    width: 30px;
+    position: absolute;
+    top: calc(50% - 15px);
+    left: calc(50% - 15px);
+    transform: rotate(-45deg);
+  }
+  .icon-previous svg{
+    transform: rotate(135deg);
+  }
+  .wrapper-next .test a:hover, .wrapper-previous .test a:hover{
+    width: 200px;
+    border: 3px solid #57d8f2;
+    background: transparent;
+    color: #57d8f2;
+  }
+  .wrapper-next .test a:hover + .icon-next, .wrapper-previous .test a:hover + .icon-previous{
+    border: 3px solid #57d8f2;
+    right: -25%;
+    fill: #57d8f2;
+  }
+  .wrapper-previous .test a:hover + .icon-previous{
+    left: -25%
+  }
+  .wrapper-previous:hover .test:hover .icon-previous{
+    border: 3px solid #57d8f2;
+    fill: #57d8f2;
+  }
+  .test{
+    display: flex;
+    fill: transparent;
+  }
