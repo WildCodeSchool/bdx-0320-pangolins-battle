@@ -80,7 +80,7 @@ body{
 }
 .wrapper-next .test a:hover, .wrapper-previous .test a:hover{
   width: 200px;
-  border: 3px solid #57d8f2;
+  border: 3px solid var(--secondary-color);
   background: transparent;
   color: var(--secondary-color);
 }
