@@ -7,7 +7,6 @@ export class Battle{
   public lastEditBy: string;
   public level: number;
   public algoList: Algo[];
-  public algoNumber: number;
 
 
   constructor(
