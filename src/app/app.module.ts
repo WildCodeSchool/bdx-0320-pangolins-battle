@@ -60,10 +60,7 @@ import { HttpClientModule } from '@angular/common/http';
     InputTextareaModule,
     HttpClientModule,
   ],
-  providers: [
-    AlgorithmService,
-    {provide: LOCALE_ID, useValue: 'fr'},
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
