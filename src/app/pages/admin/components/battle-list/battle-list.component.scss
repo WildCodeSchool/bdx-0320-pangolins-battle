@@ -18,7 +18,7 @@ th,td {
 }
 th {
   background: #42444e;
-  color: #fff;
+  color: var(--primary-color);
 }
 tr:first-child th:first-child {
   border-top-left-radius: 6px;
@@ -49,7 +49,7 @@ tr:last-child td:last-child {
 button{
   padding: 5px 20px;
   background-color: none;
-  border-color: #57d8f2;
+  border-color: var(--secondary-color);
   border-radius: 10px;
 }
 
@@ -58,7 +58,7 @@ button{
   font-size: x-large;
   margin: 10px auto;
   font-weight: bolder;
-  color: #57d8f2;
+  color: --secondary-color;
 }
 
 //FORM
@@ -105,8 +105,8 @@ input{
 }
 
 #submit{
-  background-color: #57d8f2;
-  color: white;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
   font-weight: bolder;
 }
 

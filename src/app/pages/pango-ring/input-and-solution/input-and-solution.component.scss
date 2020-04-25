@@ -5,11 +5,11 @@
 }
 textarea {
   background-color: #696969;
-  color: white;
-  border-color: white;
+  color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 textarea:hover {
-  border-color: #57d8f2;
+  border-color: var(--secondary-color);
 }
 .previous-next-algo-container {
   display: flex;
@@ -29,7 +29,7 @@ button{
   text-decoration: none;
   background: #333;
   text-align: center;
-  color: #fff;
+  color:var(--primary-color);
   text-transform: uppercase;
   letter-spacing: 1px;
   border: 3px solid #333;
@@ -38,9 +38,9 @@ button{
 }
 button:hover{
   width: 200px;
-  border: 3px solid #57d8f2;
+  border: 3px solid var(--secondary-color);
   background: transparent;
-  color: #57d8f2;
+  color: var(--secondary-color);
 }
 .bravo {
   font-size: 1.2rem;

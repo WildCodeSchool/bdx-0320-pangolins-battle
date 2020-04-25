@@ -7,7 +7,7 @@
 .timerForm{
   border-radius: 50%;
   background-color: none;
-  color: #57d8f2;
+  color: var(--secondary-color);
   font-weight: bold;
   margin: 20px;
   width:  75px;
@@ -23,8 +23,8 @@
 }
 
 .hours{
-  border: 1px solid #57d8f2;
-  color: #57d8f2
+  border: 1px solid var(--secondary-color);
+  color: var(--secondary-color)
 }
 
 .minutes{
@@ -42,7 +42,7 @@
 }
 
 .hours:hover{
-  background-color: #57d8f2;
+  background-color: var(--secondary-color);
 }
 
 .minutes:hover{
