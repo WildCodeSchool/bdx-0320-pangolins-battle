@@ -8,7 +8,6 @@ import { AlgoAdminComponent } from './pages/algo-admin/algo-admin.component';
 
 const routes: Routes = [
   {path: 'pango-ring/:id', component: PangoRingComponent},
-  {path: 'pango-ring', component: PangoRingComponent},
   {path: '', component: HomeComponent},
   {path: 'admin', component: AdminComponent},
   {path: 'admin-algo', component: AlgoAdminComponent}
