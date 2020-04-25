@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Algo } from 'src/app/classes/algo-list';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Algo } from '../../../classes/algo-list';
 
 @Injectable({
   providedIn: 'root'

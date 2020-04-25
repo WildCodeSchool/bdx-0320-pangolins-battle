@@ -18,7 +18,7 @@ th,td {
 }
 th {
   background: #42444e;
-  color: #fff;
+  color: var(--primary-color);
 }
 tr:first-child th:first-child {
   border-top-left-radius: 6px;

@@ -42,7 +42,7 @@ body{
   text-decoration: none;
   background: #333;
   text-align: center;
-  color: #fff;
+  color: var(--primary-color);
   text-transform: uppercase;
   letter-spacing: 1px;
   border: 3px solid #333;
@@ -68,38 +68,38 @@ body{
   z-index: -1;
   transition: all .35s;
 }
-  .icon-next svg, .icon-previous svg{
-    width: 30px;
-    position: absolute;
-    top: calc(50% - 15px);
-    left: calc(50% - 15px);
-    transform: rotate(-45deg);
-  }
-  .icon-previous svg{
-    transform: rotate(135deg);
-  }
-  .wrapper-next .test a:hover, .wrapper-previous .test a:hover{
-    width: 200px;
-    border: 3px solid #57d8f2;
-    background: transparent;
-    color: #57d8f2;
-  }
-  .wrapper-next .test a:hover + .icon-next, .wrapper-previous .test a:hover + .icon-previous{
-    border: 3px solid #57d8f2;
-    right: -25%;
-    fill: #57d8f2;
-  }
-  .wrapper-previous .test a:hover + .icon-previous{
-    left: -25%
-  }
-  .wrapper-previous:hover .test:hover .icon-previous{
-    border: 3px solid #57d8f2;
-    fill: #57d8f2;
-  }
-  .test{
-    display: flex;
-    fill: transparent;
-  }
-  a {
-    cursor: pointer;
-  }
+.icon-next svg, .icon-previous svg{
+  width: 30px;
+  position: absolute;
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
+  transform: rotate(-45deg);
+}
+.icon-previous svg{
+  transform: rotate(135deg);
+}
+.wrapper-next .test a:hover, .wrapper-previous .test a:hover{
+  width: 200px;
+  border: 3px solid #57d8f2;
+  background: transparent;
+  color: var(--secondary-color);
+}
+.wrapper-next .test a:hover + .icon-next, .wrapper-previous .test a:hover + .icon-previous{
+  border: 3px solid var(--secondary-color);
+  right: -25%;
+  fill: var(--secondary-color);
+}
+.wrapper-previous .test a:hover + .icon-previous{
+  left: -25%
+}
+.wrapper-previous:hover .test:hover .icon-previous{
+  border: 3px solid var(--secondary-color);
+  fill: var(--secondary-color);
+}
+.test{
+  display: flex;
+  fill: transparent;
+}
+a {
+  cursor: pointer;
+}

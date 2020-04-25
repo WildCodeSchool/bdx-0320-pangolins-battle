@@ -11,7 +11,6 @@ export class InputAndSolutionComponent implements OnInit {
   @Input() algorithm: Algo;
 
   newSolution: string;
-  currentAlgo: Algo;
 
   displayButtonPreviousAlgo = false;
   wrongSolution = false;

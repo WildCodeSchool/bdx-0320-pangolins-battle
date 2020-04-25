@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Algo } from '../../classes/algo-list';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { BattlesService } from '../../shared/services/battles/battles.service';
-import { AlgorithmService } from 'src/app/shared/services/algorithm/algorithm.service';
+import { AlgorithmService } from '../../shared/services/algorithm/algorithm.service';
+
 
 @Component({
   selector: 'btd-pango-ring',
@@ -22,7 +23,6 @@ export class PangoRingComponent implements OnInit {
   currentAlgo: Algo;
   idNextAlgo: number;
   idPrevAlgo: number;
-
   ngOnInit(): void {
 
 

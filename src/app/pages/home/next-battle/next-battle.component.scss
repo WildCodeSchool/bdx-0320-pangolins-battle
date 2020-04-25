@@ -6,7 +6,7 @@
 
 h1, h2{
   text-align: center;
-  color: white;
+  color: var(primary-color);
   margin: 20px;
 }
 
@@ -23,7 +23,7 @@ h1, h2{
   text-decoration: none;
   background: #333;
   text-align: center;
-  color: #fff;
+  color: var(--primary-color);
   text-transform: uppercase;
   letter-spacing: 1px;
   border: 3px solid #333;
@@ -46,16 +46,16 @@ h1, h2{
   top: calc(50% - 15px);
   left: calc(50% - 15px);
   transform: rotate(-45deg);
-  fill: #57d8f2;
+  fill: var(--secondary-color);
   transition: all .35s;
 }
 
 .wrapper a:hover + .icon{
-  border: 3px solid #57d8f2;
+  border: 3px solid var(--secondary-color);
   right: -25%;
 }
 button:hover {
-  border: 3px solid #57d8f2;
+  border: 3px solid var(--secondary-color);
   right: -25%;
   cursor: pointer;
 }

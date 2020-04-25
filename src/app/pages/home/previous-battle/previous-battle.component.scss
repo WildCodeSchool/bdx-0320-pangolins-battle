@@ -21,7 +21,7 @@ h1{
 
 hr{
   border: none;
-  border-bottom: 1px solid #57d8f2;
+  border-bottom: 1px solid var(--secondary-color);
 }
 
 button{
@@ -32,7 +32,7 @@ button{
   text-decoration: none;
   background: #333;
   text-align: center;
-  color: #fff;
+  color: var(--primary-color);
   text-transform: uppercase;
   letter-spacing: 1px;
   border: 3px solid #333;
@@ -55,12 +55,12 @@ button{
   top: calc(50% - 15px);
   left: calc(50% - 15px);
   transform: rotate(-45deg);
-  fill: #57d8f2;
+  fill: var(--secondary-color);
   transition: all .35s;
 }
 
 button:hover {
-  border: 3px solid #57d8f2;
+  border: 3px solid var(--secondary-color);
   right: -25%;
   cursor: pointer;
 }

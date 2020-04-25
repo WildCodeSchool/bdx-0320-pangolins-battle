@@ -62,10 +62,7 @@ import { AboutComponent } from './pages/about/about.component';
     InputTextareaModule,
     HttpClientModule,
   ],
-  providers: [
-    AlgorithmService,
-    {provide: LOCALE_ID, useValue: 'fr'},
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
