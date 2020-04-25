@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Battle } from 'src/app/classes/battle';
+import { Battle } from '../../../classes/battle';
+
 
 @Component({
   selector: 'btd-previous-battle',

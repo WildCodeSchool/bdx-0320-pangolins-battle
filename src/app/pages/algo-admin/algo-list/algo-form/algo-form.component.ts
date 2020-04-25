@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NewAlgo } from 'src/app/classes/new-algo';
+import { NewAlgo } from '../../../../classes/new-algo';
 
 @Component({
   selector: 'btd-algo-form',

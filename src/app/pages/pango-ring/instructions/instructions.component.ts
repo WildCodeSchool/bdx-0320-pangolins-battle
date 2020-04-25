@@ -1,6 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
-import { Algo } from 'src/app/classes/algo-list';
-import { CurrentAlgoIndex } from 'src/app/classes/currentAlgoIndex';
+import { Algo } from '../../../classes/algo-list';
+
 
 
 @Component({
