@@ -22,7 +22,6 @@ export class PangoRingComponent implements OnInit {
   currentAlgo: Algo;
   idNextAlgo: number;
   idPrevAlgo: number;
-s
 
   ngOnInit(): void {
 
