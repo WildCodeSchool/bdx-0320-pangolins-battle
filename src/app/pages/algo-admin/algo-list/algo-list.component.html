@@ -6,14 +6,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let algo of algoList">
-        <td>Algorithme ID {{algo.id | json}}</td>
-        <td></td>
+      <tr *ngFor="let algo of algoList; index as i">
+        <td>Algorithme {{i}}</td>
+        <td>{{algo.solution}}</td>
         <td>
-          <img (click)='displayForm()' class="img-space hover-img" src="https://image.flaticon.com/icons/png/512/84/84380.png">
+          <img (click)='editAlgo(algo)' class="img-space hover-img" src="https://image.flaticon.com/icons/png/512/84/84380.png">
           <img class="img-checked" src="assets/images/checked.svg"></td>
       </tr>
     </tbody>
   </table>
-  <btd-algo-form [hidden]='display'></btd-algo-form>
 </div>
