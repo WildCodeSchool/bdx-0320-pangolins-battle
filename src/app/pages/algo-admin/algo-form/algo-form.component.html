@@ -1,0 +1,48 @@
+<form [hidden]="!isHidden" class="createAlgo" (ngSubmit)= 'algoForm.valid && donneesFormVersParent()' #algoForm="ngForm">
+  <div class="formButtonLevel">
+    <!-- <p>ID number :{{editedAlgo.id}}</p> -->
+    <p>Niveau de difficulté :</p>
+    <div>
+      <input type="radio" id="1" name="level" value="1" [(ngModel)]='editedAlgo.level'>
+      <label for="1"><img class="hover-img" src="assets/images/dice-six-faces-one.svg"></label>
+    </div>
+    <div>
+      <input type="radio" id="2" name="level" value="2" [(ngModel)]='editedAlgo.level'>
+      <label for="2"><img class="hover-img" src="assets/images/dice-six-faces-two.svg"></label>
+    </div>
+    <div>
+      <input type="radio" id="3" name="level" value="3" [(ngModel)]='editedAlgo.level'>
+      <label for="3"><img class="hover-img" src="assets/images/dice-six-faces-three.svg"></label>
+    </div>
+    <div>
+      <input type="radio" id="4" name="level" value="4" [(ngModel)]='editedAlgo.level'>
+      <label for="4"><img class="hover-img" src="assets/images/dice-six-faces-four.svg"></label>
+    </div>
+    <div>
+      <input type="radio" id="5" name="level" value="5" [(ngModel)]='editedAlgo.level'>
+      <label for="5"><img class="hover-img" src="assets/images/dice-six-faces-five.svg"></label>
+    </div>
+  </div>
+  <div class="formContainer">
+    <div class="formElement">
+      <label for="instructions">Instructions<span>*</span></label>
+      <textarea rows="10" cols="30" name="intructions" [(ngModel)]="editedAlgo.instructions" #instructions = 'ngModel' required></textarea>
+      <div class="errorMessage" *ngIf="instructions.errors?.required && algoForm.submitted">Les instructions sont requises</div>
+    </div>
+    <div class="formElement">
+      <label for="skeleton">Squelette</label>
+      <textarea rows="10" cols="30" name="skeleton" [(ngModel)]="editedAlgo.skeleton" #skeleton = 'ngModel'></textarea>
+    </div>
+    <div class="formElement">
+      <label for="solution">Solution<span>*</span></label>
+      <textarea rows="10" cols="30" name="solution" [(ngModel)]="editedAlgo.solution" #solution = 'ngModel' required></textarea>
+      <div class="errorMessage" *ngIf="solution.errors?.required && algoForm.submitted">La solution est requise</div>
+    </div>
+  </div>
+
+  <div class="formButtonEnd">
+    <button class="formButton" id="submit" type="submit">Valider</button>
+    <button class="formButton"  type="reset" (click)="displayForm()">Annuler</button>
+  </div>
+
+</form>
