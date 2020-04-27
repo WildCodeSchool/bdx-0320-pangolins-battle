@@ -11,15 +11,15 @@
     </thead>
     <tbody>
       <tr *ngFor="let battle of battleList">
-        <td>{{battle.name}}</td>
-        <td>{{battle.launchDate | date:"dd/MM/yyyy"}}</td>
-        <td><button [routerLink]="['/admin-algo']">Algo list</button></td>
-        <td><button (click)="editBattle(battle)">Edit</button></td>
-        <td><button (click)="deleteBattle(battle)">Supprimer</button></td>
+          <td>{{battle.name}}</td>
+          <td>{{battle.launchDate | date:"dd/MM/yyyy"}}</td>
+          <td><button [routerLink]="['/admin-algo']">Algo list</button></td>
+          <td><button (click)="editBattle(battle)">Edit</button></td>
+          <td><button (click)="deleteBattle(battle)">Supprimer</button></td>
       </tr>
     </tbody>
   </table>
-  <form class="createBattle"[hidden]="display" (ngSubmit)= 'battleForm.valid && createNewBattle(battleForm)' #battleForm="ngForm">
+  <form class="createBattle"[hidden]="hidden" (ngSubmit)= 'battleForm.valid && createNewBattle(battleForm)' #battleForm="ngForm">
     <div class="formContainer">
       <div class="formElement">
         <label for="name">Nom de la battle<span>*</span></label>
@@ -40,8 +40,9 @@
     </div>
     <div class="formButtonContainer">
       <button class="formButton" id="submit" type="submit">Valider</button>
+      <button class="formButton" id="submitEdit" type="button" (click)="validEditBattle(targetedBattle)">Valider Edit</button>
       <button class="formButton"  type="reset" (click)="displayForm(battleForm)">Annuler</button>
     </div>
   </form>
-  <button class = "newBattle" [hidden]='!display' (click)='displayForm(battleForm)'>New Battle</button>
+  <button class = "newBattle" [hidden]='!hidden' (click)='displayForm(battleForm)'>New Battle</button>
 </div>
