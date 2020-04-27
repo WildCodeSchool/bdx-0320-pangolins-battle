@@ -13,7 +13,7 @@ export class BattleListComponent implements OnInit {
   constructor(private battleAPI: BattlesListService) { }
 
   // FORM;
-  display = true;
+  hidden = true;
   targetedBattle: NewBattle = {name: '', launchDate: new Date(), duration: 0, level: 0};
 
   // TABLE with API
@@ -36,14 +36,17 @@ export class BattleListComponent implements OnInit {
     this.battleAPI.generateNewBattle(this.targetedBattle).subscribe(() => {
       this.initializePage();
     });
-    this.display = true;
+    this.hidden = true;
     this.resetForm(battleForm);
   }
 
+  // Erreur, soit sur le server, soit dans le code, voir avec Hugo
   editBattle(clickedBattle){
+    this.hidden = false;
     this.targetedBattle = clickedBattle;
-    this.display = false;
-    // code inutile, je ne comprends pas l'impact
+  }
+
+  validEditBattle(clickedBattle){
     this.battleAPI.editBattle(clickedBattle).subscribe(() => {
         this.initializePage();
       });
@@ -56,7 +59,7 @@ export class BattleListComponent implements OnInit {
     }
 
     displayForm(battleForm: NgForm){
-      this.display = !this.display;
+      this.hidden = !this.hidden;
       this.resetForm(battleForm);
       this.initializePage();
   }

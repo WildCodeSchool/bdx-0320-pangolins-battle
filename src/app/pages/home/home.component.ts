@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BattlesListService } from 'src/app/shared/services/battles-list/battles-list.service';
 
 @Component({
   selector: 'btd-home',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private battleAPI: BattlesListService) { }
 
-  ngOnInit(): void {
+  battleList = [];
+
+  initializePage(){
+    this.battleAPI.getAllBattles()
+    .subscribe(data => this.battleList = data);
   }
 
+  ngOnInit(): void {
+    this.initializePage();
+  }
 }

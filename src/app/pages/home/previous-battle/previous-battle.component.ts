@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Battle } from '../../../classes/battle';
-
+import { BattlesListService } from '../../shared/services/battles-list/battles-list.service';
 
 @Component({
   selector: 'btd-previous-battle',
@@ -9,25 +9,18 @@ import { Battle } from '../../../classes/battle';
 })
 export class PreviousBattleComponent implements OnInit {
   constructor() { }
-  battleList: Battle[] = [];
+  @Input() battleList: any[];
+  displayedBattles = [];
 
-  ngOnInit(): void {
-  this.battleList.push(
-    new Battle(
-      'Battle1',
-      new Date('2020-03-26'),
-      60
-      ),
-      new Battle(
-        'Battle2',
-        new Date('2020-03-14'),
-        60
-        ),
-      new Battle(
-        'Battle3',
-        new Date('2020-03-06'),
-        60
-        )
-  );
+  // studentSession sera alimenté via un input liée au profil de l'user
+  studentSession = new Date('02/03/2020');
+  resolutionDelay = 24; // en heures
+
+ngOnInit(): void {
+  setTimeout(() => {
+      this.displayedBattles = this.battleList.sort((a, b) => a.launchDate - b.launchDate)
+      // tslint:disable-next-line: max-line-length
+      .filter(battle => battle.launchDate > this.studentSession && (+battle.launchDate) < (Date.now() - ( this.resolutionDelay * 3600 * 1000)))
+      ; }, 500);
   }
 }
