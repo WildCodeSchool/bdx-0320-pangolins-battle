@@ -52,7 +52,7 @@ button{
   text-decoration: none;
   background: #333;
   text-align: center;
-  color: #fff;
+  color: var(--primary-color);
   text-transform: uppercase;
   letter-spacing: 1px;
   border: 3px solid #333;
@@ -76,9 +76,9 @@ button{
   transition: all .35s;
 }
 .formButton:nth-child(1) {
-  border: 3px solid #57d8f2;
+  border: 3px solid var(--secondary-color);
   &:hover {
-    color: #57d8f2;
+    color: var(--secondary-color);
   }
 }
 .formButton:nth-child(2):hover {
