@@ -25,12 +25,12 @@ footer:hover {
 }
 
 p, a{
-  color: white;
+  color: var(--primary-color);
   font-family: 'Varela Round', sans-serif;
   font-size: 13px;
 }
 .heart{
-  color:#57d8f2;
+  color:var(--secondary-color);
   font-size: 20px;
 }
 
@@ -39,14 +39,14 @@ img{
 }
 
 a:hover{
-  color:#57d8f2;
+  color:var(--secondary-color);
 }
 .fa-color{
-  background-color: white;
+  background-color: var(--primary-color);
   height: 30px;
 }
 .fa-color:hover{
-  background-color:#57d8f2;
+  background-color:var(--secondary-color);
 }
 
 

@@ -28,6 +28,7 @@ import localeFr from '@angular/common/locales/fr';
 import { AlgoFormComponent } from './pages/algo-admin/algo-list/algo-form/algo-form.component';
 registerLocaleData(localeFr, 'fr');
 import { HttpClientModule } from '@angular/common/http';
+import { AboutComponent } from './pages/about/about.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { HttpClientModule } from '@angular/common/http';
     BattleListComponent,
     AlgoAdminComponent,
     AlgoListComponent,
-    AlgoFormComponent
+    AlgoFormComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -60,10 +62,7 @@ import { HttpClientModule } from '@angular/common/http';
     InputTextareaModule,
     HttpClientModule,
   ],
-  providers: [
-    AlgorithmService,
-    {provide: LOCALE_ID, useValue: 'fr'},
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

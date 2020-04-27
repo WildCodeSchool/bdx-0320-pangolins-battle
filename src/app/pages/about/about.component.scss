@@ -1,0 +1,30 @@
+.cards-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 80px;
+  margin-left: 50px;
+  margin-right: 50px;
+
+}
+.card-1, .card-2, .card-3 {
+  width: 30%;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+h1 {
+  margin: 20px 0px 20px 0px;
+}
+hr {
+  border: 4px solid var(--secondary-color);
+  width: 151px;
+}
+p {
+  margin-top: 20px;
+  text-align: justify;
+}
+.text-important {
+  color: var(--secondary-color);
+  font-weight: bold;
+}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AlgorithmService } from 'src/app/shared/services/algorithm/algorithm.service';
-import { NewAlgo } from 'src/app/classes/new-algo';
+import { AlgorithmService } from '../../shared/services/algorithm/algorithm.service';
+import { NewAlgo } from '../../classes/new-algo';
 
 @Component({
   selector: 'btd-algo-admin',

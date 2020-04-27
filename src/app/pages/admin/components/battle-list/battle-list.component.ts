@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Battle } from 'src/app/classes/battle';
-import { NewBattle } from 'src/app/classes/new-battle';
-import { BattlesListService } from 'src/app/shared/services/battles-list/battles-list.service';
 import { NgForm } from '@angular/forms';
+import { NewBattle } from '../../../../classes/new-battle';
+import { BattlesListService } from '../../../../shared/services/battles-list/battles-list.service';
 
 @Component({
   selector: 'btd-battle-list',

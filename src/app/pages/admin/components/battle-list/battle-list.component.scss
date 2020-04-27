@@ -18,7 +18,7 @@ th,td {
 }
 th {
   background: #42444e;
-  color: #fff;
+  color: var(--primary-color);
 }
 tr:first-child th:first-child {
   border-top-left-radius: 6px;
@@ -44,23 +44,46 @@ tr:last-child td:last-child {
   border-bottom-right-radius: 6px;
 }
 
-
 //BUTTONS
 button{
-  padding: 5px 20px;
-  background-color: none;
-  border-color: #57d8f2;
-  border-radius: 10px;
+  display: block;
+  padding: 8px 40px;
+  font-weight: bold;
+  text-decoration: none;
+  background: #333;
+  text-align: center;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 3px solid #333;
+  transition: all .35s;
 }
-
 .newBattle{
   width: 20%;
   font-size: x-large;
   margin: 10px auto;
   font-weight: bolder;
-  color: #57d8f2;
+  transition: all .35s;
+  &:hover {
+    -webkit-box-shadow: 0px 0px 22px 6px rgba(255,255,255,1);
+    -moz-box-shadow: 0px 0px 22px 6px rgba(255,255,255,1);
+    box-shadow: 0px 0px 22px 6px rgba(255,255,255,1);
+  }
 }
-
+.formButton{
+  margin: 0px 20px 0px 20px;
+  font-size: large;
+  transition: all .35s;
+}
+.formButton:nth-child(1) {
+  border: 3px solid var(--secondary-color);
+  &:hover {
+    color: var(--secondary-color);
+  }
+}
+.formButton:nth-child(2):hover {
+  color: red;
+}
 //FORM
 .createBattle{
   width: 60%;
@@ -75,41 +98,30 @@ button{
   align-items: center;
   margin: 10px auto;
 }
-
 .formElement{
   display: flex;
   flex-direction: column;
   width: 32%;
   margin: 0px 1%;
 }
-
 input{
   width: 100%;
   height: 20px;
 }
-
 .formButtonContainer{
   display: flex;
   justify-content: center;
   margin:20px;
 }
-
-.formButton{
-  margin: 0px 20px 0px 20px;
-  font-size: large;
-}
-
 .errorMessage{
   font-size: smaller;
   color: red;
 }
-
 #submit, #submitEdit{
-  background-color: #57d8f2;
-  color: white;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
   font-weight: bolder;
 }
-
 span{
   color: red;
 }
