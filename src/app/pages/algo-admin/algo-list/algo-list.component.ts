@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NewAlgo } from '../../../classes/new-algo';
+
 
 
 @Component({
@@ -11,9 +12,12 @@ export class AlgoListComponent implements OnInit {
 
   @Input() algoList: NewAlgo [];
 
-  // algoList: string[] = ['Algorithme 1', 'Algorithme 2', 'Algorithme 3', 'Algorithme 4', 'Algorithme 5'];
+  @Output() hideForm = new EventEmitter();
 
-  display = true;
+  @Output() sendEditedAlgo = new EventEmitter();
+
+  editedAlgo: NewAlgo;
+  isHidden = false;
 
   constructor() { }
 
@@ -21,8 +25,15 @@ export class AlgoListComponent implements OnInit {
   }
 
   displayForm(){
-    this.display = !this.display;
+    this.isHidden = !this.isHidden;
   }
 
+  editAlgo(targetedAlgo){
+    this.editedAlgo = targetedAlgo;
+    this.displayForm();
+    this.hideForm.emit(this.isHidden);
+    this.sendEditedAlgo.emit(this.editedAlgo);
+
+  }
 
 }
