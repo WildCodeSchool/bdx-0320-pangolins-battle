@@ -1,12 +1,12 @@
 <div class='card'>
     <h1>{{title}}</h1>
   <div>
-    <btd-timer (timerOut)= "display($event)"></btd-timer>
+    <btd-timer [battleList]="battleList" (timerOut)= "display($event)"></btd-timer>
   </div>
-  <h2 [hidden] = displayed >La Battle a commencé !</h2>
+  <h2 [hidden] = hidden >La Battle a commencé !</h2>
   <div class="wrapper">
     <a [routerLink]="['/pango-ring/1']">
-      <button [disabled] = displayed >Accéder</button>
+      <button [disabled] = hidden >Accéder</button>
     </a>
     <div class="icon">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268.832 268.832">

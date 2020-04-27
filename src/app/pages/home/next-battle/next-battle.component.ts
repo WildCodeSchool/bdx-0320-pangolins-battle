@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'btd-next-battle',
@@ -6,14 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./next-battle.component.scss']
 })
 export class NextBattleComponent implements OnInit {
+  @Input() battleList: any[];
   title = 'Prochaine Battle';
   constructor() { }
-  displayed: boolean;
+  hidden = true;
+  timedBattleList = [];
+
+
 
   display(timesOut: boolean){
-    return this.displayed = timesOut;
+    return this.hidden = timesOut;
   }
+
   ngOnInit(): void {
+  this.display(this.hidden);
   }
 
 }
