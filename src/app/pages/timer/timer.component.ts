@@ -41,10 +41,10 @@ export class TimerComponent implements OnInit {
 
     selectNextBattle(){
       this.endDate = this.battleList
-      .filter(battle => (+battle.launchDate > (Date.now() - this.resolutionDelay * 3600 * 1000)))
-      .sort((a, b) => (a.launchDate) - (b.launchDate));
+      .filter(battle => (Date.parse(battle.launchDate) > (Date.now() - this.resolutionDelay * 3600 * 1000)))
+      .sort((a, b) => (Date.parse(a.launchDate)) - (Date.parse(b.launchDate)));
       // tslint:disable-next-line: max-line-length
-      return this.battleEndDate = (this.endDate[0].launchDate - 2 * 3600 * 1000) + (this.battleHour * 3600 * 1000) + (this.battleMinute * 60 * 1000);
+      return this.battleEndDate = (Date.parse(this.endDate[0].launchDate) - 2 * 3600 * 1000) + (this.battleHour * 3600 * 1000) + (this.battleMinute * 60 * 1000);
     }
 
 
@@ -60,7 +60,6 @@ export class TimerComponent implements OnInit {
           this.nextBattleTimer(this.startDate, this.battleEndDate);
           this.changeHiddenValue(this.battleEndDate);
         }, 100);
-
       }, 500);
     }
   }
