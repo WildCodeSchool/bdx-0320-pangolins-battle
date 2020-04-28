@@ -12,6 +12,7 @@ export class AlgoAdminComponent implements OnInit {
   algos: NewAlgo [] = [];
   hideEditForm: boolean;
   algoToEdit: NewAlgo;
+  editValid: boolean;
 
   constructor(private algorithmService: AlgorithmService) { }
 
@@ -25,13 +26,16 @@ export class AlgoAdminComponent implements OnInit {
     this.algos = algos);
   }
 
-
   hideForm(isHidden){
     this.hideEditForm = isHidden;
   }
 
   sendAlgo(editedAlgo){
     this.algoToEdit = editedAlgo;
+  }
+
+  changeColorCheck(isValid){
+    this.editValid = isValid;
   }
 
   updateAlgoApi(finalAlgo){
