@@ -14,7 +14,9 @@ export class BattleListComponent implements OnInit {
 
   // FORM;
   hidden = true;
-  targetedBattle: NewBattle = {name: '', launchDate: new Date(), duration: 0, level: 0};
+  hiddenButton = true;
+  targetedBattle: NewBattle = {id: 0, name: '', launchDate: new Date(), duration: 0, level: 0};
+  emptyBattle: NewBattle = {id: 0, name: '', launchDate: new Date(), duration: 0, level: 0};
 
   // TABLE with API
   battleList = [];
@@ -26,6 +28,7 @@ export class BattleListComponent implements OnInit {
 
   resetForm(form: NgForm){
     form.resetForm();
+    this.targetedBattle = this.emptyBattle;
   }
 
   ngOnInit(): void {
@@ -40,15 +43,18 @@ export class BattleListComponent implements OnInit {
     this.resetForm(battleForm);
   }
 
-  // Erreur, soit sur le server, soit dans le code, voir avec Hugo
   editBattle(clickedBattle){
     this.hidden = false;
+    this.hiddenButton = false;
     this.targetedBattle = clickedBattle;
   }
 
-  validEditBattle(clickedBattle){
+  validEditBattle(clickedBattle, battleForm){
     this.battleAPI.editBattle(clickedBattle).subscribe(() => {
         this.initializePage();
+        this.hidden = true;
+        this.hiddenButton = true;
+        this.resetForm(battleForm);
       });
     }
 
@@ -59,9 +65,9 @@ export class BattleListComponent implements OnInit {
     }
 
     displayForm(battleForm: NgForm){
+      this.hiddenButton = true;
       this.hidden = !this.hidden;
       this.resetForm(battleForm);
       this.initializePage();
   }
-
 }
