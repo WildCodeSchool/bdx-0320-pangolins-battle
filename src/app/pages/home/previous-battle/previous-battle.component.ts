@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Battle } from '../../../classes/battle';
-import { BattlesListService } from '../../shared/services/battles-list/battles-list.service';
 
 @Component({
   selector: 'btd-previous-battle',
