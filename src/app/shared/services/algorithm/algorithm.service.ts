@@ -15,7 +15,7 @@ export class AlgorithmService {
     new Algo(5, 'tu dois afficher les nombres paires [7, 6, 5, 4, 3, 2, 1]', [7, 6, 5, 4, 3, 2, 1], '[6,4,2]'),
   ];
 
-  public BASE_URL = 'http://api.witpoc.com/algos';
+  private BASE_URL = 'http://api.witpoc.com/algos';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -47,7 +47,7 @@ export class AlgorithmService {
   }
 
   editAlgo(algo: any){
-    return this.httpClient.put(this.BASE_URL + `/${algo.id.toString()}`, algo);
+    return this.httpClient.put(this.BASE_URL + `/${algo.id}`, algo);
   }
 
 }
