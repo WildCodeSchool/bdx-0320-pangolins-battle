@@ -33,10 +33,10 @@ export class AlgoAdminComponent implements OnInit {
   sendAlgo(editedAlgo){
     this.algoToEdit = editedAlgo;
   }
-  // updateApi(finalAlgo){
-  //   this.algorithmService.editAlgo(finalAlgo).subscribe(() => {
-  //     this.initializeAlgoList();
-  //   });
-  // }
 
+  updateAlgoApi(finalAlgo){
+    this.algorithmService.editAlgo(finalAlgo).subscribe(() => {
+      this.initializeAlgoList();
+    });
+  }
 }
