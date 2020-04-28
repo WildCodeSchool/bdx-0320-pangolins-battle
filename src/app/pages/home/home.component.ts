@@ -19,5 +19,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializePage();
+    setTimeout(() => {
+      console.log(this.battleList);
+    }, 200);
   }
 }

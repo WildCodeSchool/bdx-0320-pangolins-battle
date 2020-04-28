@@ -46,7 +46,6 @@ tr:last-child td:last-child {
 
 //BUTTONS
 button{
-  display: block;
   padding: 8px 40px;
   font-weight: bold;
   text-decoration: none;
@@ -57,6 +56,7 @@ button{
   letter-spacing: 1px;
   border: 3px solid #333;
   transition: all .35s;
+  margin: auto;
 }
 .newBattle{
   width: 20%;

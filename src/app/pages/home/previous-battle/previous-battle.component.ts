@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Battle } from '../../../classes/battle';
 
 @Component({
   selector: 'btd-previous-battle',
@@ -17,9 +16,9 @@ export class PreviousBattleComponent implements OnInit {
 
 ngOnInit(): void {
   setTimeout(() => {
-      this.displayedBattles = this.battleList.sort((a, b) => a.launchDate - b.launchDate)
+      this.displayedBattles = this.battleList.sort((a, b) => Date.parse(a.launchDate) - Date.parse(b.launchDate))
       // tslint:disable-next-line: max-line-length
-      .filter(battle => battle.launchDate > this.studentSession && (+battle.launchDate) < (Date.now() - ( this.resolutionDelay * 3600 * 1000)))
+      .filter(battle => Date.parse(battle.launchDate) > +this.studentSession && Date.parse(battle.launchDate) < (Date.now() - ( this.resolutionDelay * 3600 * 1000)))
       ; }, 500);
   }
 }
