@@ -5,10 +5,12 @@
   flex-wrap: nowrap;
   justify-content: space-around;
   margin: auto;
+  align-items: baseline;
 }
 
 h1{
   text-align: center;
+  margin: 20px;
 }
 
 .battleElement{
@@ -17,22 +19,48 @@ h1{
   font-size: medium;
 }
 
-button{
-  width: 30%;
-  border-color: #57d8f2;
-  color: #57d8f2;
-  border-radius: 10px;
-  margin: 5px 0px;
-  font-size: medium;
-}
-
-.battleElementHeader{
-  width: 30%;
-  font-weight: bolder;
-  font-size: medium;
-}
-
 hr{
   border: none;
-  border-bottom: 1px solid #57d8f2;
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+button{
+  margin: 10px 0px;
+  display: block;
+  padding: 8px 40px;
+  font-weight: bold;
+  text-decoration: none;
+  background: #333;
+  text-align: center;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 3px solid #333;
+  transition: all .35s;
+}
+.icon{
+  width: 50px;
+  height: 50px;
+  border: 3px solid transparent;
+  position: absolute;
+  transform: rotate(45deg);
+  right: 0;
+  top: 0;
+  z-index: -1;
+  transition: all .35s;
+}
+.icon svg{
+  width: 30px;
+  position: absolute;
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
+  transform: rotate(-45deg);
+  fill: var(--secondary-color);
+  transition: all .35s;
+}
+
+button:hover {
+  border: 3px solid var(--secondary-color);
+  right: -25%;
+  cursor: pointer;
 }

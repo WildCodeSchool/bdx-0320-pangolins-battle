@@ -21,7 +21,7 @@ ul li {
 ul li a {
   display: inline-block;
   text-decoration: none;
-  color: #57d8f2;
+  color: var(--secondary-color);
   position: relative;
   overflow: hidden;
   padding: 30px;
@@ -40,7 +40,7 @@ ul li a::after {
   transform: scaleX(0);
   bottom: 15px;
   left: 0;
-  background: #57d8f2;
+  background: var(--secondary-color);
   transition: all 0.3s ease-in-out;
 }
 

@@ -1,19 +1,105 @@
 h1 {
   text-align: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-variant: small-caps;
+  font-size: 30px;
+}
+h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  letter-spacing: 3px;
+}
+.pango-ring-top {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .primal-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 80px;
-  margin-bottom: 60px;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
-button{
-  background-color: #57d8f2;
-  color: white;
-  font-size: large;
+body{
+  font-family: 'Lato', sans-serif;
+}
+// Next & Previous buttons
+.previous-next-algo-container{
+  display:flex;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.wrapper-next .test a, .wrapper-previous .test a{
+  display: block;
+  width: 250px;
+  height: 50px;
+  line-height: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  background: #333;
   text-align: center;
-  border-radius: 20px;
-  margin: 20px 0px;
-  padding: 10px 20px;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 3px solid #333;
+  transition: all .35s;
+}
+.icon-next{
+  width: 50px;
+  height: 50px;
+  border: 3px solid transparent;
+  transform: rotate(45deg);
+  right: 0;
+  top: 0;
+  z-index: -1;
+  transition: all .35s;
+}
+.icon-previous{
+  width: 50px;
+  height: 50px;
+  border: 3px solid transparent;
+  transform: rotate(45deg);
+  left: 0;
+  top: 0;
+  z-index: -1;
+  transition: all .35s;
+}
+.icon-next svg, .icon-previous svg{
+  width: 30px;
+  position: absolute;
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
+  transform: rotate(-45deg);
+}
+.icon-previous svg{
+  transform: rotate(135deg);
+}
+.wrapper-next .test a:hover, .wrapper-previous .test a:hover{
+  width: 200px;
+  border: 3px solid var(--secondary-color);
+  background: transparent;
+  color: var(--secondary-color);
+}
+.wrapper-next .test a:hover + .icon-next, .wrapper-previous .test a:hover + .icon-previous{
+  border: 3px solid var(--secondary-color);
+  right: -25%;
+  fill: var(--secondary-color);
+}
+.wrapper-previous .test a:hover + .icon-previous{
+  left: -25%
+}
+.wrapper-previous:hover .test:hover .icon-previous{
+  border: 3px solid var(--secondary-color);
+  fill: var(--secondary-color);
+}
+.test{
+  display: flex;
+  fill: transparent;
+}
+a {
+  cursor: pointer;
 }

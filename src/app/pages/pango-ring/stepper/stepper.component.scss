@@ -1,5 +1,6 @@
 body .ui-steps .ui-steps-item.ui-state-highlight .ui-steps-number {
-  background: #57d8f2;
+  background: var(--secondary-color);
+  color: black;
 };
 .ui-steps .ui-steps-item {
   width: 20%;
@@ -8,5 +9,5 @@ body .ui-steps .ui-steps-item .ui-menuitem-link:focus {
   box-shadow: none;
 };
 .ui-state-complete .ui-steps-number{
-  background-color: #57d8f2 !important;
+  background-color: var(--secondary-color) !important;
 }

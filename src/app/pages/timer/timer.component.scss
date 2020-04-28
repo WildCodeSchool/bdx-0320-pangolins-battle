@@ -6,18 +6,51 @@
 
 .timerForm{
   border-radius: 50%;
-  // background-color: #57d8f2;
-  // color: white;
-  border: 1px solid #57d8f2;
   background-color: none;
-  color: #57d8f2;
+  color: var(--secondary-color);
   font-weight: bold;
-  margin: 5px;
-  width: 60px;
-  height: 60px;
+  margin: 20px;
+  width:  75px;
+  height: 75px;
   text-align: center;
   display: flex;
   flex-direction: column;
+}
+
+.days{
+  border: 1px solid #449EDB;
+  color: #449EDB
+}
+
+.hours{
+  border: 1px solid var(--secondary-color);
+  color: var(--secondary-color)
+}
+
+.minutes{
+  border: 1px solid #44DBD0;
+  color: #44DBD0
+}
+
+.seconds{
+  border: 1px solid #4AA889;
+  color: #4AA889
+}
+
+.days:hover{
+  background-color: #449EDB;
+}
+
+.hours:hover{
+  background-color: var(--secondary-color);
+}
+
+.minutes:hover{
+  background-color: #44DBD0;
+}
+
+.seconds:hover{
+  background-color: #4AA889;
 }
 
 .label{
@@ -26,8 +59,13 @@
 }
 
 .timerElement{
-  margin-top: 10px;
+  margin-top: 15px;
   margin-left: auto;
   margin-right: auto;
   font-size: large;
+  transition: all .2s ease-in-out;
+}
+.timerForm:hover {
+  color: black;
+  cursor: default;
 }

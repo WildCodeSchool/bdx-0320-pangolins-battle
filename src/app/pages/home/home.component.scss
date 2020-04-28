@@ -9,6 +9,11 @@
 
 .card{
   width: 40%;
-  border-radius: 10px;
-  border: 1px solid #57d8f2;
+}
+
+.line{
+  height: 200px;
+  width: 1px;
+  border: 1px solid grey;
+  margin: auto 20px;
 }
