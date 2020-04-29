@@ -1,6 +1,5 @@
 <form [hidden]="!isHidden" class="createAlgo" (ngSubmit)= 'algoForm.valid && dataFormToParent()' #algoForm="ngForm">
   <div class="formButtonLevel">
-    <p>ID number :{{editedAlgo.id}}</p>
     <p>Niveau de difficulté :</p>
     <div>
       <input type="radio" id="1" name="level" value="1" [(ngModel)]='editedAlgo.level'>
