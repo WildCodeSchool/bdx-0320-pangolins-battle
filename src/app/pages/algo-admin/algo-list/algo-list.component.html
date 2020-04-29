@@ -2,16 +2,24 @@
   <table>
     <thead>
       <tr>
-        <th colspan="3">Nom de la battle</th>
+        <th>Numéro algo</th>
+        <th>Level</th>
+        <th>Modifié par</th>
+        <th>Date de modification</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let algo of algoList; index as i">
-        <td>Algorithme {{i}}</td>
+        <td>{{i+1}}</td>
+        <td>{{algo.level}}</td>
         <td>{{algo.solution}}</td>
+        <td>{{algo.instructions}}</td>
         <td>
           <img (click)='editAlgo(algo)' class="img-space hover-img" src="https://image.flaticon.com/icons/png/512/84/84380.png">
-          <img class="img-checked" src="assets/images/checked.svg"></td>
+          <img *ngIf="!changeImgChecked(algo)" class="img-checked" [src]="pathImgChecked">
+          <img *ngIf="changeImgChecked(algo)" [src]="pathImgCheckedGreen">
+        </td>
       </tr>
     </tbody>
   </table>

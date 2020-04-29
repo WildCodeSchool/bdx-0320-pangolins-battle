@@ -16,12 +16,17 @@ export class AlgoListComponent implements OnInit {
 
   @Output() sendEditedAlgo = new EventEmitter();
 
+  @Input() changeCheck: boolean;
+
   editedAlgo: NewAlgo;
   isHidden = false;
+  pathImgChecked = 'assets/images/checked.svg';
+  pathImgCheckedGreen = 'assets/images/checkedGreen.svg';
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
   displayForm(){
@@ -35,5 +40,8 @@ export class AlgoListComponent implements OnInit {
     this.sendEditedAlgo.emit(this.editedAlgo);
 
   }
-
+  changeImgChecked(algo){
+    // Attention remplacer title par level dès que Hugo aura mis à jour l'API !
+    return (algo.title > 0 && algo.instructions != null && algo.solution != null);
+  }
 }
