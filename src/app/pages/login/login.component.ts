@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
 // De simplifier les écritures des fonctions. C'est uniquement à des fins pratiques et de simplicité. Ca ne change pas les features.
     this.route.paramMap.subscribe((param) => {
           const token = param.get('token');
-          console.log(token);
 
           this.userService.setToken(token);
 
