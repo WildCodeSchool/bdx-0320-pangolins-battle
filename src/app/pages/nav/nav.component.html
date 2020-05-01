@@ -4,8 +4,8 @@
   </div>
   <div>
     <ul>
-      <li><a routerLink=''>Accueil</a><li>
-      <li><a routerLink='/pango-ring/1'>Le Pango-Ring</a></li>
+      <li><a routerLink='home'>Accueil</a><li>
+      <button [disabled] = "unclickable"><li><a (timerOut)= "display($event)" routerLink='/pango-ring/1'>Le Pango-Ring</a></li></button>
       <li><a routerLink='/admin'>Admin</a></li>
       <li><a routerLink='/about'>A propos</a></li>
     </ul>

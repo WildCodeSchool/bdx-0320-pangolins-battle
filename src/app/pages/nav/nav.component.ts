@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
+  unclickable = true;
 
   constructor() { }
 
-  ngOnInit(): void {
+  display(timesOut: boolean){
+    return this.unclickable = timesOut;
   }
-
+  ngOnInit(): void {
+    this.display(this.unclickable);
+  }
 }

@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Bienvenue sur <span class="h1-style">BattleDev</span></h1>
+  <h2>Votre prochaine Battle débute dans </h2>
+  <div class="timer">
+    <btd-timer (timerOut)= "display($event)"></btd-timer>
+  </div>
+  <button>
+    <a  href="https://api.witpoc.com/oauth/odyssey">Se connecter avec <span class="odyssey">Odyssey</span></a>
+  </button>
+</div>
+
+<div *ngIf="user" class="user-container">
+Bienvenue {{user.firstname}} {{user.lastname}} !
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <img *ngIf="user" src="https://avatars.githubusercontent.com/https://github.com/{{user.github}}?s=460"/>
+{{user.github}}
+{{user.lastname}}
+{{user.firstname}}
+
+ -->

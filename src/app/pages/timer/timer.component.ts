@@ -1,5 +1,4 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { BattlesListService } from 'src/app/shared/services/battles-list/battles-list.service';
 
 @Component({
   selector: 'btd-timer',
