@@ -4,12 +4,12 @@
   <div class="timer">
     <btd-timer (timerOut)= "display($event)"></btd-timer>
   </div>
-  <button>
+  <button *ngIf="!user">
     <a  href="https://api.witpoc.com/oauth/odyssey">Se connecter avec <span class="odyssey">Odyssey</span></a>
   </button>
-  <div *ngIf="user" class="container-bottom">
-    Bienvenue <h3>{{user.firstname}} !</h3>
-    <button [routerLink]="['/profil']">Accéder à mon profil</button>
+  <div *ngIf="user" class="user-container">
+    <p> Bienvenue {{user.firstname}} !</p>
+    <button class="button-go-to-battles" [routerLink]="['/home']">Accéder aux Battles</button>
   </div>
 </div>
 
