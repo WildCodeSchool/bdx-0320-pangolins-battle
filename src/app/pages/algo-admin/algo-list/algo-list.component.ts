@@ -41,7 +41,6 @@ export class AlgoListComponent implements OnInit {
 
   }
   changeImgChecked(algo){
-    // Attention remplacer title par level dès que Hugo aura mis à jour l'API !
-    return (algo.title > 0 && algo.instructions != null && algo.solution != null);
+    return (algo.level > 0 && algo.instructions != null && algo.solution != null);
   }
 }
