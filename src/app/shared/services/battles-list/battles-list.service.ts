@@ -11,6 +11,7 @@ export class BattlesListService {
   constructor(private http: HttpClient) { }
 
   urlBattleRequest = 'http://api.witpoc.com/battles';
+  urlOneBattle = 'http://api.witpoc.com/algos/battle';
 
   getAllBattles(): Observable <IBattle[]>{
     return this.http.get<IBattle[]>(this.urlBattleRequest);
@@ -26,5 +27,8 @@ export class BattlesListService {
 
   deleteBattle(battle: any){
     return this.http.delete(this.urlBattleRequest + `/${battle.id}`, battle);
+  }
+  getOneBattle(id){
+    return this.http.get(this.urlOneBattle + `/${id}`);
   }
 }
