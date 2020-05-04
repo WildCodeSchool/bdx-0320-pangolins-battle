@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BattlesListService } from 'src/app/shared/services/battles-list/battles-list.service';
+import { UserService } from 'src/app/shared/services/user/user.service';
+import { User } from 'src/app/classes/user';
 
 @Component({
   selector: 'btd-home',
@@ -8,9 +10,10 @@ import { BattlesListService } from 'src/app/shared/services/battles-list/battles
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private battleAPI: BattlesListService) { }
-
+  user: User;
   battleList = [];
+
+  constructor(private battleAPI: BattlesListService, private userService: UserService) { }
 
   initializePage(){
     this.battleAPI.getAllBattles()
@@ -18,6 +21,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.user = this.userService.user;
     this.initializePage();
   }
 }
