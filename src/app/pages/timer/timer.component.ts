@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input, OnChanges } from '@angular/core';
 
+
 @Component({
   selector: 'btd-timer',
   templateUrl: './timer.component.html',

@@ -1,5 +1,10 @@
 <btd-loader></btd-loader>
-<btd-nav></btd-nav>
+<div *ngIf="displayNavAndFooter">
+  <btd-nav></btd-nav>
+</div>
 <div><router-outlet></router-outlet></div>
-<btd-footer></btd-footer>
+<div *ngIf="displayNavAndFooter">
+  <btd-footer></btd-footer>
+</div>
+
 
