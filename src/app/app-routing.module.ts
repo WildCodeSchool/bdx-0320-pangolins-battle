@@ -14,8 +14,8 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'pango-ring/:id', component: PangoRingComponent},
   {path: 'admin', component: AdminComponent},
-  {path: 'admin-algo', component: AlgoAdminComponent},
   {path: 'profil', component: ProfilComponent},
+  {path: 'admin-algo/:id', component: AlgoAdminComponent},
   {path: 'about', component: AboutComponent},
   {path: 'auth/:token', component: LoginComponent},
 ];

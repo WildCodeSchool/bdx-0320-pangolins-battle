@@ -13,7 +13,7 @@
       <tr *ngFor="let battle of battleList">
           <td>{{battle.name}}</td>
           <td>{{battle.launchDate | date:"dd/MM/yyyy"}}</td>
-          <td><button [routerLink]="['/admin-algo']">Algo list</button></td>
+          <td><button [routerLink]="['/admin-algo', battle.id]">Algo list</button></td>
           <td><button (click)="editBattle(battle)">Edit</button></td>
           <td><button (click)="deleteBattle(battle)">Supprimer</button></td>
       </tr>
