@@ -39,8 +39,8 @@
       </div>
     </div>
     <div class="formButtonContainer">
-      <button class="formButton" id="submit" type="submit">Valider</button>
-      <button class="formButton" id="submitEdit" type="button" (click)="validEditBattle(targetedBattle)">Valider Edit</button>
+      <button [hidden]="!hiddenButton" class="formButton" id="submit" type="submit">Valider</button>
+      <button [hidden]="hiddenButton" class="formButton" id="submitEdit" type="button" (click)="validEditBattle(targetedBattle, battleForm)">Valider Edit</button>
       <button class="formButton"  type="reset" (click)="displayForm(battleForm)">Annuler</button>
     </div>
   </form>

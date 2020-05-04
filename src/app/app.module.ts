@@ -27,8 +27,15 @@ import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { AlgoFormComponent } from './pages/algo-admin/algo-form/algo-form.component';
 registerLocaleData(localeFr, 'fr');
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AboutComponent } from './pages/about/about.component';
+import { LoaderComponent } from './shared/component/loader/loader.component';
+import { LoaderService } from './shared/services/loader/loader.service';
+import { LoaderInterceptor } from './shared/component/loader-interceptor';
+import { LoginComponent } from './pages/login/login.component';
+import { ProfilComponent } from './pages/profil/profil.component';
+
+
 
 
 @NgModule({
@@ -49,7 +56,10 @@ import { AboutComponent } from './pages/about/about.component';
     AlgoAdminComponent,
     AlgoListComponent,
     AlgoFormComponent,
-    AboutComponent
+    AboutComponent,
+    LoaderComponent,
+    LoginComponent,
+    ProfilComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +72,10 @@ import { AboutComponent } from './pages/about/about.component';
     InputTextareaModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    LoaderService,
+    {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true}
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
