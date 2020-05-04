@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NewAlgo } from '../../../classes/new-algo';
+
 
 
 @Component({
@@ -11,18 +12,36 @@ export class AlgoListComponent implements OnInit {
 
   @Input() algoList: NewAlgo [];
 
-  // algoList: string[] = ['Algorithme 1', 'Algorithme 2', 'Algorithme 3', 'Algorithme 4', 'Algorithme 5'];
+  @Output() hideForm = new EventEmitter();
 
-  display = true;
+  @Output() sendEditedAlgo = new EventEmitter();
+
+  @Input() changeCheck: boolean;
+
+  editedAlgo: NewAlgo;
+  isHidden = false;
+  pathImgChecked = 'assets/images/checked.svg';
+  pathImgCheckedGreen = 'assets/images/checkedGreen.svg';
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
   displayForm(){
-    this.display = !this.display;
+    this.isHidden = !this.isHidden;
   }
 
+  editAlgo(targetedAlgo){
+    this.editedAlgo = targetedAlgo;
+    this.displayForm();
+    this.hideForm.emit(this.isHidden);
+    this.sendEditedAlgo.emit(this.editedAlgo);
 
+  }
+  changeImgChecked(algo){
+    // Attention remplacer title par level dès que Hugo aura mis à jour l'API !
+    return (algo.title > 0 && algo.instructions != null && algo.solution != null);
+  }
 }

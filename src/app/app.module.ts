@@ -25,7 +25,7 @@ import { AlgoAdminComponent } from './pages/algo-admin/algo-admin.component';
 import { AlgoListComponent } from './pages/algo-admin/algo-list/algo-list.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
-import { AlgoFormComponent } from './pages/algo-admin/algo-list/algo-form/algo-form.component';
+import { AlgoFormComponent } from './pages/algo-admin/algo-form/algo-form.component';
 registerLocaleData(localeFr, 'fr');
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AboutComponent } from './pages/about/about.component';

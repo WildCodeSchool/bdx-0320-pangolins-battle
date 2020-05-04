@@ -1,2 +1,3 @@
-<btd-algo-list [algoList]='algos'></btd-algo-list>
+<btd-algo-list [algoList]='algos' [changeCheck]='editValid' (hideForm)="hideForm($event)" (sendEditedAlgo)="sendAlgo($event)"></btd-algo-list>
+<btd-algo-form [isHidden]="hideEditForm" [editedAlgo]="algoToEdit" (changedAlgo)="updateAlgoApi($event)" (editValid)="changeColorCheck($event)"></btd-algo-form>
 

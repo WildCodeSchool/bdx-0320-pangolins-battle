@@ -46,4 +46,8 @@ export class AlgorithmService {
     return this.httpClient.get<object>(this.BASE_URL);
   }
 
+  editAlgo(algo: any){
+    return this.httpClient.put(this.BASE_URL + `/${algo.id}`, algo);
+  }
+
 }
