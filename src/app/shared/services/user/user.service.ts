@@ -11,11 +11,11 @@ export class UserService {
   private static BASE_URL = 'https://api.witpoc.com/users';
 
   token: string;
-  user: User;
+  user: any;
 // rebd le token disponible sans avoir à le passer en paramètres à chaque fois que je
 // souhaite m'en servir.
   setToken(token: string) {
-    this.token = token;
+    localStorage.setItem('userToken', token);
   }
   // Pour que ma requête HTTP fonctionne avec le token, je dois ajouter à ce dernier
   // un "header". "head" pour "tête". C'est comme si j'ajoutais un bonnet sur ma tête.
