@@ -7,16 +7,17 @@ import { AlgoAdminComponent } from './pages/algo-admin/algo-admin.component';
 import { AboutComponent } from './pages/about/about.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfilComponent } from './pages/profil/profil.component';
+import { AuthGuard } from './shared/guard/auth.guard';
 
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'pango-ring/:id', component: PangoRingComponent},
-  {path: 'admin', component: AdminComponent},
-  {path: 'profil', component: ProfilComponent},
-  {path: 'admin-algo/:id', component: AlgoAdminComponent},
-  {path: 'about', component: AboutComponent},
+  {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: 'pango-ring/:id', component: PangoRingComponent, canActivate: [AuthGuard]},
+  {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
+  {path: 'admin-algo', component: AlgoAdminComponent, canActivate: [AuthGuard]},
+  {path: 'profil', component: ProfilComponent, canActivate: [AuthGuard]},
+  {path: 'about', component: AboutComponent, canActivate: [AuthGuard]},
   {path: 'auth/:token', component: LoginComponent},
 ];
 
