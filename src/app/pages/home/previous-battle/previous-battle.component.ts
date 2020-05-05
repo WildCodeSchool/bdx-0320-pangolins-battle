@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { UserService } from '../../../shared/services/user/user.service';
 
 @Component({
   selector: 'btd-previous-battle',
@@ -6,11 +7,11 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
   styleUrls: ['./previous-battle.component.scss']
 })
 export class PreviousBattleComponent implements OnInit,  OnChanges {
-  constructor() { }
+  constructor(private userService: UserService) { }
   @Input() battleList: any[];
 
   displayedBattles = [];
-
+  user;
   // studentSession sera alimenté via un input liée au profil de l'user
   studentSession = new Date('02/03/2020');
   resolutionDelay = 24; // en heures
@@ -21,6 +22,11 @@ export class PreviousBattleComponent implements OnInit,  OnChanges {
     .filter(battle => Date.parse(battle.launchDate) > +this.studentSession && Date.parse(battle.launchDate) < (Date.now() - ( this.resolutionDelay * 3600 * 1000)));
   }
 
+  getUser(){
+    this.user = this.userService.getCurrentUser();
+    console.log(this.user);
+  }
+
   ngOnChanges(){
     this.displayPreviousBattle(this.battleList);
   }
@@ -28,5 +34,6 @@ export class PreviousBattleComponent implements OnInit,  OnChanges {
 
   ngOnInit(): void {
     this.displayPreviousBattle(this.battleList);
+    this.getUser();
   }
 }
