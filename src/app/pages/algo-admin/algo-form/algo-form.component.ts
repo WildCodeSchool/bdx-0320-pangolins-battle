@@ -8,7 +8,7 @@ import { NewAlgo } from '../../../classes/new-algo';
 })
 export class AlgoFormComponent implements OnInit {
 
-  display = true;
+  hidden = true;
   algos: NewAlgo [] = [];
   finalAlgo = {};
   isValid = true;
@@ -26,21 +26,21 @@ export class AlgoFormComponent implements OnInit {
   ngOnInit(): void {
     this.editedAlgo = {id: 0, level: 0, instructions: '', skeleton: '', solution: ''};
   }
-
   displayForm(){
-    this.display = this.isHidden;
+    this.hidden = !this.hidden;
   }
 
+
   dataFormToParent(){
-    // Manque le level dans l'API + Title inutile + Manque skeleton
     this.finalAlgo = {
       id: this.editedAlgo.id,
-      title: this.editedAlgo.level,
+      level: this.editedAlgo.level,
       solution: this.editedAlgo.solution,
+      skeleton: this.editedAlgo.skeleton,
       instructions: this.editedAlgo.instructions};
     this.changedAlgo.emit(this.finalAlgo);
     this.editValid.emit(this.isValid);
     console.log(this.finalAlgo);
-    this.displayForm(); // fonctionne pas ?
+    this.displayForm();
   }
 }

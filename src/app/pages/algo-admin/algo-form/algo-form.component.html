@@ -1,4 +1,4 @@
-<form [hidden]="!isHidden" class="createAlgo" (ngSubmit)= 'algoForm.valid && dataFormToParent()' #algoForm="ngForm">
+<form [hidden]="!isHidden" [hidden] = "hidden" class="createAlgo" (ngSubmit)= 'algoForm.valid && dataFormToParent()' #algoForm="ngForm">
   <div class="formButtonLevel">
     <p>Niveau de difficulté :</p>
     <div>
