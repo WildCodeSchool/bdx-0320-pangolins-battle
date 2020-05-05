@@ -2,28 +2,9 @@
   <h1>Bienvenue sur <span class="h1-style">BattleDev</span></h1>
   <h2>Votre prochaine Battle débute dans </h2>
   <div class="timer">
-    <btd-timer (timerOut)= "display($event)"></btd-timer>
+    <btd-timer (timerOut)= "display($event)" [battleList]="battleList"></btd-timer>
   </div>
   <button *ngIf="!user">
-    <a  href="https://api.witpoc.com/oauth/odyssey">Se connecter avec <span class="odyssey">Odyssey</span></a>
+    <a href="https://api.witpoc.com/oauth/odyssey">Se connecter avec <span class="odyssey">Odyssey</span></a>
   </button>
-  <div *ngIf="user" class="user-container">
-    <p> Bienvenue {{user.firstname}} !</p>
-    <button class="button-go-to-battles" [routerLink]="['/home']">Accéder aux Battles</button>
-  </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

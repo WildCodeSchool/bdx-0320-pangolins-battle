@@ -7,7 +7,7 @@
       <li><a routerLink='home'>Accueil</a><li>
       <button [disabled] = "unclickable"><li><a (timerOut)= "display($event)" routerLink='/pango-ring/1'>Le Pango-Ring</a></li></button>
       <li *ngIf="admin"><a routerLink='/admin'>Admin</a></li>
-      <li *ngIf="admin"><a routerLink='/profil'>Mon profil</a></li>
+      <li *ngIf="!admin"><a routerLink='/profil'>Mon profil</a></li>
       <li><a routerLink='/about'>A propos</a></li>
     </ul>
   </div>

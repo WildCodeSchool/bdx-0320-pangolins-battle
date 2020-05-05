@@ -1,4 +1,4 @@
-.container, .user-container{
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,10 +6,7 @@
   flex-direction: column;
   width: 50%;
   margin: auto;
-  margin-top: 50px;
-  .user-container {
-    margin: 0px 0px 0px 0px;
-  }
+  margin-top: 170px;
 }
 h1, h2{
   margin: 20px;
@@ -61,16 +58,5 @@ a {
   color:var(--secondary-color);
   &:hover {
     color:var(--secondary-color);
-  }
-}
-.button-go-to-battles {
-  width: 300px;
-  border: 3px solid var(--secondary-color);
-  background: transparent;
-  color: var(--secondary-color);
-  cursor: pointer;
-  &:hover {
-    width: 270px;
-    transform: scale(0.95);
   }
 }

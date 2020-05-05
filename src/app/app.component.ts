@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -12,17 +12,8 @@ export class AppComponent {
   title = 'battledev';
   date1: Date;
   displayNavAndFooter = true;
-  constructor(private route: ActivatedRoute) {}
-
-/*   isNavAndFooterDisplayed() {
-  const emptyPath = this.route.paramMap.subscribe((param) => {
-    (JSON.stringify(param.get('')));
-  });
-  if (emptyPath === '') {
-    this.displayNavAndFooter = false;
-  } else {
-    this.displayNavAndFooter = true;
-
+  router: Router;
+  constructor(private _router: Router) {
+    this.router = _router;
   }
-} */
 }

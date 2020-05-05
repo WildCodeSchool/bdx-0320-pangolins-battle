@@ -18,6 +18,8 @@ export class NavComponent implements OnInit {
     return this.unclickable = timesOut;
   }
   ngOnInit(): void {
+    this.user = this.userService.user;
+    console.log(this.user);
     this.display(this.unclickable);
   }
 
