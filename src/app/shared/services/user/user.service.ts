@@ -12,7 +12,7 @@ export class UserService {
     this.token = localStorage.getItem(UserService.TOKEN);
    }
   private static BASE_URL = 'https://api.witpoc.com/users';
-  private static TOKEN = 'userToken'
+  private static TOKEN = 'userToken';
   token: string;
   user: any;
 

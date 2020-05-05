@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AlgorithmService } from '../../shared/services/algorithm/algorithm.service';
 import { NewAlgo } from '../../classes/new-algo';
+import { BattlesListService } from '../../shared/services/battles-list/battles-list.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'btd-algo-admin',
@@ -9,21 +11,24 @@ import { NewAlgo } from '../../classes/new-algo';
 })
 export class AlgoAdminComponent implements OnInit {
 
-  algos: NewAlgo [] = [];
+  algos: any;
   hideEditForm: boolean;
   algoToEdit: NewAlgo;
   editValid: boolean;
+  id: number;
 
-  constructor(private algorithmService: AlgorithmService) { }
+  constructor(private route: ActivatedRoute, private algorithmService: AlgorithmService, private serviceBattle: BattlesListService) { }
 
   ngOnInit(): void {
-    this.initializeAlgoList();
+    this.id = this.route.snapshot.params.id;
+    this.getAlgosOneBattle();
   }
 
-  initializeAlgoList(){
-    const algos$ = this.algorithmService.getAllAlgo();
-    algos$.subscribe((algos: NewAlgo[]) =>
-    this.algos = algos);
+  getAlgosOneBattle(){
+    this.serviceBattle.getOneBattle(this.id).subscribe(algos =>
+      {
+        this.algos = algos;
+      });
   }
 
   hideForm(isHidden){
@@ -40,7 +45,7 @@ export class AlgoAdminComponent implements OnInit {
 
   updateAlgoApi(finalAlgo){
     this.algorithmService.editAlgo(finalAlgo).subscribe(() => {
-      this.initializeAlgoList();
+      this.getAlgosOneBattle();
     });
   }
 }

@@ -28,6 +28,7 @@ export class BattlesListService {
   deleteBattle(battle: any){
     return this.http.delete(this.urlBattleRequest + `/${battle.id}`, battle);
   }
+
   getOneBattle(id){
     return this.http.get(this.urlOneBattle + `/${id}`);
   }
