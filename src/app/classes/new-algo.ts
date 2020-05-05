@@ -4,6 +4,7 @@ export class NewAlgo{
   public instructions: string;
   public skeleton: string;
   public solution: string;
+  public modifyDate: Date;
   constructor(
   ) {}
 }

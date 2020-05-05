@@ -13,8 +13,8 @@
       <tr *ngFor="let algo of algoList; index as i">
         <td>{{i+1}}</td>
         <td>{{algo.level}}</td>
-        <td>{{algo.solution}}</td>
-        <td>{{algo.instructions}}</td>
+        <td></td>
+        <td>{{algo.modifyDate | date:"dd/MM/yyyy"}}</td>
         <td>
           <img (click)='editAlgo(algo)' class="img-space hover-img" src="https://image.flaticon.com/icons/png/512/84/84380.png">
           <img *ngIf="!changeImgChecked(algo)" class="img-checked" [src]="pathImgChecked">
