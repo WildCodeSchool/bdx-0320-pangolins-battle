@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
   timesOut = true;
 
   battleList = [];
+
+  // tslint:disable-next-line: max-line-length
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private battleAPI: BattlesListService) { }
 
   initializePage(){
