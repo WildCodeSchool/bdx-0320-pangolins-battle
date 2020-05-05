@@ -1,10 +1,6 @@
 <btd-loader></btd-loader>
-<div *ngIf="displayNavAndFooter">
-  <btd-nav></btd-nav>
-</div>
+<div *ngIf= "router.url != '/' "><btd-nav ></btd-nav></div>
 <div><router-outlet></router-outlet></div>
-<div *ngIf="displayNavAndFooter">
-  <btd-footer></btd-footer>
-</div>
+<div *ngIf= "router.url != '/' "><btd-footer></btd-footer></div>
 
 
