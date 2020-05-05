@@ -34,7 +34,7 @@ import { LoaderService } from './shared/services/loader/loader.service';
 import { LoaderInterceptor } from './shared/component/loader-interceptor';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfilComponent } from './pages/profil/profil.component';
-import { TokenInterceptor } from './shared/services/token-interceptor/token-interceptor.service';
+import { TokenInterceptorService } from './shared/services/token-interceptor/token-interceptor.service';
 
 
 
@@ -76,7 +76,7 @@ import { TokenInterceptor } from './shared/services/token-interceptor/token-inte
   providers: [
     LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true },
 ],
   bootstrap: [AppComponent]
 })

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/shared/services/user/user.service';
 import { User } from 'src/app/classes/user';
+import { BattlesListService } from '../../shared/services/battles-list/battles-list.service';
 
 @Component({
   selector: 'btd-login',
@@ -12,13 +13,21 @@ export class LoginComponent implements OnInit {
   hidden = true;
   user: User;
   timesOut = true;
-  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) { }
+
+  battleList = [];
+  constructor(private route: ActivatedRoute, private userService: UserService, private battleAPI: BattlesListService) { }
+
+  initializePage(){
+    this.battleAPI.getAllBattles()
+    .subscribe(data => this.battleList = data);
+  }
 
   display(timesOut: boolean){
     return this.hidden = timesOut;
   }
 
   ngOnInit(): void {
+    this.initializePage();
     this.display(this.hidden);
 
     this.route.paramMap.subscribe((param) => {
