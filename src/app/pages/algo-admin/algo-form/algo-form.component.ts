@@ -11,15 +11,12 @@ export class AlgoFormComponent implements OnInit {
   hidden = true;
   algos: NewAlgo [] = [];
   finalAlgo = {};
-  isValid = true;
 
   @Input() isHidden;
 
   @Input() editedAlgo;
 
   @Output() changedAlgo = new EventEmitter();
-
-  @Output() editValid = new EventEmitter();
 
   constructor() { }
 
@@ -30,7 +27,6 @@ export class AlgoFormComponent implements OnInit {
     this.hidden = !this.hidden;
   }
 
-
   dataFormToParent(){
     this.finalAlgo = {
       id: this.editedAlgo.id,
@@ -39,7 +35,6 @@ export class AlgoFormComponent implements OnInit {
       skeleton: this.editedAlgo.skeleton,
       instructions: this.editedAlgo.instructions};
     this.changedAlgo.emit(this.finalAlgo);
-    this.editValid.emit(this.isValid);
     console.log(this.finalAlgo);
     this.displayForm();
   }

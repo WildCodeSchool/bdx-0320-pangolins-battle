@@ -14,7 +14,6 @@ export class AlgoAdminComponent implements OnInit {
   algos: any;
   hideEditForm: boolean;
   algoToEdit: NewAlgo;
-  editValid: boolean;
   id: number;
 
   constructor(private route: ActivatedRoute, private algorithmService: AlgorithmService, private serviceBattle: BattlesListService) { }
@@ -37,10 +36,6 @@ export class AlgoAdminComponent implements OnInit {
 
   sendAlgo(editedAlgo){
     this.algoToEdit = editedAlgo;
-  }
-
-  changeColorCheck(isValid){
-    this.editValid = isValid;
   }
 
   updateAlgoApi(finalAlgo){
