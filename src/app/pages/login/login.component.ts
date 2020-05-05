@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   timesOut = true;
 
   battleList = [];
-  constructor(private route: ActivatedRoute, private userService: UserService, private battleAPI: BattlesListService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private battleAPI: BattlesListService) { }
 
   initializePage(){
     this.battleAPI.getAllBattles()
