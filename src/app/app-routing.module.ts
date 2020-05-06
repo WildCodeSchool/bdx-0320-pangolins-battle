@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'pango-ring/:id', component: PangoRingComponent, canActivate: [AuthGuard]},
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
-  {path: 'admin-algo', component: AlgoAdminComponent, canActivate: [AuthGuard]},
+  {path: 'admin-algo/:id', component: AlgoAdminComponent, canActivate: [AuthGuard]},
   {path: 'profil', component: ProfilComponent, canActivate: [AuthGuard]},
   {path: 'about', component: AboutComponent, canActivate: [AuthGuard]},
   {path: 'auth/:token', component: LoginComponent},

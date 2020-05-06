@@ -1,6 +1,6 @@
 //IMG
 img{
-  height: 30px;
+  height: 40px;
   width: 30px;
   opacity: 0.6;
 }
@@ -13,14 +13,6 @@ button{
   border-radius: 10px;
 }
 
-.newBattle{
-  width: 20%;
-  font-size: x-large;
-  margin: 10px auto;
-  font-weight: bolder;
-  color: var(--secondary-color);
-}
-
 //FORM
 .createAlgo{
   width: 60%;
@@ -28,18 +20,19 @@ button{
   border: 1px solid grey;
   border-radius: 6px;
 }
+
 .formButtonLevel{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 10px;
+  margin: 10px 10px 0px 10px;
   width: 50%;
 }
 
 .formContainer{
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: baseline;
   margin: 10px auto;
 }
 
@@ -55,6 +48,7 @@ button{
   justify-content: center;
   margin:20px;
 }
+
 textarea{
   resize: none;
 }
@@ -67,14 +61,24 @@ textarea{
 input[type=radio] {
   display: none;
 }
+
 input[type=radio]:checked + label > img {
   border-radius: 4px;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   opacity: 1;
 }
+
 .hover-img:hover {
   opacity:1;
   cursor: pointer;
+}
+
+.label{
+  margin-bottom: 5px;
+}
+
+.levelError{
+  margin-left : 10px;
 }
 
 .errorMessage{

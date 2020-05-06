@@ -16,8 +16,6 @@ export class AlgoListComponent implements OnInit {
 
   @Output() sendEditedAlgo = new EventEmitter();
 
-  @Input() changeCheck: boolean;
-
   editedAlgo: NewAlgo;
   isHidden = false;
   pathImgChecked = 'assets/images/checked.svg';
