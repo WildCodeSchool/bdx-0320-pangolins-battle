@@ -11,7 +11,7 @@ import { Algo } from '../../../classes/algo-list';
 export class InstructionsComponent implements OnInit {
 
 
-  @Input() algorithm: Algo;
+  @Input() algorithm;
 
 
   constructor() { }
