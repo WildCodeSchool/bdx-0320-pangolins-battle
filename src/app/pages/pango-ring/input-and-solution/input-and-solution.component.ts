@@ -8,7 +8,7 @@ import { Algo } from '../../../classes/algo-list';
 })
 export class InputAndSolutionComponent implements OnInit {
 
-  @Input() algorithm: Algo;
+  @Input() algorithm;
 
   newSolution: string;
 
@@ -21,12 +21,14 @@ export class InputAndSolutionComponent implements OnInit {
   }
   checkAndUpdateAlgo() {
     const solutionFunction = eval(this.newSolution);
-    const result = solutionFunction(this.algorithm.inputs);
+
+    // Temporairement on utilise "skeleton" à la place de input
+    const result = solutionFunction(this.algorithm.skeleton);
+    // const result = solutionFunction(this.algorithm.inputs);
     const isValid = this.algorithm.solution === JSON.stringify(result);
 
     if (isValid) {
       this.algorithm.isCompleted = isValid;
-      console.log(isValid);
 
     } else {
       // TODO faire quelque chose quand pas bon

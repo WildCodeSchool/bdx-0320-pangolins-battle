@@ -1,6 +1,6 @@
 
 export interface IBattle{
-  ID: number;
+  id: number;
   name: string;
   level: number;
   launchDate: Date;

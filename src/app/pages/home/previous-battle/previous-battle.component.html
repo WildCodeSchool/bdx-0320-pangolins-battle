@@ -2,5 +2,5 @@
 <div class = "prevBattleContainer" *ngFor="let battle of this.displayedBattles">
   <div class = "battleElement">{{battle.name}}</div>
   <div class = "battleElement">{{battle.launchDate | date:"dd/MM/yyyy"}}</div>
-  <button [routerLink]>Accéder</button>
+  <button (click)="sendBattleId(battle)">Accéder</button>
 </div>
