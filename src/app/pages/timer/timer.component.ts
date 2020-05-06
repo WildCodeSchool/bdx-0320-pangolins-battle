@@ -22,6 +22,7 @@ export class TimerComponent implements OnInit, OnChanges {
 
   @Input() battleList: any[];
   @Output() timerOut = new EventEmitter();
+  @Output() nextBattle = new EventEmitter();
   timesOut = true;
 
   ngOnChanges(){
@@ -42,6 +43,10 @@ export class TimerComponent implements OnInit, OnChanges {
       this.timesOut = false;
     }
     return this.timerOut.emit(this.timesOut);
+  }
+
+  sendNextBattle(){
+    return this.nextBattle.emit(this.endDate);
   }
 
   selectNextBattle(battleArray){
@@ -67,5 +72,6 @@ export class TimerComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.startTimer(this.battleList);
+    this.sendNextBattle();
     }
   }
