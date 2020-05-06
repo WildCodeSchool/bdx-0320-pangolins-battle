@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 import { UserService } from '../../../shared/services/user/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'btd-previous-battle',
@@ -7,7 +8,8 @@ import { UserService } from '../../../shared/services/user/user.service';
   styleUrls: ['./previous-battle.component.scss']
 })
 export class PreviousBattleComponent implements OnInit,  OnChanges {
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
+
   @Input() battleList: any[];
 
   displayedBattles = [];
@@ -25,6 +27,10 @@ export class PreviousBattleComponent implements OnInit,  OnChanges {
   getUser(){
     this.user = this.userService.getCurrentUser();
     console.log(this.user);
+  }
+
+  sendBattleId(battle){
+    this.router.navigate(['/pango-ring', battle.id, battle.algoList[0].id]);
   }
 
   ngOnChanges(){
