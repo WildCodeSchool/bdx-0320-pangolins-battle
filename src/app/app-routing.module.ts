@@ -13,7 +13,7 @@ import { AuthGuard } from './shared/guard/auth.guard';
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
-  {path: 'pango-ring/:id', component: PangoRingComponent, canActivate: [AuthGuard]},
+  {path: 'pango-ring/:BattleId/:AlgoId', component: PangoRingComponent, canActivate: [AuthGuard]},
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
   {path: 'admin-algo', component: AlgoAdminComponent, canActivate: [AuthGuard]},
   {path: 'profil', component: ProfilComponent, canActivate: [AuthGuard]},
