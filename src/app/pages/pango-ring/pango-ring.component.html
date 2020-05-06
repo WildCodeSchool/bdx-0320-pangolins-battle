@@ -2,6 +2,17 @@
   <h1>{{battle}}</h1>
   <btd-stepper [activeIndex]="algoIndex" ></btd-stepper>
 </div>
+
+<!-- <p>Battle N° {{currentBattle[0].id}}</p>
+<p>Nom Battle : {{currentBattle[0].name}}</p>
+<div *ngFor="let algo of currentBattle[0].algoList; let i = index">
+  <p>ID algo {{i+1}} : {{algo.id}}</p>
+  <p>Instructions : {{algo.instructions}}</p>
+  <p>Solution : {{algo.solution}}</p>
+  <p>Level : {{algo.level}}</p>
+  <br>
+</div> -->
+
 <div class="primal-container">
   <h2>Instructions</h2>
   <btd-instructions [algorithm]="currentAlgo"></btd-instructions>
