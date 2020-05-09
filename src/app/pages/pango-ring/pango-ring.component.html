@@ -16,7 +16,8 @@
 <div class="primal-container">
   <h2>Instructions</h2>
   <btd-instructions [algorithm]="currentAlgo"></btd-instructions>
-  <btd-input-and-solution [algorithm]="currentAlgo" ></btd-input-and-solution>
+  <btd-input-and-solution (sendAlgorithmSolution)="receiveAlgorithmSolution($event)" [algorithm]="currentAlgo" ></btd-input-and-solution>
+
 
   <div *ngIf="currentAlgo.isCompleted"></div>
 

@@ -33,8 +33,8 @@ import { LoaderComponent } from './shared/component/loader/loader.component';
 import { LoaderService } from './shared/services/loader/loader.service';
 import { LoaderInterceptor } from './shared/component/loader-interceptor';
 import { LoginComponent } from './pages/login/login.component';
-import { ProfilComponent } from './pages/profil/profil.component';
 import { TokenInterceptorService } from './shared/services/token-interceptor/token-interceptor.service';
+import { ClassementComponent } from './pages/classement/classement.component';
 
 
 
@@ -60,7 +60,7 @@ import { TokenInterceptorService } from './shared/services/token-interceptor/tok
     AboutComponent,
     LoaderComponent,
     LoginComponent,
-    ProfilComponent,
+    ClassementComponent,
   ],
   imports: [
     BrowserModule,
