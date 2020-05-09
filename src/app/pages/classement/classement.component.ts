@@ -27,8 +27,11 @@ export class ClassementComponent implements OnInit {
       console.log(points)
       if (algo.status === 'oui') {
         points += 100;
+       } else {
+          points += 0;
+        }
         console.log(points)
-      } return points
+        return points
     });
   }
 }
