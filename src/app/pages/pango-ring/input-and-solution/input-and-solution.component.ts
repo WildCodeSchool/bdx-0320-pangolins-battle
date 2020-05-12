@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, ɵɵcontainerRefreshEnd } from '@angular/core';
-import { Algo } from '../../../classes/algo-list';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+
 
 @Component({
   selector: 'btd-input-and-solution',
@@ -8,10 +8,11 @@ import { Algo } from '../../../classes/algo-list';
 })
 export class InputAndSolutionComponent implements OnInit {
 
+  @Output() sendAlgorithmSolution: EventEmitter<any> = new EventEmitter();
   @Input() algorithm;
 
   newSolution: string;
-
+  isValid: any;
   displayButtonPreviousAlgo = false;
   wrongSolution = false;
 
@@ -21,23 +22,20 @@ export class InputAndSolutionComponent implements OnInit {
   }
   checkAndUpdateAlgo() {
     const solutionFunction = eval(this.newSolution);
-
+    console.log(this.newSolution);
     // Temporairement on utilise "skeleton" à la place de input
-    const result = solutionFunction(this.algorithm.skeleton);
+     const result = solutionFunction(this.algorithm.skeleton);
     // const result = solutionFunction(this.algorithm.inputs);
-    const isValid = this.algorithm.solution === JSON.stringify(result);
+     this.isValid = this.algorithm.solution === JSON.stringify(result);
 
-    if (isValid) {
-      this.algorithm.isCompleted = isValid;
+     if (this.isValid) {
+       this.algorithm.isCompleted = this.isValid;
+       this.sendAlgorithmSolution.emit(JSON.stringify(this.newSolution));
 
-    } else {
-      // TODO faire quelque chose quand pas bon
-    }
-    if (isValid === false) {
+    } if (this.isValid === false) {
       this.wrongSolution = true;
       this.algorithm.isCompleted = false;
-    }
-    if (isValid === true) {
+    } if (this.isValid === true) {
       this.wrongSolution =  false;
     }
   }

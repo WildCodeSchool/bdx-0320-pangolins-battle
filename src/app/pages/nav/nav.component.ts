@@ -19,8 +19,6 @@ export class NavComponent implements OnInit {
   }
   ngOnInit(): void {
     this.user = this.userService.user;
-    console.log(this.user);
-    this.display(this.unclickable);
   }
 
   isAdmin() {

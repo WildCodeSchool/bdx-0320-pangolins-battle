@@ -21,7 +21,7 @@ export class AlgorithmService {
   constructor(private httpClient: HttpClient) { }
 
   getAlgoFromCurrentBattle(algoList){
-    this.algorithms2 = algoList;
+    return this.algorithms2 = algoList;
   }
 
   getAlgorithmById(id: number) {

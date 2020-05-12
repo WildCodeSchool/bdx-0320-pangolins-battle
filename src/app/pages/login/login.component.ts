@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/shared/services/user/user.service';
 import { User } from 'src/app/classes/user';
 import { BattlesListService } from '../../shared/services/battles-list/battles-list.service';
+import { environment } from '../../../../src/environments/environment';
 
 @Component({
   selector: 'btd-login',
@@ -13,9 +14,8 @@ export class LoginComponent implements OnInit {
   hidden = true;
   user: User;
   timesOut = true;
-
   battleList = [];
-
+  LocalOrProdUrl = environment.url;
   // tslint:disable-next-line: max-line-length
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private battleAPI: BattlesListService) { }
 
@@ -41,9 +41,10 @@ export class LoginComponent implements OnInit {
           this.userService.getCurrentUser().subscribe((user: User) => {
             console.log(user);
             this.user = user;
-            this.router.navigateByUrl('/home');
+            this.router.navigateByUrl['/home'];
           });
         });
+
       }
 
 }
