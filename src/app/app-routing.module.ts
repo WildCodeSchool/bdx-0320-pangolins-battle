@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
   {path: 'admin-algo/:id', component: AlgoAdminComponent, canActivate: [AuthGuard]},
   {path: 'about', component: AboutComponent, canActivate: [AuthGuard]},
-  {path: 'auth/:token', component: LoginComponent},
+  {path: 'oauth/:token', component: LoginComponent},
 ];
 
 @NgModule({

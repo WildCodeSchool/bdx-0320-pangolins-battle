@@ -27,6 +27,7 @@ export class PangoRingComponent implements OnInit {
   currentAlgo: Algo;
   idNextAlgo: number;
   idPrevAlgo: number;
+  isNotLastAlgo: boolean = true;
   algoSolution: any = {battle: {id:0}, algo: {id: 0}, code:''};
             /*   "battle": {
                 "id": 387
@@ -63,8 +64,15 @@ export class PangoRingComponent implements OnInit {
   receiveAlgorithmSolution(codeSolutionAlgo) {
     this.algoSolution.code = codeSolutionAlgo;
   }
-  nextAlgo() {
-    this.router.navigate(['/pango-ring', this.battleId, this.idNextAlgo]);
+  nextAlgoOrClassement() {
+    for (let i = 0; i < 4; i++) {
+      if (this.currentBattle[0].algoList[i]) {
+        this.router.navigate(['/pango-ring', this.battleId, this.idNextAlgo]);
+      } else {
+        this.isNotLastAlgo = false;
+        this.router.navigateByUrl('classement');
+      }
+    }
     // Je renseigne la propriété "solution" pour la poster
     this.algoSolution.battle.id = this.battleId;
     this.algoSolution.algo.id = this.algorithmService.getAlgoFromCurrentBattle(this.currentBattle[0].algoList[0].id);

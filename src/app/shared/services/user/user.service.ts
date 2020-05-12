@@ -11,7 +11,7 @@ export class UserService {
   constructor(private http: HttpClient) {
     this.token = localStorage.getItem(UserService.TOKEN);
    }
-  private static BASE_URL = 'https://api.witpoc.com/users';
+  private static BASE_URL = 'https://api.witpoc.com/users/me';
   private static TOKEN = 'userToken';
   token: string;
   user: any;
@@ -26,7 +26,7 @@ export class UserService {
         Authorization: 'Bearer ' + this.token
       })
     };
-    return this.http.get(UserService.BASE_URL + '/me', httpOptions)
+    return this.http.get(UserService.BASE_URL, httpOptions)
       .pipe(tap((user) => this.user = user));
   }
 }

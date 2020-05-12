@@ -22,6 +22,7 @@ export class InputAndSolutionComponent implements OnInit {
   }
   checkAndUpdateAlgo() {
     const solutionFunction = eval(this.newSolution);
+    console.log(this.newSolution);
     // Temporairement on utilise "skeleton" à la place de input
      const result = solutionFunction(this.algorithm.skeleton);
     // const result = solutionFunction(this.algorithm.inputs);
@@ -29,7 +30,7 @@ export class InputAndSolutionComponent implements OnInit {
 
      if (this.isValid) {
        this.algorithm.isCompleted = this.isValid;
-       this.sendAlgorithmSolution.emit(JSON.stringify(result));
+       this.sendAlgorithmSolution.emit(JSON.stringify(this.newSolution));
 
     } if (this.isValid === false) {
       this.wrongSolution = true;
