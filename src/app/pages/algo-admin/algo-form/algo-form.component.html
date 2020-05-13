@@ -30,6 +30,11 @@
       <div class="errorMessage" *ngIf="instructions.errors?.required && algoForm.submitted">Les instructions sont requises</div>
     </div>
     <div class="formElement">
+      <label class="label" for="input">Input<span>*</span></label>
+      <textarea rows="10" cols="30" name="input" [(ngModel)]="editedAlgo.input" #input = 'ngModel' required></textarea>
+      <div class="errorMessage" *ngIf="input.errors?.required && algoForm.submitted">Input est requis</div>
+    </div>
+    <div class="formElement">
       <label class="label" for="skeleton">Squelette</label>
       <textarea rows="10" cols="30" name="skeleton" [(ngModel)]="editedAlgo.skeleton" #skeleton = 'ngModel'></textarea>
     </div>
