@@ -17,7 +17,6 @@ export class PangoRingComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              public battles: BattlesService,
               private algorithmService: AlgorithmService,
               private battleService: BattlesListService,
               private solutionService: SolutionService) { }
@@ -27,16 +26,8 @@ export class PangoRingComponent implements OnInit {
   currentAlgo: Algo;
   idNextAlgo: number;
   idPrevAlgo: number;
-  isNotLastAlgo: boolean = true;
-  algoSolution: any = {battle: {id:0}, algo: {id: 0}, code:''};
-            /*   "battle": {
-                "id": 387
-
-            },
-            "algo": {
-                    "id": 389
-                },
-                "code":"()=>{console.log('toto');}" */
+  isNotLastAlgo = true;
+  algoSolution: any = {battle: {id: 0}, algo: {id: 0}, code: ''};
   battleId;
   currentBattle;
 
@@ -50,35 +41,46 @@ export class PangoRingComponent implements OnInit {
     this.getBattleId();
     this.battleService.getAllBattles().subscribe((data) => {
       this.currentBattle = data.filter(battle => battle.id === this.battleId);
-       this.algorithmService.getAlgoFromCurrentBattle(this.currentBattle[0].algoList);
+      this.algorithmService.getAlgoFromCurrentBattle(this.currentBattle[0].algoList);
 
       this.route.paramMap.subscribe((paramMap) => {
         this.currentAlgo = this.algorithmService.getAlgorithmById((+paramMap.get('AlgoId')));
         this.algoIndex = this.algorithmService.getAlgoIndex(this.currentAlgo);
         this.idNextAlgo = this.algorithmService.getNextAlgoId(this.algoIndex);
         this.idPrevAlgo = this.algorithmService.getPrevAlgoId(this.algoIndex);
+        this.isNotLastAlgo = this.algorithmService.getAlgoIndex(this.currentAlgo) !== 4;
       });
     });
-    this.battle = this.battles.getBattle();
   }
   receiveAlgorithmSolution(codeSolutionAlgo) {
     this.algoSolution.code = codeSolutionAlgo;
   }
-  nextAlgoOrClassement() {
-    for (let i = 0; i < 4; i++) {
-      if (this.currentBattle[0].algoList[i]) {
-        this.router.navigate(['/pango-ring', this.battleId, this.idNextAlgo]);
-      } else {
-        this.isNotLastAlgo = false;
-        this.router.navigateByUrl('classement');
-      }
-    }
+
+  nextAlgo() {
+    this.router.navigate(['/pango-ring', this.battleId, this.idNextAlgo]);
+  }
+
+  postSolution(){
     // Je renseigne la propriété "solution" pour la poster
     this.algoSolution.battle.id = this.battleId;
-    this.algoSolution.algo.id = this.algorithmService.getAlgoFromCurrentBattle(this.currentBattle[0].algoList[0].id);
+    this.algoSolution.algo.id = this.currentAlgo.id;
     this.solutionService.postAlgoSolution(this.algoSolution).subscribe(data => console.log(data));
-
   }
+
+  goToClassement(){
+    this.router.navigate(['/classement']);
+  }
+
+  clickOnNextAlgo(){
+    this.postSolution();
+    this.nextAlgo();
+  }
+
+  clickOnClassement(){
+    this.postSolution();
+    this.goToClassement();
+  }
+
   previousAlgo() {
     this.router.navigate(['/pango-ring', this.battleId, this.idPrevAlgo]);
   }
