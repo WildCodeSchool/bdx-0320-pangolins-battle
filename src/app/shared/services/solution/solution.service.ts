@@ -6,7 +6,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SolutionService {
 
-  solutionUrl = 'http://api.witpoc.com/solutions'
+  postSolutionsUrl = 'http://api.witpoc.com/solutions';
+  getSolutionsUrl =  'http://api.witpoc.com/solutions/battle/';
+
 
   // à la place : requête get sur solutions/battle/{battleId} avec token user (automatique)
   areAlgosFromBattleCompleted = [
@@ -20,7 +22,10 @@ export class SolutionService {
   constructor(private http: HttpClient) { }
 
   postAlgoSolution(solution) {
-    return this.http.post(this.solutionUrl, solution);
+    return this.http.post(this.postSolutionsUrl, solution);
+  }
+  getSolutions(battleId: number) {
+    return this.http.get(this.getSolutionsUrl + `${battleId}`);
   }
 
 }
