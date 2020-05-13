@@ -1,29 +1,37 @@
 <div class="pango-ring-top">
   <h1>{{currentBattle[0].name}}</h1>
+  <h3 *ngIf="timer.seconds <= 10">Attention, la battle s'achèvera dans peu de temps, tu seras redirigé vers la page d'accueil</h3>
+  <div class = 'timerContainer'>
+    <div class = 'timerForm hours'>
+      <div class = 'timerElement'>{{this.timer.hours}}</div>
+      <div class = 'label'>heures</div>
+    </div>
+    <div class = 'timerForm minutes'>
+      <div class = 'timerElement'>{{this.timer.minutes}}</div>
+      <div class = 'label'>min</div>
+    </div>
+    <div class = 'timerForm seconds'>
+      <div class = 'timerElement'>{{this.timer.seconds}}</div>
+      <div class = 'label'>sec</div>
+    </div>
+    <div class = 'timerForm milliseconds'>
+      <div class = 'timerElement'> {{this.timer.milliseconds}}</div>
+      <div class = 'label'>millissec</div>
+    </div>
+  </div>
   <btd-stepper [activeIndex]="algoIndex" ></btd-stepper>
 </div>
-
-<!-- <p>Battle N° {{currentBattle[0].id}}</p>
-<p>Nom Battle : {{currentBattle[0].name}}</p>
-<div *ngFor="let algo of currentBattle[0].algoList; let i = index">
-  <p>ID algo {{i+1}} : {{algo.id}}</p>
-  <p>Instructions : {{algo.instructions}}</p>
-  <p>Solution : {{algo.solution}}</p>
-  <p>Level : {{algo.level}}</p>
-  <br>
-</div> -->
-
 <div class="primal-container">
   <h2>Instructions</h2>
   <btd-instructions [algorithm]="currentAlgo"></btd-instructions>
   <btd-input-and-solution (sendAlgorithmSolution)="receiveAlgorithmSolution($event)" [algorithm]="currentAlgo" [isNotLastAlgo]="isNotLastAlgo" ></btd-input-and-solution>
 
 
-  <div *ngIf="currentAlgo.isCompleted"></div>
+  <div *ngIf="currentAlgo.isCompleted && timesOut"></div>
 
   <div class="previous-next-algo-container">
     <div class="wrapper-previous">
-      <div class="test" *ngIf="algoIndex>0">
+      <div class="test" *ngIf="algoIndex>0 && timesOut">
         <div class="icon-previous">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268.832 268.832">
             <path d="M265.17 125.577l-80-80c-4.88-4.88-12.796-4.88-17.677 0-4.882 4.882-4.882 12.796 0 17.678l58.66 58.66H12.5c-6.903 0-12.5 5.598-12.5 12.5 0 6.903 5.597 12.5 12.5 12.5h213.654l-58.66 58.662c-4.88 4.882-4.88 12.796 0 17.678 2.44 2.44 5.64 3.66 8.84 3.66s6.398-1.22 8.84-3.66l79.997-80c4.883-4.882 4.883-12.796 0-17.678z"/>
@@ -34,7 +42,7 @@
     </div>
     <div class="wrapper-next">
       <!-- On veut passer à l'algorithme suivant lorsque la solution est complétée par l'utilisateur -->
-      <div *ngIf="isNotLastAlgo">
+      <div *ngIf="isNotLastAlgo && timesOut">
         <div class="test" *ngIf="currentAlgo.isCompleted && idNextAlgo">
             <a (click)="clickOnNextAlgo()">Prochain algo !</a>
             <div class="icon-next">

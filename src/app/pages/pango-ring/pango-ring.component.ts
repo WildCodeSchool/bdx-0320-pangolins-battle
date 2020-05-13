@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Algo } from '../../classes/algo-list';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { BattlesService } from '../../shared/services/battles/battles.service';
 import { AlgorithmService } from '../../shared/services/algorithm/algorithm.service';
 import { BattlesListService } from '../../shared/services/battles-list/battles-list.service';
 import { SolutionService } from 'src/app/shared/services/solution/solution.service';
+import { BattleTimerService } from '../../shared/services/battle-timer/battle-timer.service';
 
 
 @Component({
@@ -12,14 +13,15 @@ import { SolutionService } from 'src/app/shared/services/solution/solution.servi
   templateUrl: './pango-ring.component.html',
   styleUrls: ['./pango-ring.component.scss']
 })
-export class PangoRingComponent implements OnInit {
+export class PangoRingComponent implements OnInit, OnChanges {
 
 
   constructor(private route: ActivatedRoute,
               private router: Router,
               private algorithmService: AlgorithmService,
               private battleService: BattlesListService,
-              private solutionService: SolutionService) { }
+              private solutionService: SolutionService,
+              private battleTimerService: BattleTimerService) { }
 
   algoIndex: number;
   battle: string;
@@ -30,6 +32,9 @@ export class PangoRingComponent implements OnInit {
   algoSolution: any = {battle: {id: 0}, algo: {id: 0}, code: ''};
   battleId;
   currentBattle;
+  timer;
+  time;
+  timesOut;
 
   getBattleId(){
     const id = +this.route.snapshot.paramMap.get('BattleId');
@@ -37,7 +42,23 @@ export class PangoRingComponent implements OnInit {
     return this.battleId;
   }
 
+  ngOnChanges(){
+  }
+
+  stopTimer(){
+    if (this.timer.timer <= 0){
+      this.timesOut = false;
+      this.router.navigate(['/home']);
+      return this.timer = {timer: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 0 };
+    }
+  }
+
   ngOnInit(): void {
+    this.timesOut = true;
+    this.time = setInterval(() => {
+      this.timer = this.battleTimerService.countTime();
+      this.stopTimer();
+    }, 100);
     this.getBattleId();
     this.battleService.getAllBattles().subscribe((data) => {
       this.currentBattle = data.filter(battle => battle.id === this.battleId);
@@ -79,9 +100,12 @@ export class PangoRingComponent implements OnInit {
   clickOnClassement(){
     this.postSolution();
     this.goToClassement();
+    clearInterval(this.time);
+    console.log(this.timer);
   }
 
   previousAlgo() {
     this.router.navigate(['/pango-ring', this.battleId, this.idPrevAlgo]);
   }
+
 }
