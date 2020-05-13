@@ -2,11 +2,21 @@
 <div class="welcome-user">Bienvenue <span class="colored-user">{{ user.firstname }} </span>!</div>
 <div class = 'container'>
   <div class = 'card'>
-    <btd-next-battle [battleList]="battleList"></btd-next-battle>
+    <btd-next-battle
+      [battleList]="battleList"
+      (battleStart)='sendBattleStartingDate($event)'
+      (battleSelected)='sendBattleSelected($event)'
+      >
+    </btd-next-battle>
   </div>
   <div class='line'></div>
   <div class = 'card'>
-    <btd-previous-battle [battleList]="battleList"></btd-previous-battle>
+    <btd-previous-battle
+    [battleList]="battleList"
+    (battleStart)='sendBattleStartingDate($event)'
+    (battleSelected)='sendBattleSelected($event)'
+    >
+  </btd-previous-battle>
   </div>
 </div>
 

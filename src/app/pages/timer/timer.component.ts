@@ -14,7 +14,7 @@ export class TimerComponent implements OnInit, OnChanges {
 
   startDate = Date.now();
   endDate = [];
-  battleHour = 19; // futur input ou mis en dur ?
+  battleHour = 10; // futur input ou mis en dur ?
   battleMinute = 0; // futur input ou mis en dur ?
   resolutionDelay = 24;
 
@@ -67,6 +67,7 @@ export class TimerComponent implements OnInit, OnChanges {
       }
       this.nextBattleTimer(this.startDate, this.battleEndDate);
       this.changeHiddenValue(this.battleEndDate);
+      this.sendNextBattle();
     }, 100);
   }
 
