@@ -10,7 +10,9 @@ export class BattlesListService {
 
   constructor(private http: HttpClient) { }
 
-  urlBattleRequest = 'http://api.witpoc.com/battles';
+  battleId;
+
+  urlBattleRequest =  'http://api.witpoc.com/battles';
   urlOneBattle = 'http://api.witpoc.com/algos/battle';
 
   getAllBattles(): Observable <IBattle[]>{
@@ -31,5 +33,12 @@ export class BattlesListService {
 
   getOneBattle(id){
     return this.http.get(this.urlOneBattle + `/${id}`);
+  }
+  getBattleId(battleId) {
+    return this.battleId = battleId;
+  }
+  distributeBattleId() {
+    console.log(this.battleId)
+    return this.battleId;
   }
 }

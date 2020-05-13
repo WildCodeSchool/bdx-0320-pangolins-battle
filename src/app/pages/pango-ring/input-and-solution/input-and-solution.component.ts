@@ -10,6 +10,7 @@ export class InputAndSolutionComponent implements OnInit {
 
   @Output() sendAlgorithmSolution: EventEmitter<any> = new EventEmitter();
   @Input() algorithm;
+  @Input() isNotLastAlgo;
 
   newSolution: string;
   isValid: any;
@@ -24,18 +25,19 @@ export class InputAndSolutionComponent implements OnInit {
     const solutionFunction = eval(this.newSolution);
     console.log(this.newSolution);
     // Temporairement on utilise "skeleton" à la place de input
-     const result = solutionFunction(this.algorithm.skeleton);
+    const result = solutionFunction(this.algorithm.skeleton);
     // const result = solutionFunction(this.algorithm.inputs);
-     this.isValid = this.algorithm.solution === JSON.stringify(result);
+    this.isValid = this.algorithm.solution === JSON.stringify(result);
 
-     if (this.isValid) {
+    if (this.isValid) {
        this.algorithm.isCompleted = this.isValid;
        this.sendAlgorithmSolution.emit(JSON.stringify(this.newSolution));
-
-    } if (this.isValid === false) {
+    }
+    if (this.isValid === false) {
       this.wrongSolution = true;
       this.algorithm.isCompleted = false;
-    } if (this.isValid === true) {
+    }
+    if (this.isValid === true) {
       this.wrongSolution =  false;
     }
   }
