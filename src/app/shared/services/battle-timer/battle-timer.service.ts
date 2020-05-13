@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import * as moment from 'moment';
-import { isArray } from 'util';
 
 @Injectable({
   providedIn: 'root'
