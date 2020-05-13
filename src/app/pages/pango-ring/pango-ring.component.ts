@@ -45,20 +45,25 @@ export class PangoRingComponent implements OnInit, OnChanges {
   ngOnChanges(){
   }
 
+  displayMessage(){
+    if (this.timer.seconds <= 10 && this.timer.hours === 0 && this.timer.minutes === 0){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   stopTimer(){
     if (this.timer.timer <= 0){
       this.timesOut = false;
+      clearInterval(this.time);
+      this.timer = {timer: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 0 };
       this.router.navigate(['/home']);
-      return this.timer = {timer: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 0 };
     }
   }
 
   ngOnInit(): void {
     this.timesOut = true;
-    this.time = setInterval(() => {
-      this.timer = this.battleTimerService.countTime();
-      this.stopTimer();
-    }, 100);
     this.getBattleId();
     this.battleService.getAllBattles().subscribe((data) => {
       this.currentBattle = data.filter(battle => battle.id === this.battleId);
@@ -70,6 +75,10 @@ export class PangoRingComponent implements OnInit, OnChanges {
         this.idNextAlgo = this.algorithmService.getNextAlgoId(this.algoIndex);
         this.idPrevAlgo = this.algorithmService.getPrevAlgoId(this.algoIndex);
         this.isNotLastAlgo = this.algorithmService.getAlgoIndex(this.currentAlgo) !== 4;
+        this.time = setInterval(() => {
+          this.timer = this.battleTimerService.countTime();
+          this.stopTimer();
+        }, 100);
       });
     });
   }

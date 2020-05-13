@@ -1,6 +1,6 @@
 <div class="pango-ring-top">
   <h1>{{currentBattle[0].name}}</h1>
-  <h3 *ngIf="timer.seconds <= 10">Attention, la battle s'achèvera dans peu de temps, tu seras redirigé vers la page d'accueil</h3>
+  <h3 *ngIf="displayMessage()">Attention, la battle s'achèvera dans peu de temps, tu seras redirigé vers la page d'accueil</h3>
   <div class = 'timerContainer'>
     <div class = 'timerForm hours'>
       <div class = 'timerElement'>{{this.timer.hours}}</div>
