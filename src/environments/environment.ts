@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  url: "https://api.witpoc.com/oauth/odyssey/local"
+/*   url: "https://api.witpoc.com/oauth/odyssey/local" */
 };
 
 /*
