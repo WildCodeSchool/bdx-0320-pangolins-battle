@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { UserService } from '../../../shared/services/user/user.service';
 import { Router } from '@angular/router';
 
@@ -11,12 +11,15 @@ export class PreviousBattleComponent implements OnInit,  OnChanges {
   constructor(private userService: UserService, private router: Router) { }
 
   @Input() battleList: any[];
+  @Output() battleSelected = new EventEmitter();
+  @Output() battleStart = new EventEmitter();
 
   displayedBattles = [];
   user;
   // studentSession sera alimenté via un input liée au profil de l'user
   studentSession = new Date('02/03/2020');
   resolutionDelay = 24; // en heures
+  startingDate: number;
 
   displayPreviousBattle(battleArray){
     this.displayedBattles = battleArray.sort((a, b) => Date.parse(a.launchDate) - Date.parse(b.launchDate))
@@ -26,11 +29,25 @@ export class PreviousBattleComponent implements OnInit,  OnChanges {
 
   getUser(){
     this.user = this.userService.getCurrentUser();
-    console.log(this.user);
+  }
+
+  sendSelectedBattle(battle){
+    this.battleSelected.emit(battle);
+  }
+
+  sendBattleStartingDate(){
+    this.startingDate = Date.now();
+    this.battleStart.emit(this.startingDate);
   }
 
   sendBattleId(battle){
     this.router.navigate(['/pango-ring', battle.id, battle.algoList[0].id]);
+  }
+
+  sendElements(battle){
+    this.sendBattleId(battle);
+    this.sendSelectedBattle(battle);
+    this.sendBattleStartingDate();
   }
 
   ngOnChanges(){
