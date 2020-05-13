@@ -20,13 +20,18 @@ export class UserService {
     localStorage.setItem('userToken', token);
     this.token = token;
   }
-  getCurrentUser() {
+
+  removeToken(){
+    localStorage.removeItem(this.token);
+  }
+
+  getCurrentUser(): Observable<User>{
     const httpOptions = {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + this.token
       })
     };
-    return this.http.get(UserService.BASE_URL, httpOptions)
+    return this.http.get<User>(UserService.BASE_URL, httpOptions)
       .pipe(tap((user) => this.user = user));
   }
 }

@@ -51,8 +51,41 @@ ul li a:hover::after {
   transform: scale(1);
 }
 
-img{
+.logo{
   height: 90px;
   position:absolute;
 }
+.avatar{
+  border-radius: 50%;
+  height: 40px;
+}
+
+.button {
+  padding: 12px;
+  width: 100px;
+  margin-top: 12px;
+  cursor: pointer;
+}
+.arrow{
+  height: 30px;
+}
+.logOut{
+  cursor: pointer;
+  text-align: right;
+  background-color: black;
+  color: var(--secondary-color);
+  float: right;
+  right: 10px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  margin: 1rem;
+  position: absolute;
+}
+
+.exit-style{
+  padding: 15px;
+    &:hover{
+      color:red;
+    }
+}
+
 
