@@ -4,7 +4,6 @@
       <tr>
         <th>Numéro algo</th>
         <th>Level</th>
-        <th>Modifié par</th>
         <th>Date de modification</th>
         <th></th>
       </tr>
@@ -13,7 +12,6 @@
       <tr *ngFor="let algo of algoList; index as i">
         <td>{{i+1}}</td>
         <td>{{algo.level}}</td>
-        <td></td>
         <td>{{algo.modifyDate | date:"dd/MM/yyyy"}}</td>
         <td>
           <img (click)='editAlgo(algo)' class="img-space hover-img" src="https://image.flaticon.com/icons/png/512/84/84380.png">

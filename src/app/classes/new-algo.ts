@@ -3,6 +3,7 @@ export class NewAlgo{
   public level: number;
   public instructions: string;
   public skeleton: string;
+  public input: string;
   public solution: string;
   public modifyDate: Date;
   constructor(

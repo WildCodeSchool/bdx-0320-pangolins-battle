@@ -24,9 +24,7 @@ export class InputAndSolutionComponent implements OnInit {
   checkAndUpdateAlgo() {
     const solutionFunction = eval(this.newSolution);
     console.log(this.newSolution);
-    // Temporairement on utilise "skeleton" à la place de input
-    const result = solutionFunction(this.algorithm.skeleton);
-    // const result = solutionFunction(this.algorithm.inputs);
+    const result = solutionFunction(this.algorithm.input);
     this.isValid = this.algorithm.solution === JSON.stringify(result);
 
     if (this.isValid) {
