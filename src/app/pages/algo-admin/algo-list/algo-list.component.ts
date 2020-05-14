@@ -27,13 +27,13 @@ export class AlgoListComponent implements OnInit {
 
   }
 
-  displayForm(){
+  toggleDisplayForm(){
     this.isHidden = !this.isHidden;
   }
 
   editAlgo(targetedAlgo){
     this.editedAlgo = targetedAlgo;
-    this.displayForm();
+    this.toggleDisplayForm();
     this.hideForm.emit(this.isHidden);
     this.sendEditedAlgo.emit(this.editedAlgo);
 
