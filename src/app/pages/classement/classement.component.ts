@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SolutionService } from 'src/app/shared/services/solution/solution.service';
-import { UserService } from 'src/app/shared/services/user/user.service';
-import { User } from 'src/app/classes/user';
 import { BattlesListService } from 'src/app/shared/services/battles-list/battles-list.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'btd-classement',
@@ -16,45 +15,77 @@ export class ClassementComponent implements OnInit {
   solution: any;
   battle;
   scores: any = [];
+  points = 100;
 
   constructor(
     private route: ActivatedRoute,
     private solutionService: SolutionService,
-    private userService: UserService,
-    private battleListService: BattlesListService) {}
+    private battleListService: BattlesListService) { }
 
   ngOnInit(): void {
     this.battleId = +this.route.snapshot.paramMap.get('BattleId');
-    this.battleListService.getAllBattles().subscribe(data => {
-      this.battle = data.filter(battle => battle.id === this.battleId);
-    });
-    this.solutionService.getSolutions(this.battleId).subscribe(data => console.log(data));
-    this.solutionService.getSolutions(this.battleId).subscribe(data => {
-      this.solution = data;
-      this.rankWilders();
-    });
-  }
-    rankWilders(){
-    const userId = [];
-    const count = [];
-    const userFullName = [];
-    const userGitPicture = [];
-    let points = [];
-    let prev;
-    this.solution.sort();
 
-    for ( let i = 0; i < this.solution.length; i++ ) {
-       if ( this.solution[i].creator.id !== prev ) {
-           userId.push(this.solution[i].creator.id);
-           count.push(1);
-           userFullName.push(this.solution[i].creator.fullname);
-           userGitPicture.push(this.solution[i].creator.github);
-       } else {
-           count[count.length - 1]++;
-       }
-       prev = this.solution[i].creator.id;
-    }
-    points = count.map(value => value * 50);
-    return this.scores = [userId, points, userFullName, userGitPicture];
-    }
+    const combinedObs$ = forkJoin(
+      [this.battleListService.getBattleById(this.battleId),
+      this.solutionService.getSolutions(this.battleId)]
+    );
+
+    combinedObs$.subscribe((results: any[]) => {
+      this.battle = results[0];
+      const solution = results[1];
+      this.rankWilders(solution, this.battle);
+    });
   }
+
+  rankWilders(solution, battle) {
+    let count = 0;
+    let prev = 0;
+    solution = solution.sort((a, b) => {
+      return a.creator.id - b.creator.id;
+    });
+
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < solution.length; i++) {
+      if (solution[i].creator.id !== prev && prev !== 0) {
+        const duration = (+new Date(solution[i - 1].postedAt) - +new Date(battle.launchDate))
+          / +new Date(battle.launchDate) * 10000;
+        const score = count - duration;
+        const newWilder = {
+          id: solution[i - 1].creator.id,
+          fullname: solution[i - 1].creator.fullname,
+          githubPict: solution[i - 1].creator.github,
+          score: count - duration,
+          score2: count,
+          finalScore: Math.floor(score),
+          lastCommit: new Date(solution[i - 1].postedAt),
+        };
+        this.scores.push(newWilder);
+        count = this.points;
+      } else {
+        count += this.points;
+      }
+      prev = solution[i].creator.id;
+      const j = solution.length;
+      if (j - 1 === i) {
+        const duration = (+new Date(solution[i - 1].postedAt) - +new Date(battle.launchDate))
+          / +new Date(battle.launchDate) * 10000;
+        const score = count - duration;
+        const newWilder = {
+          id: solution[i].creator.id,
+          fullname: solution[i].creator.fullname,
+          githubPict: solution[i].creator.github,
+          score: count - duration,
+          score2: count,
+          finalScore: Math.floor(score),
+          lastCommit: new Date(solution[i].postedAt),
+        };
+        this.scores.push(newWilder);
+      }
+    }
+    this.scores = this.scores.sort((a, b) => {
+      return b.score - a.score;
+    });
+    return this.scores;
+  }
+}
+
