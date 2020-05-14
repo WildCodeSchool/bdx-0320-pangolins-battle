@@ -14,7 +14,7 @@
           <td>{{battle.name}}</td>
           <td>{{battle.launchDate | date:"dd/MM/yyyy"}}</td>
           <td><button [routerLink]="['/admin-algo', battle.id]">Algo list</button></td>
-          <td><button (click)="editBattle(battle)">Edit</button></td>
+          <td><button (click)="editBattle(battle)">Editer</button></td>
           <td><button (click)="deleteBattle(battle)">Supprimer</button></td>
       </tr>
     </tbody>
@@ -40,8 +40,8 @@
     </div>
     <div class="formButtonContainer">
       <button [hidden]="!hiddenButton" class="formButton" id="submit" type="submit">Valider</button>
-      <button [hidden]="hiddenButton" class="formButton" id="submitEdit" type="button" (click)="validEditBattle(targetedBattle, battleForm)">Valider Edit</button>
-      <button class="formButton"  type="reset" (click)="displayForm(battleForm)">Annuler</button>
+      <button [hidden]="hiddenButton" class="formButton1" id="submitEdit" type="button" (click)="validEditBattle(targetedBattle, battleForm)">Valider</button>
+      <button class="formButton2"  type="reset" (click)="displayForm(battleForm)">Annuler</button>
     </div>
   </form>
   <button class = "newBattle" [hidden]='!hidden' (click)='displayForm(battleForm)'>Nouvelle Battle</button>

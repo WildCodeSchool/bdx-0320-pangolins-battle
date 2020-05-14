@@ -36,16 +36,7 @@ td:first-child {
 tr:nth-child(even) td {
   background: #eaeaed;
   color: black;
-}
-tr:last-child td:first-child {
-  border-bottom-left-radius: 6px;
-}
-tr:last-child td:last-child {
-  border-bottom-right-radius: 6px;
-}
-
-//BUTTONS
-button{
+}button{
   padding: 8px 40px;
   font-weight: bold;
   text-decoration: none;
@@ -57,6 +48,45 @@ button{
   border: 3px solid #333;
   transition: all .35s;
   margin: auto;
+}
+tr:last-child td:first-child {
+  border-bottom-left-radius: 6px;
+}
+tr:last-child td:last-child {
+  border-bottom-right-radius: 6px;
+}
+
+//BUTTONS
+button{
+  cursor: pointer;
+  padding: 8px 40px;
+  font-weight: bold;
+  text-decoration: none;
+  background: #333;
+  text-align: center;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 3px solid #333;
+  transition: all .35s;
+  margin: auto;
+  transition: all 0.2s ease;
+  &:hover {
+    box-shadow: 2px 4px 6px 0 rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transform: translatey(1px);
+  }
+
+}
+.formButton1 {
+  border: 3px solid var(--secondary-color);
+  &:hover {
+    color: var(--secondary-color);
+  }
+}
+.formButton2:hover {
+  color: red;
+  cursor: pointer;
 }
 .newBattle{
   width: 20%;
@@ -70,20 +100,12 @@ button{
     box-shadow: 0px 0px 22px 6px rgba(255,255,255,1);
   }
 }
-.formButton{
-  margin: 0px 20px 0px 20px;
-  font-size: large;
-  transition: all .35s;
-}
-.formButton:nth-child(1) {
-  border: 3px solid var(--secondary-color);
-  &:hover {
-    color: var(--secondary-color);
-  }
-}
-.formButton:nth-child(2):hover {
-  color: red;
-}
+
+
+
+
+
+
 //FORM
 .createBattle{
   width: 60%;
