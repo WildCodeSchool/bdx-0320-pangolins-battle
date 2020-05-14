@@ -1,0 +1,25 @@
+<div class = "container">
+  <table>
+    <thead>
+      <tr>
+        <th>Numéro algo</th>
+        <th>Level</th>
+        <th>Date de modification</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let algo of algoList; index as i">
+        <td>{{i+1}}</td>
+        <td>{{algo.level}}</td>
+        <td>{{algo.modifyDate | date:"dd/MM/yyyy"}}</td>
+        <td>
+          <img (click)='editAlgo(algo)' class="img-space hover-img" src="https://image.flaticon.com/icons/png/512/84/84380.png">
+          <img *ngIf="!changeImgChecked(algo)" class="img-checked" [src]="pathImgChecked">
+          <img *ngIf="changeImgChecked(algo)" [src]="pathImgCheckedGreen">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button [hidden]='isHidden' [routerLink]="['/admin']">Retour battles</button>
+</div>

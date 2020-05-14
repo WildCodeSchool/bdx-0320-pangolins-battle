@@ -1,26 +1,33 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, OnChanges } from '@angular/core';
+
 
 @Component({
   selector: 'btd-timer',
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.scss']
 })
-export class TimerComponent implements OnInit {
-  constructor() { }
+export class TimerComponent implements OnInit, OnChanges {
+  constructor() {
+  }
+
   time: number; days: number; hours: number; minutes: number; seconds: number;
 
   startDate = Date.now();
-  endDate = '2020/04/16'; // futur input
-  battleHour = 21; // futur input
-  battleMinute = 41; // futur input
+  endDate = [];
+  battleHour = 10; // futur input ou mis en dur ?
+  battleMinute = 0; // futur input ou mis en dur ?
+  resolutionDelay = 24;
 
-  battleEndDate = Date.parse(this.endDate) + (this.battleHour * 3600 * 1000) + (this.battleMinute * 60 * 1000);
+  battleEndDate: number;
 
-
+  @Input() battleList: any[];
   @Output() timerOut = new EventEmitter();
+  @Output() nextBattle = new EventEmitter();
   timesOut = true;
 
-
+  ngOnChanges(){
+    this.startTimer(this.battleList);
+  }
 
   nextBattleTimer(startingDate, endingDate) {
     this.time = endingDate - startingDate;
@@ -31,14 +38,27 @@ export class TimerComponent implements OnInit {
     return {time: this.time, days: this.days, hours: this.hours, minutes: this.minutes, seconds: this.seconds };
   }
 
-  changeHiddenValue(){
-    if (Date.now() >= this.battleEndDate){
+  changeHiddenValue(endDate){
+    if (Date.now() >= endDate){
       this.timesOut = false;
     }
     return this.timerOut.emit(this.timesOut);
   }
 
-  ngOnInit(): void {
+  sendNextBattle(){
+    return this.nextBattle.emit(this.endDate);
+  }
+
+  selectNextBattle(battleArray){
+    this.endDate = battleArray
+    .filter(battle => (Date.parse(battle.launchDate) > (Date.now() - this.resolutionDelay * 3600 * 1000)))
+    .sort((a, b) => (Date.parse(a.launchDate)) - (Date.parse(b.launchDate)));
+    // tslint:disable-next-line: max-line-length
+    return this.battleEndDate = (Date.parse(this.endDate[0].launchDate) - 2 * 3600 * 1000) + (this.battleHour * 3600 * 1000) + (this.battleMinute * 60 * 1000);
+  }
+
+  startTimer(battleArray){
+    this.selectNextBattle(battleArray);
     setInterval(() => {
       if (Date.now() >= this.battleEndDate){
         this.startDate = this.battleEndDate;
@@ -46,8 +66,13 @@ export class TimerComponent implements OnInit {
         this.startDate = Date.now();
       }
       this.nextBattleTimer(this.startDate, this.battleEndDate);
-      this.changeHiddenValue();
-    }, 1000);
+      this.changeHiddenValue(this.battleEndDate);
+      this.sendNextBattle();
+    }, 100);
   }
 
-}
+  ngOnInit(): void {
+    this.startTimer(this.battleList);
+    this.sendNextBattle();
+    }
+  }

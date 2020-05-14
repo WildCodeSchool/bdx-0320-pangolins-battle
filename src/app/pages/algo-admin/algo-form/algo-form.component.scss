@@ -1,0 +1,114 @@
+//IMG
+img{
+  height: 40px;
+  width: 30px;
+  opacity: 0.6;
+}
+
+
+//FORM
+.createAlgo{
+  width: 60%;
+  margin: 20px auto;
+  border: 1px solid grey;
+  border-radius: 6px;
+}
+
+.formButtonLevel{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 10px 0px 10px;
+  width: 50%;
+}
+
+.formContainer{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin: 10px auto;
+}
+
+.formElement{
+  display: flex;
+  flex-direction: column;
+  width: 32%;
+  margin: 0px 1%;
+}
+
+.formButtonEnd{
+  display: flex;
+  justify-content: center;
+  margin:20px;
+}
+
+textarea{
+  resize: none;
+}
+
+.formButton{
+  cursor: pointer;
+  padding: 8px 40px;
+  font-weight: bold;
+  text-decoration: none;
+  background: #333;
+  text-align: center;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 3px solid #333;
+  transition: all .35s;
+  font-size: large;
+}
+
+.formButton:nth-child(1) {
+  border: 3px solid var(--secondary-color);
+  &:hover {
+    color: var(--secondary-color);
+  }
+}
+
+.formButton:nth-child(2):hover {
+  color: red;
+}
+
+input[type=radio] {
+  display: none;
+}
+
+input[type=radio]:checked + label > img {
+  border-radius: 4px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  opacity: 1;
+}
+
+.hover-img:hover {
+  opacity:1;
+  cursor: pointer;
+}
+
+.label{
+  margin-bottom: 5px;
+}
+
+.levelError{
+  margin-left : 10px;
+}
+
+.errorMessage{
+  font-size: smaller;
+  color: red;
+}
+
+#submit{
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-weight: bolder;
+  margin-right: 30px;
+}
+
+span{
+  color: red;
+}
+
+

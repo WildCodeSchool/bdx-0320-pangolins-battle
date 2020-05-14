@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Bienvenue sur <span class="h1-style">BattleDev</span></h1>
+  <h2>Votre prochaine Battle débute dans </h2>
+  <div class="timer">
+    <btd-timer (timerOut)= "display($event)" [battleList]="battleList"></btd-timer>
+  </div>
+  <button *ngIf="!user">
+    <a href="http://api.witpoc.com/oauth/odyssey/local">Se connecter avec <span class="odyssey">Odyssey</span></a>
+  </button>
+</div>

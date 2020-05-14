@@ -1,0 +1,4 @@
+<btd-nav></btd-nav>
+<btd-algo-list [algoList]='algos' (hideForm)="hideForm($event)" (sendEditedAlgo)="sendAlgo($event)"></btd-algo-list>
+<btd-algo-form [isHidden]="hideEditForm" [editedAlgo]="algoToEdit" (changedAlgo)="updateAlgoApi($event)"></btd-algo-form>
+

@@ -1,3 +1,6 @@
+
 export const environment = {
-  production: true
+  production: true,
+/*   url: "http://api.witpoc.com/oauth/odyssey/battle" */
 };
+

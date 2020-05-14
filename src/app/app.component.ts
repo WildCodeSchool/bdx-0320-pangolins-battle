@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'btd-root',
@@ -8,4 +11,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'battledev';
   date1: Date;
+  displayNavAndFooter = true;
+  router: Router;
+  constructor(private _router: Router) {
+    this.router = _router;
+  }
 }

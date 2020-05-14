@@ -1,21 +1,12 @@
 <div class="form-container">
-  <form action="" (ngSubmit)="allowNextAlgo()">
+  <form action="" (ngSubmit)="checkAndUpdateAlgo()">
     <textarea rows="10" cols="70" pInputTextarea [(ngModel)]="newSolution" type="text" name="solution"></textarea>
     <button type="submit">Tester ma solution</button>
   </form>
-  <div *ngIf="displayButtonNextAlgo">Bravo !</div>
+  <div *ngIf="wrongSolution">Ce n'est pas la bonne réponse !</div>
+  <div class="bravo" *ngIf="algorithm.isCompleted && isNotLastAlgo">Bravo ! Tu peux passer à l'algorithme suivant.</div>
+  <div class="bravo" *ngIf="algorithm.isCompleted && !isNotLastAlgo">Bravo ! Mets un terme à cette Battle en cliquant sur le bouton Terminer.</div>
+
   <div class="previous-next-algo-container">
-    <div *ngIf="displayButtonNextAlgo">
-      <a routerLink="/pango-ring/{{algo[currentAlgoIndex+1]?.id}}">
-        <button>Prochain algo !</button>
-      </a>
-    </div>
-    <div>
-    <div *ngIf="displayButtonPreviousAlgo">
-    <a routerLink="/pango-ring/{{algo[currentAlgoIndex-1]?.id}}">
-      <button>Algo précédent</button>
-    </a>
-  </div>
   </div>
 </div>
-

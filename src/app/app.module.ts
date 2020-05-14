@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {CalendarModule} from 'primeng/calendar';
 import {AccordionModule} from 'primeng/accordion';
@@ -21,8 +21,23 @@ import { AlgorithmService } from './shared/services/algorithm/algorithm.service'
 import { FooterComponent } from './pages/footer/footer.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { BattleListComponent } from './pages/admin/components/battle-list/battle-list.component';
-import { CreateBattleComponent } from './pages/create-battle/create-battle.component';
-import { FormComponent } from './pages/create-battle/form/form.component';
+import { AlgoAdminComponent } from './pages/algo-admin/algo-admin.component';
+import { AlgoListComponent } from './pages/algo-admin/algo-list/algo-list.component';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+import { AlgoFormComponent } from './pages/algo-admin/algo-form/algo-form.component';
+registerLocaleData(localeFr, 'fr');
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AboutComponent } from './pages/about/about.component';
+import { LoaderComponent } from './shared/component/loader/loader.component';
+import { LoaderService } from './shared/services/loader/loader.service';
+import { LoaderInterceptor } from './shared/component/loader-interceptor';
+import { LoginComponent } from './pages/login/login.component';
+import { TokenInterceptorService } from './shared/services/token-interceptor/token-interceptor.service';
+import { ClassementComponent } from './pages/classement/classement.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -39,8 +54,13 @@ import { FormComponent } from './pages/create-battle/form/form.component';
     FooterComponent,
     AdminComponent,
     BattleListComponent,
-    CreateBattleComponent,
-    FormComponent
+    AlgoAdminComponent,
+    AlgoListComponent,
+    AlgoFormComponent,
+    AboutComponent,
+    LoaderComponent,
+    LoginComponent,
+    ClassementComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,8 +71,13 @@ import { FormComponent } from './pages/create-battle/form/form.component';
     BrowserAnimationsModule,
     StepsModule,
     InputTextareaModule,
+    HttpClientModule,
   ],
-  providers: [AlgorithmService],
+  providers: [
+    LoaderService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true },
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

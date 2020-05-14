@@ -1,7 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Algo } from '../../../classes/algo-list';
-import { AlgorithmService } from 'src/app/shared/services/algorithm/algorithm.service';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 
 @Component({
@@ -11,52 +8,35 @@ import { AlgorithmService } from 'src/app/shared/services/algorithm/algorithm.se
 })
 export class InputAndSolutionComponent implements OnInit {
 
+  @Output() sendAlgorithmSolution: EventEmitter<any> = new EventEmitter();
+  @Input() algorithm;
+  @Input() isNotLastAlgo;
 
-  @Input() algoID: any;
   newSolution: string;
-  solutions: string[] = [];
-  displayButtonNextAlgo = false;
+  isValid: any;
   displayButtonPreviousAlgo = false;
-  algo: any = [];
-  currentAlgo: any;
-  currentAlgoIndex: number;
+  wrongSolution = false;
 
-  constructor(private route: ActivatedRoute, public algorithmService: AlgorithmService) { }
-
-  allowNextAlgo() {
-    this.solutions.push(this.newSolution);
-    for (const solution of this.solutions) {
-      if (solution === this.algoID.outputValidation) {
-        this.displayButtonNextAlgo = true;
-      } else {
-        this.displayButtonNextAlgo = false;
-      }
-    }
-  }
-
-  allowPreviousAlgo() {
-    if (this.currentAlgoIndex >= 1) {
-      this.displayButtonPreviousAlgo = true;
-    }
-    else {
-      this.displayButtonPreviousAlgo = false;
-    }
-  }
-
+  constructor() { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      this.algo = this.algorithmService.getAlgorithmById(+params.get('id'));
-      this.allowPreviousAlgo();
-      this.displayButtonNextAlgo = false;
-      // tslint:disable-next-line: radix
-      this.currentAlgoIndex = this.algo.findIndex((algo) => (algo.id === parseInt(params.get('id'))));
-      this.currentAlgo = this.algo[this.currentAlgoIndex];
-    });
-    this.allowNextAlgo();
+  }
+  checkAndUpdateAlgo() {
+    const solutionFunction = eval(this.newSolution);
+    console.log(this.newSolution);
+    const result = solutionFunction(this.algorithm.input);
+    this.isValid = this.algorithm.solution === JSON.stringify(result);
 
-    setInterval(() => {
-      this.allowPreviousAlgo();
-    }, 100);
+    if (this.isValid) {
+       this.algorithm.isCompleted = this.isValid;
+       this.sendAlgorithmSolution.emit(JSON.stringify(this.newSolution));
+    }
+    if (this.isValid === false) {
+      this.wrongSolution = true;
+      this.algorithm.isCompleted = false;
+    }
+    if (this.isValid === true) {
+      this.wrongSolution =  false;
+    }
   }
 }
