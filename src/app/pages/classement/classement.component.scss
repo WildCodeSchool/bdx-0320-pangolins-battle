@@ -1,3 +1,7 @@
+.battle-container{
+  margin-bottom: 100px;
+}
+
 h1 {
   text-align: center;
   margin-top: 60px;
@@ -5,7 +9,7 @@ h1 {
 }
 
 h2 {
-  margin-bottom: 25px;
+  margin-bottom: 40px;
   text-align: center;
 }
 
@@ -56,4 +60,8 @@ tr td:nth-child(2){
   border-radius: 50%;
   height: 40px;
   margin-right: 10px;
+}
+
+.winner{
+  height: 40px;
 }

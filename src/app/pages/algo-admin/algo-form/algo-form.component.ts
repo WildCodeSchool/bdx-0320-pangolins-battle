@@ -23,7 +23,7 @@ export class AlgoFormComponent implements OnInit {
   ngOnInit(): void {
     this.editedAlgo = {id: 0, level: 0, instructions: '', input: '', skeleton: '', solution: ''};
   }
-  displayForm(){
+  toggleDisplayForm(){
     this.hidden = !this.hidden;
   }
 
@@ -37,6 +37,6 @@ export class AlgoFormComponent implements OnInit {
       instructions: this.editedAlgo.instructions};
     this.changedAlgo.emit(this.finalAlgo);
     console.log(this.finalAlgo);
-    this.displayForm();
+    this.toggleDisplayForm();
   }
 }

@@ -11,7 +11,9 @@
 
       <div *ngIf= "user" (click)= "logOut()" class="button">
         <img class="avatar" src="https://avatars.githubusercontent.com/{{user.github}}">
-        <img class="arrow" src="assets/images/menu_down_icon_135414.svg">
+        <div class="arrow-hidden">
+          <img class="arrow" src="assets/images/menu_down_icon_135414.svg">
+        </div>
       </div>
     </ul>
   </div>
