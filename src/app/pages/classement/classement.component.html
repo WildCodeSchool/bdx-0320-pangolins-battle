@@ -1,5 +1,7 @@
 <btd-nav></btd-nav>
-<h1>Classement général</h1>
+<div class="container">
+  <h1 class="rise-text">Classement général</h1>
+</div>
 
 <div class="battle-container">
   <h2>{{battle[0].name}}</h2>
@@ -14,7 +16,16 @@
       </thead>
       <tbody>
         <tr *ngFor="let wilder of scores[0]; let i = index">
-          <td>{{i+1}}</td>
+          <td *ngIf="i+1 === 1">
+            <img class="winner" src="assets/images/winner.svg">
+          </td>
+          <td *ngIf="i+1 === 2">
+            <img class="winner" src="assets/images/winner (1).svg">
+          </td>
+          <td *ngIf="i+1 === 3">
+            <img class="winner" src="assets/images/winner (2).svg">
+          </td>
+          <td *ngIf="i+1 > 3">{{i+1}}</td>
           <td>
             <img class="avatar" src="https://avatars.githubusercontent.com/{{scores[3][i]}}">
             <p>{{scores[2][i]}}</p>
