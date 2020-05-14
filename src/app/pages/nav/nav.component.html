@@ -10,7 +10,7 @@
       <li><a routerLink='/about'>A propos</a></li>
 
       <div *ngIf= "user" (click)= "logOut()" class="button">
-        <img class="avatar" src="https://avatars.githubusercontent.com/{{user.github}}">
+        <img class="avatar" src="https://avatars.githubusercontent.com/{{user.github}}" onerror="this.src='https://www.pngkit.com/png/full/788-7883575_deleted-oceanic-discord-server-league-of-legends-discord.png'">
         <div class="arrow-hidden">
           <img class="arrow" src="assets/images/menu_down_icon_135414.svg">
         </div>
