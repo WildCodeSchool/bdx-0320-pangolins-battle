@@ -21,7 +21,6 @@ export class BattleTimerService {
 
   startBattleTimer(startingDate){
     this.startTime = startingDate;
-    console.log(this.startTime);
     return this.startTime;
   }
 
@@ -43,7 +42,6 @@ export class BattleTimerService {
 
   getSelectedBattle(battle){
     this.selectedBattle = battle;
-    console.log(this.selectedBattle);
     if (Array.isArray(this.selectedBattle)){
       this.convertBattleDuration(this.selectedBattle[0].duration);
     } else {
