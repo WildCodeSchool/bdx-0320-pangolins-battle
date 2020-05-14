@@ -10,7 +10,7 @@ export class AlgorithmService {
 
   algorithms;
 
-  private BASE_URL = 'http://api.witpoc.com/algos';
+  private BASE_URL = 'https://api.witpoc.com/algos';
 
   constructor(private httpClient: HttpClient) { }
 
