@@ -98,7 +98,7 @@ export class PangoRingComponent implements OnInit, OnChanges {
   }
 
   goToClassement(){
-    this.router.navigate(['/classement']);
+    this.router.navigate(['/classement', this.battleId]);
   }
 
   clickOnNextAlgo(){
@@ -110,7 +110,6 @@ export class PangoRingComponent implements OnInit, OnChanges {
     this.postSolution();
     this.goToClassement();
     clearInterval(this.time);
-    console.log(this.timer);
   }
 
   previousAlgo() {

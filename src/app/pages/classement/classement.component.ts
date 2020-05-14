@@ -3,6 +3,7 @@ import { SolutionService } from 'src/app/shared/services/solution/solution.servi
 import { UserService } from 'src/app/shared/services/user/user.service';
 import { User } from 'src/app/classes/user';
 import { BattlesListService } from 'src/app/shared/services/battles-list/battles-list.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'btd-classement',
@@ -12,41 +13,48 @@ import { BattlesListService } from 'src/app/shared/services/battles-list/battles
 export class ClassementComponent implements OnInit {
 
   battleId: number;
-
-  user: User;
   solution: any;
-  usersIdCollection: number[] = [];
-  userId: number[] = [];
-  userCounter:any = {};
-  userCounterValues: number[] = [];
-  constructor(private solutionService: SolutionService, private userService: UserService, private BattleListService: BattlesListService) {}
+  battle;
+  scores: any = [];
+
+  constructor(
+    private route: ActivatedRoute,
+    private solutionService: SolutionService,
+    private userService: UserService,
+    private battleListService: BattlesListService) {}
 
   ngOnInit(): void {
-   this.solutionService.getSolutions(524).subscribe(data => console.log(data));
-   this.solutionService.getSolutions(524).subscribe(data => {
-     this.solution = data
-    // On itère sur le tableau de solution afin d'y récupérer les ID de chaque participants de chaque Algo. Si un participant a fait 5 algos,
-    // On aura 5x son ID. On les insère dans un objet.
-    this.solution.forEach(element => {
-      this.usersIdCollection.push(element = element.creator.id)
-      console.log(this.usersIdCollection);
-
-      this.userCounter = this.usersIdCollection.reduce((prev, cur) => {
-        prev[cur] = (prev[cur] || 0) +1;
-        return prev;
-      }, {});
-      console.log(this.userCounter)
-
-      this.userCounterValues = Object.values(this.userCounter)
-      console.log(this.userCounterValues);
-
-      /* if (Object.keys(this.userCounter) === this.solution[0].creator.id) {
-
-      } */
+    this.battleId = +this.route.snapshot.paramMap.get('BattleId');
+    this.battleListService.getAllBattles().subscribe(data => {
+      this.battle = data.filter(battle => battle.id === this.battleId);
     });
-  });
-
-    this.user = this.userService.user;
-    console.log(this.user)
+    this.solutionService.getSolutions(this.battleId).subscribe(data => console.log(data));
+    this.solutionService.getSolutions(this.battleId).subscribe(data => {
+      this.solution = data;
+      this.rankWilders();
+    });
   }
-}
+    rankWilders(){
+    const userId = [];
+    const count = [];
+    const userFullName = [];
+    const userGitPicture = [];
+    let points = [];
+    let prev;
+    this.solution.sort();
+
+    for ( let i = 0; i < this.solution.length; i++ ) {
+       if ( this.solution[i].creator.id !== prev ) {
+           userId.push(this.solution[i].creator.id);
+           count.push(1);
+           userFullName.push(this.solution[i].creator.fullname);
+           userGitPicture.push(this.solution[i].creator.github);
+       } else {
+           count[count.length - 1]++;
+       }
+       prev = this.solution[i].creator.id;
+    }
+    points = count.map(value => value * 50);
+    return this.scores = [userId, points, userFullName, userGitPicture];
+    }
+  }

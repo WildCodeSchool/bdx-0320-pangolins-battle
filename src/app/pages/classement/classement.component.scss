@@ -3,31 +3,57 @@ h1 {
   margin-top: 60px;
   margin-bottom: 50px;
 }
+
 h2 {
   margin-bottom: 25px;
-}
-p {
-  font-size: 1.5rem;
-}
-.battle-container {
-  display: flex;
-  flex-direction: column;
   text-align: center;
 }
+
+//table
 .user-score-container {
   display: flex;
-  justify-content: space-around;
-  width: 50%;
-  margin-left: 25%;
-  .user-container {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-  }
-  .score-container {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-  }
+  justify-content: center;
+}
 
+table {
+  border: medium solid #000000;
+  width: 60%;
+}
+
+//thead
+thead{
+  background:#111;
+}
+
+th{
+  padding: 10px;
+}
+
+tr th:first-child{
+  width: 10%;
+}
+
+tr th:last-child{
+  width: 15%;
+}
+
+//tbody
+tr td:first-child, tr td:last-child{
+  text-align: center;
+}
+
+tbody tr td{
+  margin: 10px 0;
+}
+
+tr td:nth-child(2){
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.avatar{
+  border-radius: 50%;
+  height: 40px;
+  margin-right: 10px;
 }
