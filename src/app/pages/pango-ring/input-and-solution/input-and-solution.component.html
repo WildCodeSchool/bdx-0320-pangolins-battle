@@ -4,8 +4,8 @@
     <button type="submit">Tester ma solution</button>
   </form>
   <div *ngIf="wrongSolution">Ce n'est pas la bonne réponse !</div>
-  <div class="bravo" *ngIf="algorithm.isCompleted && isNotLastAlgo">Bravo ! Tu peux passer à l'algorithme suivant.</div>
-  <div class="bravo" *ngIf="algorithm.isCompleted && !isNotLastAlgo">Bravo ! Mets un terme à cette Battle en cliquant sur le bouton Terminer.</div>
+  <div class="bravo" *ngIf="algorithm && algorithm.isCompleted && isNotLastAlgo">Bravo ! Tu peux passer à l'algorithme suivant.</div>
+  <div class="bravo" *ngIf="algorithm && algorithm.isCompleted && !isNotLastAlgo">Bravo ! Mets un terme à cette Battle en cliquant sur le bouton Terminer.</div>
 
   <div class="previous-next-algo-container">
   </div>

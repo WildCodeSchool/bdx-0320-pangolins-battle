@@ -1,8 +1,8 @@
 <btd-nav></btd-nav>
 <div class="pango-ring-top">
-  <h1>{{currentBattle[0].name}}</h1>
-  <h3 *ngIf="displayMessage()">Attention, la battle s'achèvera dans peu de temps, tu seras redirigé vers la page d'accueil</h3>
-  <div class = 'timerContainer'>
+  <h1 *ngIf="currentBattle">{{currentBattle[0].name}}</h1>
+  <h3 *ngIf="timer && displayMessage()">Attention, la battle s'achèvera dans peu de temps, tu seras redirigé vers la page d'accueil</h3>
+  <div *ngIf="timer" class = 'timerContainer'>
     <div class = 'timerForm hours'>
       <div class = 'timerElement'>{{timer.hours}}</div>
       <div class = 'label'>heures</div>
@@ -28,7 +28,7 @@
   <btd-input-and-solution (sendAlgorithmSolution)="receiveAlgorithmSolution($event)" [algorithm]="currentAlgo" [isNotLastAlgo]="isNotLastAlgo" ></btd-input-and-solution>
 
 
-  <div *ngIf="currentAlgo.isCompleted && timesOut"></div>
+  <div *ngIf="currentAlgo && currentAlgo.isCompleted && timesOut"></div>
 
   <div class="previous-next-algo-container">
     <div class="wrapper-previous">
@@ -44,7 +44,7 @@
     <div class="wrapper-next">
       <!-- On veut passer à l'algorithme suivant lorsque la solution est complétée par l'utilisateur -->
       <div *ngIf="isNotLastAlgo && timesOut">
-        <div class="test" *ngIf="currentAlgo.isCompleted && idNextAlgo">
+        <div class="test" *ngIf="currentAlgo && currentAlgo.isCompleted && idNextAlgo">
             <a (click)="clickOnNextAlgo()">Prochain algo !</a>
             <div class="icon-next">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268.832 268.832">
@@ -56,7 +56,7 @@
       </div>
       <!-- Si on arrive au dernier algo : on veut afficher le bouton "accéder au classement" -->
       <div class="wrapper-next">
-        <div class="test" *ngIf="currentAlgo.isCompleted && !isNotLastAlgo">
+        <div class="test" *ngIf="currentAlgo && currentAlgo.isCompleted && !isNotLastAlgo">
           <a (click)="clickOnClassement()">Terminer !</a>
           <div class="icon-next">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268.832 268.832">
