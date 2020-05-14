@@ -14,7 +14,7 @@ export class TimerComponent implements OnInit, OnChanges {
 
   startDate = Date.now();
   endDate = [];
-  battleHour = 10; // futur input ou mis en dur ?
+  battleHour = 19; // futur input ou mis en dur ?
   battleMinute = 0; // futur input ou mis en dur ?
   resolutionDelay = 24;
 
@@ -24,6 +24,10 @@ export class TimerComponent implements OnInit, OnChanges {
   @Output() timerOut = new EventEmitter();
   @Output() nextBattle = new EventEmitter();
   timesOut = true;
+
+  ngOnInit(): void {
+    this.sendNextBattle();
+    }
 
   ngOnChanges(){
     this.startTimer(this.battleList);
@@ -70,9 +74,4 @@ export class TimerComponent implements OnInit, OnChanges {
       this.sendNextBattle();
     }, 100);
   }
-
-  ngOnInit(): void {
-    this.startTimer(this.battleList);
-    this.sendNextBattle();
-    }
-  }
+}

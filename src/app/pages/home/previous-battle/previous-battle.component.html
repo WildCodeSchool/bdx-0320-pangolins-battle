@@ -1,6 +1,18 @@
-<h1>Précédentes Battles</h1>
-<div class = "prevBattleContainer" *ngFor="let battle of this.displayedBattles">
-  <div class = "battleElement">{{battle.name}}</div>
-  <div class = "battleElement">{{battle.launchDate | date:"dd/MM/yyyy"}}</div>
-  <button (click)="sendElements(battle)">Accéder</button>
+<btd-nav *ngIf="toggleDisplay"></btd-nav>
+<div *ngIf="!toggleDisplay">
+  <h1>Précédentes Battles</h1>
+  <div class = "prevBattleContainer" *ngFor="let battle of this.displayedBattles">
+    <div class = "battleElement">{{battle.name}}</div>
+    <div class = "battleElement">{{battle.launchDate | date:"dd/MM/yyyy"}}</div>
+    <button (click)="sendElements(battle)">Accéder</button>
+  </div>
+</div>
+
+<div *ngIf="toggleDisplay" class="rankingContainer">
+  <h1>Classement par Battle</h1>
+    <div class = "prevBattleContainer" *ngFor="let battle of this.displayedBattles">
+      <div class = "battleElement">{{battle.name}}</div>
+      <div class = "battleElement">{{battle.launchDate | date:"dd/MM/yyyy"}}</div>
+      <button [routerLink]="['/classement', battle.id]" >Classement</button>
+    </div>
 </div>

@@ -8,12 +8,14 @@ import { AboutComponent } from './pages/about/about.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { ClassementComponent } from './pages/classement/classement.component';
+import { PreviousBattleComponent } from './pages/home/previous-battle/previous-battle.component';
 
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'pango-ring/:BattleId/:AlgoId', component: PangoRingComponent, canActivate: [AuthGuard]},
+  {path: 'classement', component: PreviousBattleComponent, canActivate: [AuthGuard]},
   {path: 'classement/:BattleId', component: ClassementComponent, canActivate: [AuthGuard]},
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
   {path: 'admin-algo/:id', component: AlgoAdminComponent, canActivate: [AuthGuard]},

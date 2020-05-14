@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { UserService } from '../../../shared/services/user/user.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { BattlesListService } from '../../../shared/services/battles-list/battles-list.service';
 
 @Component({
   selector: 'btd-previous-battle',
@@ -8,9 +9,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./previous-battle.component.scss']
 })
 export class PreviousBattleComponent implements OnInit,  OnChanges {
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private battleListService: BattlesListService) { }
 
-  @Input() battleList: any[];
+  // @Input() battleList: any[];
+  battleList;
   @Output() battleSelected = new EventEmitter();
   @Output() battleStart = new EventEmitter();
 
@@ -20,6 +26,22 @@ export class PreviousBattleComponent implements OnInit,  OnChanges {
   studentSession = new Date('02/03/2020');
   resolutionDelay = 24; // en heures
   startingDate: number;
+  toggleDisplay: boolean;
+
+  toggleDisplayElements(){
+      if (this.router.url === '/classement'){
+        this.toggleDisplay = true;
+      } else {
+        this.toggleDisplay = false;
+      }
+  }
+
+  getBattleList(){
+    this.battleListService.getAllBattles().subscribe(data => {
+      this.battleList = data;
+      this.displayPreviousBattle(this.battleList);
+    });
+  }
 
   displayPreviousBattle(battleArray){
     this.displayedBattles = battleArray.sort((a, b) => Date.parse(a.launchDate) - Date.parse(b.launchDate))
@@ -28,7 +50,9 @@ export class PreviousBattleComponent implements OnInit,  OnChanges {
   }
 
   getUser(){
-    this.user = this.userService.getCurrentUser();
+    this.userService.getCurrentUser().subscribe(data => {
+      this.user = data;
+    });
   }
 
   sendSelectedBattle(battle){
@@ -51,12 +75,15 @@ export class PreviousBattleComponent implements OnInit,  OnChanges {
   }
 
   ngOnChanges(){
-    this.displayPreviousBattle(this.battleList);
+    this.getBattleList();
+    // this.displayPreviousBattle(this.battleList);
   }
 
 
   ngOnInit(): void {
-    this.displayPreviousBattle(this.battleList);
+    this.toggleDisplayElements();
+    this.getBattleList();
+    // this.displayPreviousBattle(this.battleList);
     this.getUser();
   }
 }

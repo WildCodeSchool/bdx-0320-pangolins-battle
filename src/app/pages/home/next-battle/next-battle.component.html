@@ -1,7 +1,7 @@
 <div class='card'>
     <h1>{{title}}</h1>
   <div class="timer">
-    <btd-timer [battleList]="battleList" (timerOut)= "display($event)" (nextBattle)="selectNextBattle($event)"></btd-timer>
+    <btd-timer *ngIf="battleList" [battleList]="battleList" (timerOut)= "display($event)" (nextBattle)="selectNextBattle($event)"></btd-timer>
   </div>
   <h2 [hidden] = hidden >La Battle a commencé !</h2>
   <div class="wrapper">
