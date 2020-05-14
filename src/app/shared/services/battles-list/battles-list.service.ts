@@ -19,6 +19,11 @@ export class BattlesListService {
     return this.http.get<IBattle[]>(this.urlBattleRequest);
   }
 
+  getBattleById(id: number): Observable <IBattle>{
+    return this.http.get<IBattle>(this.urlBattleRequest + '/' + id);
+  }
+
+
   generateNewBattle(battle: any){
     return this.http.post(this.urlBattleRequest, battle);
   }
@@ -38,7 +43,6 @@ export class BattlesListService {
     return this.battleId = battleId;
   }
   distributeBattleId() {
-    console.log(this.battleId)
     return this.battleId;
   }
 }
