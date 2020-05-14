@@ -2,19 +2,26 @@
 <h1>Classement général</h1>
 
 <div class="battle-container">
-  <h2>Battle-x</h2>
+  <h2>{{battle[0].name}}</h2>
   <div class="user-score-container">
-    <div class="user-container">
-      <p>{{solution[0].creator.firstname}}</p>
-      <p>{{solution[5].creator.firstname}}</p>
-      <p>{{solution[10].creator.firstname}}</p>
-    </div>
-    <div class="score-container">
-      <p></p>
-      <p></p>
-      <p></p>
-    </div>
-  </div>
+    <table class="user-container">
+      <thead>
+        <tr>
+          <th class="rang">Rang</th>
+          <th>Nom</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let wilder of scores[0]; let i = index">
+          <td>{{i+1}}</td>
+          <td>
+            <img class="avatar" src="https://avatars.githubusercontent.com/{{scores[3][i]}}">
+            <p>{{scores[2][i]}}</p>
+          </td>
+          <td>{{scores[1][i]}}</td>
+        </tr>
+      </tbody>
+    </table>
 </div>
-
 
