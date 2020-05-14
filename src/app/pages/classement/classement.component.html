@@ -1,8 +1,8 @@
 <btd-nav></btd-nav>
 <h1>Classement général</h1>
 
-<div class="battle-container">
-  <h2>{{battle[0].name}}</h2>
+<div *ngIf="battle" class="battle-container">
+  <h2>{{battle.name}}</h2>
   <div class="user-score-container">
     <table class="user-container">
       <thead>
@@ -13,13 +13,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let wilder of scores[0]; let i = index">
+        <tr *ngFor="let wilder of scores; let i = index">
           <td>{{i+1}}</td>
           <td>
-            <img class="avatar" src="https://avatars.githubusercontent.com/{{scores[3][i]}}">
-            <p>{{scores[2][i]}}</p>
+            <img class="avatar" src="https://avatars.githubusercontent.com/{{wilder.githubPict}}">
+            <p>{{wilder.fullname}}</p>
           </td>
-          <td>{{scores[1][i]}}</td>
+          <td>{{wilder.finalScore}}</td>
         </tr>
       </tbody>
     </table>
