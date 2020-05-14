@@ -26,7 +26,7 @@ export class BattleTimerService {
   }
 
   countTime(){
-    this.timer = ((this.battleDuration) * 60 * 1000) - (29 * 60 * 1000) + this.startTime - Date.now();
+    this.timer = ((this.battleDuration) * 60 * 1000) + this.startTime - Date.now();
     this.milliseconds = Math.floor( (this.timer % 1000) / 100 );
     this.seconds = Math.floor( (this.timer / 1000) % 60 );
     this.minutes = Math.floor( (this.timer / 1000 / 60) % 60 );

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SolutionService } from 'src/app/shared/services/solution/solution.service';
-import { UserService } from 'src/app/shared/services/user/user.service';
-import { User } from 'src/app/classes/user';
 import { BattlesListService } from 'src/app/shared/services/battles-list/battles-list.service';
-import { Router, ActivatedRoute } from '@angular/router';
+
+import { ActivatedRoute } from '@angular/router';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'btd-classement',
@@ -13,55 +13,80 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ClassementComponent implements OnInit {
 
   battleId: number;
-
-  user: User;
   solution: any;
-  usersIdCollection: number[] = [];
-  userId: number[] = [];
-  userCounter:any = {};
-  userCounterArray: any[] = [];
-  userCounterValues: number[] = [];
+  battle;
   scores: any = [];
+  points = 100;
 
-  constructor(private route: ActivatedRoute,private solutionService: SolutionService, private userService: UserService, private BattleListService: BattlesListService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private solutionService: SolutionService,
+    private battleListService: BattlesListService) { }
 
   ngOnInit(): void {
-  this.battleId = +this.route.snapshot.paramMap.get('BattleId');
-   this.solutionService.getSolutions(this.battleId).subscribe(data => console.log(data));
-   this.solutionService.getSolutions(this.battleId).subscribe(data => {
-     this.solution = data
-    // On itère sur le tableau de solution afin d'y récupérer les ID de chaque participants de chaque Algo. Si un participant a fait 5 algos,
-    // On aura 5x son ID. On les insère dans un tableau.
-    this.solution.forEach(element => {
-      this.usersIdCollection.push(element = element.creator.id)
-      console.log(this.usersIdCollection);
+    this.battleId = +this.route.snapshot.paramMap.get('BattleId');
 
-      this.userCounter = this.usersIdCollection.reduce((prev, cur) => {
-        prev[cur] = (prev[cur] || 0) +1;
-        return prev;
-      }, {});
-      console.log(this.userCounter)
+    const combinedObs$ = forkJoin(
+      [this.battleListService.getBattleById(this.battleId),
+      this.solutionService.getSolutions(this.battleId)]
+    );
 
-      this.userCounterArray = Object.keys(this.userCounter).map((key) => {
-        return [Number(key), this.userCounter[key]];
-      });
-      console.log(this.userCounterArray);
-
-      for (const id of this.solution) {
-        
-      }
-
-
-
-      /* this.userCounterValues = Object.values(this.userCounter)
-      console.log(this.userCounterValues); */
-
-
-
+    combinedObs$.subscribe((results: any[]) => {
+      this.battle = results[0];
+      const solution = results[1];
+      this.rankWilders(solution, this.battle);
     });
-  });
+  }
 
-    this.user = this.userService.user;
-    console.log(this.user)
+  rankWilders(solution, battle) {
+    let count = 0;
+    let prev = 0;
+    solution = solution.sort((a, b) => {
+      return a.creator.id - b.creator.id;
+    });
+
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < solution.length; i++) {
+      if (solution[i].creator.id !== prev && prev !== 0) {
+        const duration = (+new Date(solution[i - 1].postedAt) - +new Date(battle.launchDate))
+          / +new Date(battle.launchDate) * 10000;
+        const score = count - duration;
+        const newWilder = {
+          id: solution[i - 1].creator.id,
+          fullname: solution[i - 1].creator.fullname,
+          githubPict: solution[i - 1].creator.github,
+          score: count - duration,
+          score2: count,
+          finalScore: Math.floor(score),
+          lastCommit: new Date(solution[i - 1].postedAt),
+        };
+        this.scores.push(newWilder);
+        count = this.points;
+      } else {
+        count += this.points;
+      }
+      prev = solution[i].creator.id;
+      const j = solution.length;
+      if (j - 1 === i) {
+        const duration = (+new Date(solution[i - 1].postedAt) - +new Date(battle.launchDate))
+          / +new Date(battle.launchDate) * 10000;
+        const score = count - duration;
+        const newWilder = {
+          id: solution[i].creator.id,
+          fullname: solution[i].creator.fullname,
+          githubPict: solution[i].creator.github,
+          score: count - duration,
+          score2: count,
+          finalScore: Math.floor(score),
+          lastCommit: new Date(solution[i].postedAt),
+        };
+        this.scores.push(newWilder);
+      }
+    }
+    this.scores = this.scores.sort((a, b) => {
+      return b.score - a.score;
+    });
+    return this.scores;
   }
 }
+

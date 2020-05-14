@@ -66,9 +66,16 @@ ul li a:hover::after {
   margin-top: 12px;
   cursor: pointer;
 }
-.arrow{
+
+.arrow-hidden{
+  display:none;
   height: 30px;
 }
+
+.button:hover .arrow-hidden{
+  display: inline;
+}
+
 .logOut{
   cursor: pointer;
   text-align: right;
