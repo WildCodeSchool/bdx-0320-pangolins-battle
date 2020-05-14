@@ -23,12 +23,12 @@ p {
   margin-bottom: 30px;
 }
 .timer {
-  margin: 30px 0 50px 0;
+  margin: 30px 0 30px 0;
 }
 button{
   display: block;
   width: 300px;
-  height: 50px;
+  height: 70px;
   line-height: 43px;
   font-weight: bold;
   text-decoration: none;
@@ -51,6 +51,13 @@ button{
     }
   }
 }
+.accessToHome {
+  width: 28%;
+  &:hover {
+    width: 240px;
+  }
+
+}
 a {
   width: 400px;
   height: 100px;
@@ -60,3 +67,5 @@ a {
     color:var(--secondary-color);
   }
 }
+
+

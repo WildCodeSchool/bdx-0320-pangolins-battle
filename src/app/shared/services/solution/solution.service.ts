@@ -6,8 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SolutionService {
 
-  postSolutionsUrl = 'http://api.witpoc.com/solutions';
-  getSolutionsUrl =  'http://api.witpoc.com/solutions/battle/';
+  postSolutionsUrl = 'https://api.witpoc.com/solutions';
+  getSolutionsUrl =  'https://api.witpoc.com/solutions/battle/';
 
 
   // à la place : requête get sur solutions/battle/{battleId} avec token user (automatique)

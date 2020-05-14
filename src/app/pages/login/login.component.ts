@@ -41,10 +41,15 @@ export class LoginComponent implements OnInit {
           this.userService.getCurrentUser().subscribe((user: User) => {
             console.log(user);
             this.user = user;
-            this.router.navigateByUrl['/home'];
           });
         });
-
+    this.test();
       }
-
+      test() {
+        setTimeout(() => {
+          if(this.user) {
+            this.router.navigateByUrl('/home');
+          }
+        }, 90);
+      }
 }

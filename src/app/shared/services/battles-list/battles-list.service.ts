@@ -12,8 +12,8 @@ export class BattlesListService {
 
   battleId;
 
-  urlBattleRequest =  'http://api.witpoc.com/battles';
-  urlOneBattle = 'http://api.witpoc.com/algos/battle';
+  urlBattleRequest =  'https://api.witpoc.com/battles';
+  urlOneBattle = 'https://api.witpoc.com/algos/battle';
 
   getAllBattles(): Observable <IBattle[]>{
     return this.http.get<IBattle[]>(this.urlBattleRequest);

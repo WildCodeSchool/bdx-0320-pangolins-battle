@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SolutionService } from 'src/app/shared/services/solution/solution.service';
 import { BattlesListService } from 'src/app/shared/services/battles-list/battles-list.service';
+
 import { ActivatedRoute } from '@angular/router';
 import { forkJoin } from 'rxjs';
 
